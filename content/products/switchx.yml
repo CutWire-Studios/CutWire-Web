@@ -1,0 +1,52 @@
+slug: switchx
+name: SwitchX
+tagline: Trigger. Mix. Create. Live.
+status: live
+version: "1.0"
+platforms:
+  - macOS
+  - Windows
+  - Linux
+summary: >-
+  A live media console for triggering clips, mixing sources, and running shows.
+  Built to perform, not to configure.
+features:
+  - title: Source
+    body: >-
+      Bring anything in — video, images, webcams, NDI, phone via QR + WebRTC,
+      GLSL shaders, HTML/QML, Lua.
+    icon: source
+  - title: Canvas
+    body: Node-based clip canvas with groups for complex shows.
+    icon: canvas
+  - title: Mix
+    body: A/B mixing, hotkeys, and live triggering from one surface.
+    icon: mix
+  - title: Output
+    body: Panic controls, OBS integration, remote control, multi-output.
+    icon: output
+specs:
+  - label: Version
+    value: "1.0"
+  - label: Platforms
+    value: macOS 12+, Windows 10+, Ubuntu 22.04+
+  - label: GPU
+    value: OpenGL 4.1+ recommended
+  - label: RAM
+    value: 8 GB minimum, 16 GB recommended
+downloads:
+  - platform: macOS
+    url: /downloads/switchx-macos.dmg
+    size: 124 MB
+    version: "1.0"
+    checksum: abc123def456...
+  - platform: Windows
+    url: /downloads/switchx-windows.exe
+    size: 118 MB
+    version: "1.0"
+    checksum: def456abc789...
+  - platform: Linux
+    url: /downloads/switchx-linux.AppImage
+    size: 121 MB
+    version: "1.0"
+    checksum: 789abc123def...
