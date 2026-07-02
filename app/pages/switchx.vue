@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Clapperboard, GraduationCap, Layers, MousePointerClick, Music, QrCode, ShieldAlert, Trophy, Users } from 'lucide-vue-next'
+import { Clapperboard, GraduationCap, GitBranch, Layers, Music, Network, Palette, ShieldAlert, Trophy, Users } from 'lucide-vue-next'
+import type { Component } from 'vue'
 
 definePageMeta({ layout: 'default' })
 
@@ -13,27 +14,37 @@ if (!product.value) {
 }
 
 useSeoMeta({
-  title: 'SwitchX — Live Media Magic at Your Fingertips',
-  description: 'The beginner-friendly live trigger that feels like magic. Instant clips, beautiful overlays, zero stress.',
+  title: 'SwitchX — Trigger. Mix. Create. Live.',
+  description: product.value.summary,
 })
 
-const repoUrl = 'https://github.com/SubtleArts/SwitchX'
+const repoUrl = product.value.repoUrl ?? 'https://github.com/SubtleArts/SwitchX'
 const videoOpen = ref(false)
 
-const loveFeatures = [
-  { title: 'Click. Trigger. Wow.', description: 'Drag in videos, photos, or live sources and fire them instantly with hotkeys or mouse clicks.', icon: MousePointerClick },
-  { title: 'Look like a pro', description: 'Add stunning overlays, dynamic text, scoreboards, clocks, and eye-catching effects — all without complicated setups.', icon: Clapperboard },
-  { title: 'Live mixing that flows', description: 'Blend between two decks with a smooth crossfader. Speed control included. Feels natural.', icon: Layers },
-  { title: 'Ready for the unexpected', description: 'Panic buttons — Blackout, Freeze, "Stay Tuned" — give you confidence when things get wild.', icon: ShieldAlert },
-  { title: 'Phone camera magic', description: 'Turn any smartphone into a wireless live camera with a simple QR code scan.', icon: QrCode },
-]
+const highlightIcons: Component[] = [GitBranch, Layers, Network, Palette, ShieldAlert]
 
-const moments = [
-  { title: 'School events', description: 'Instant replays, hype videos, and fun overlays that keep the energy high.', icon: GraduationCap },
-  { title: 'Live music & performances', description: 'Drop music videos, audio-reactive visuals, and custom graphics that sync with the beat.', icon: Music },
-  { title: 'Sports', description: 'Score overlays, highlight triggers, and quick camera switches that make any match feel broadcast-ready.', icon: Trophy },
-  { title: 'Community & creative shows', description: 'Theater, dance, presentations — SwitchX makes every event feel polished and professional.', icon: Users },
-]
+const loveFeatures = computed(() =>
+  (product.value?.highlights ?? []).map((item, i) => ({
+    title: item.title,
+    description: item.description,
+    icon: highlightIcons[i] ?? GitBranch,
+  })),
+)
+
+const useCaseIcons: Record<string, Component> = {
+  'School events': GraduationCap,
+  'Live concerts': Music,
+  'Visual performances': Users,
+  'Sports broadcasting': Trophy,
+}
+
+const moments = computed(() =>
+  (product.value?.useCases ?? []).map(item => ({
+    title: item.title,
+    description: item.description,
+    icon: useCaseIcons[item.title] ?? Clapperboard,
+  })),
+)
 </script>
 
 <template>
@@ -46,15 +57,15 @@ const moments = [
           <div>
             <div class="flex items-center gap-3">
               <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
-                SwitchX · Live media trigger
+                SwitchX · {{ product.tagline }}
               </p>
               <CommonLiveBadge />
             </div>
             <h1 class="mt-5 text-display-xl text-on-surface">
-              The beginner-friendly live trigger that feels like magic.
+              {{ product.hero?.headline ?? product.tagline }}
             </h1>
             <p class="mt-6 text-body-lg text-on-surface-variant">
-              Instant clips. Beautiful overlays. Zero stress. Perfect for school events, small concerts, sports, and anywhere you want to look pro — without the headache.
+              {{ product.hero?.subheadline ?? product.summary }}
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
               <a
@@ -70,7 +81,7 @@ const moments = [
                 class="glow-button-secondary px-8 py-4 text-label-md"
                 @click="videoOpen = true"
               >
-                Watch 90-second demo
+                Watch demo
               </button>
             </div>
           </div>
@@ -93,13 +104,13 @@ const moments = [
             v-reveal="1"
             class="mt-6 text-headline-lg text-on-surface"
           >
-            You're running a school assembly, a local band is rocking the stage, or the big game is on — and with one click, you're dropping highlight videos, pumping up graphics, or switching to a live camera like a seasoned pro.
+            Click-to-trigger clip cards, a live A/B crossfader, and panic controls when the show gets wild — all in a dark VJ-style interface optimized for low-light events.
           </p>
           <p
             v-reveal="2"
             class="mt-6 max-w-2xl text-body-lg text-on-surface-variant"
           >
-            Built for real people, not just tech wizards. A clean, dark VJ-style interface that shines in low light — powerful enough for the stage, simple enough for your first time.
+            Built with Qt 6, FFmpeg, and OpenGL. Free and open source under GPLv3 — simpler than Resolume, more approachable than TouchDesigner, and ready for your first live show.
           </p>
         </div>
       </div>
@@ -158,7 +169,7 @@ const moments = [
           v-reveal="1"
           class="mt-6 max-w-2xl text-body-lg text-on-surface-variant"
         >
-          No steep learning curves. No expensive subscriptions. Just open it up, load your media, and start creating.
+          No expensive subscriptions. Sessions autosave with portable asset paths and smart relinking. Drag and drop media onto clip cards and go live.
         </p>
         <div
           v-reveal="2"
@@ -166,26 +177,26 @@ const moments = [
         >
           <div class="glass-card rounded-[24px] p-6">
             <h3 class="text-lg font-semibold text-on-surface">
-              Dark, sleek interface
+              Dark VJ theme
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">
-              Optimized for live events and low-light rooms.
+              Resolume Arena–inspired UI with cyan accents, built for low-light events.
             </p>
           </div>
           <div class="glass-card rounded-[24px] p-6">
             <h3 class="text-lg font-semibold text-on-surface">
-              Drag & drop everything
+              Drag & drop media
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">
-              Media, overlays, sources — just drop it in and go.
+              Load folders, files, or photos — or drop media directly onto clip cards.
             </p>
           </div>
           <div class="glass-card rounded-[24px] p-6">
             <h3 class="text-lg font-semibold text-on-surface">
-              Sessions save automatically
+              Sessions autosave
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">
-              Pick up right where you left off, every time.
+              Save and reload shows with portable .switchx bundles and asset relinking.
             </p>
           </div>
         </div>
@@ -193,10 +204,7 @@ const moments = [
     </section>
 
     <!-- Specs -->
-    <section
-      v-if="product"
-      class="section-y"
-    >
+    <section class="section-y">
       <div class="container-cutwire">
         <p
           v-reveal
@@ -221,7 +229,7 @@ const moments = [
             Ready to steal the show?
           </p>
           <h2 class="mt-4 text-headline-lg text-on-surface">
-            Download SwitchX — it's free
+            Get SwitchX — free & open source
           </h2>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -230,18 +238,17 @@ const moments = [
               rel="noopener"
               class="glow-button-primary px-8 py-4 text-label-md"
             >
-              Download SwitchX now
+              View on GitHub
             </a>
             <NuxtLink
-              v-if="product"
               :to="`/download/${product.slug}`"
               class="glow-button-secondary px-8 py-4 text-label-md"
             >
-              Platform installers
+              Build & install
             </NuxtLink>
           </div>
           <p class="mt-6 text-label-sm text-on-surface-variant/60">
-            Open source · Cross-platform · Made with love by CutWire Studios
+            GPLv3 · Qt 6 + FFmpeg · Cross-platform · CutWire Studios
           </p>
         </div>
       </div>
@@ -250,7 +257,7 @@ const moments = [
     <UiDialog v-model:open="videoOpen">
       <UiDialogContent class="border-outline-variant bg-card sm:max-w-3xl">
         <UiDialogHeader>
-          <UiDialogTitle>Watch the demo</UiDialogTitle>
+          <UiDialogTitle>SwitchX preview</UiDialogTitle>
         </UiDialogHeader>
         <div class="aspect-video">
           <MarketingConsoleScene

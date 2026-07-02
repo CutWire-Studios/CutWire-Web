@@ -64,7 +64,7 @@ const footerLinks = {
     </div>
 
     <div class="container-cutwire flex flex-col items-center justify-between gap-4 border-t border-outline-variant py-6 text-label-sm text-on-surface-variant/60 sm:flex-row">
-      <p>SwitchX 1.0 · macOS · Windows · Linux</p>
+      <p>SwitchX 0.1 · macOS · Windows · Linux · GPLv3</p>
       <p>© {{ new Date().getFullYear() }} CutWire Studios. All rights reserved.</p>
     </div>
   </footer>

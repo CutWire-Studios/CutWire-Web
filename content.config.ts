@@ -14,6 +14,14 @@ export default defineContentConfig({
         platforms: z.array(z.enum(['macOS', 'Windows', 'Linux'])).default([]),
         summary: z.string(),
         features: z.array(z.object({ title: z.string(), body: z.string(), icon: z.string() })),
+        highlights: z.array(z.object({ title: z.string(), description: z.string() })).optional(),
+        useCases: z.array(z.object({ title: z.string(), description: z.string() })).optional(),
+        hero: z.object({
+          headline: z.string(),
+          subheadline: z.string().optional(),
+        }).optional(),
+        repoUrl: z.string().url().optional(),
+        docsUrl: z.string().url().optional(),
         specs: z.array(z.object({ label: z.string(), value: z.string() })),
         downloads: z.array(z.object({
           platform: z.string(),

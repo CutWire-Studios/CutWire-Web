@@ -15,7 +15,7 @@ export function useLineup(): Instrument[] {
     {
       name: 'SwitchX',
       domain: 'Live media',
-      tagline: 'Trigger clips, mix sources, run the whole show.',
+      tagline: 'Trigger. Mix. Create. Live.',
       status: 'live',
       slug: 'switchx',
       href: '/switchx',

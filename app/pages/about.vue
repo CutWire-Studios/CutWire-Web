@@ -3,13 +3,43 @@ definePageMeta({ layout: 'default' })
 
 useSeoMeta({
   title: 'About — CutWire Studios',
-  description: 'The story behind CutWire Studios and our roadmap.',
+  description: 'The team behind CutWire Studios — open-source live media software for operators.',
 })
 
+const developers = [
+  {
+    name: 'Suhas Dissanayake',
+    initials: 'SD',
+    github: null,
+  },
+  {
+    name: 'Kalana Liyanage',
+    initials: 'KL',
+    github: 'https://github.com/kalana-pankaja',
+  },
+  {
+    name: 'Sangeeth Kariyapperuma',
+    initials: 'SK',
+    github: 'https://github.com/NipunSGeeTH',
+  },
+]
+
 const milestones = [
-  { year: '2025', title: 'CutWire founded', body: 'Started building live media tools for creators who run the show under real pressure.' },
-  { year: '2026', title: 'SwitchX launch', body: 'First public release — trigger clips, mix sources, and run the whole show from one interface.' },
-  { year: '2026', title: 'What is next', body: 'More products, tighter integrations, and community tools for operators everywhere.' },
+  {
+    year: '2025',
+    title: 'CutWire starts SwitchX',
+    body: 'A small team begins building an open-source live media trigger — simpler than Resolume, more approachable than TouchDesigner.',
+  },
+  {
+    year: '2025–2026',
+    title: 'From prototype to product',
+    body: 'Node-based clip canvas, A/B mixing, GLSL shaders, HTML overlays, NDI output, OBS integration, and Flatpak packaging ship across sprints.',
+  },
+  {
+    year: '2026',
+    title: 'CutWire Studios launches',
+    body: 'SwitchX 0.1 goes public under GPLv3. CutWire Studios becomes the home for live media tools built for operators everywhere.',
+  },
 ]
 </script>
 
@@ -23,11 +53,14 @@ const milestones = [
       <div class="container-cutwire">
         <div class="grid items-center gap-12 lg:grid-cols-12">
           <div class="lg:col-span-6">
-            <h1 class="text-display-xl text-gradient">
-              About CutWire
+            <p class="text-label-sm uppercase tracking-widest text-primary">
+              About
+            </p>
+            <h1 class="mt-4 text-display-xl text-gradient">
+              About CutWire Studios
             </h1>
             <p class="mt-6 max-w-xl text-body-lg leading-relaxed text-on-surface-variant">
-              CutWire Studios builds live media software for operators — the people running shows, streams, and events under real pressure.
+              CutWire Studios builds open-source live media software for operators who run shows, streams, and events under real pressure.
             </p>
           </div>
           <div class="relative lg:col-span-6">
@@ -47,22 +80,101 @@ const milestones = [
     <!-- Company story -->
     <section class="section-y">
       <div class="container-cutwire">
-        <div class="glass-card relative mx-auto max-w-4xl overflow-hidden p-12 text-center md:p-20">
+        <div class="glass-card relative mx-auto max-w-4xl overflow-hidden p-12 md:p-20">
           <div class="absolute top-0 right-0 size-64 rounded-full bg-primary/10 blur-[80px] mix-blend-screen" />
           <div class="relative z-10">
-            <h2 class="text-headline-lg text-on-surface">
+            <h2 class="text-center text-headline-lg text-on-surface">
               The CutWire narrative
             </h2>
-            <div class="mx-auto mt-8 max-w-2xl space-y-6 text-left text-body-md leading-relaxed text-on-surface-variant">
+            <div class="mx-auto mt-8 max-w-2xl space-y-6 text-body-md leading-relaxed text-on-surface-variant">
               <p>
-                We believe the best tools disappear until you need them. Calm interface, decisive cuts, no configuration rabbit holes. Our software is built for real people running real shows — not just tech wizards.
+                SwitchX started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted click-to-trigger clip cards, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
               </p>
               <p>
-                Every CutWire product speaks the same signal language: calm under pressure, precise when it counts. We started with SwitchX because live media operators deserved better — professional-grade power with an interface so intuitive beginners feel confident from day one.
+                Every CutWire product speaks the same signal language — calm under pressure, precise when it counts. We prioritize simplicity over feature bloat, build on open-source foundations, and release under GPLv3 so operators can trust and extend what they run live.
               </p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Developers -->
+    <section class="section-y">
+      <div class="container-cutwire">
+        <p
+          v-reveal
+          class="text-label-sm uppercase tracking-widest text-on-surface-variant"
+        >
+          The team
+        </p>
+        <h2
+          v-reveal="1"
+          class="mt-4 text-headline-md text-on-surface"
+        >
+          Developers
+        </h2>
+        <p
+          v-reveal="2"
+          class="mt-4 max-w-2xl text-on-surface-variant"
+        >
+          The people building CutWire Studios software.
+        </p>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <article
+            v-for="(dev, i) in developers"
+            :key="dev.name"
+            v-reveal="i"
+            class="glass-card flex flex-col rounded-[24px] p-8 shadow-lg"
+          >
+            <div class="flex items-center gap-4">
+              <div class="flex size-12 items-center justify-center rounded-full border border-outline-variant bg-surface text-label-md text-on-surface">
+                {{ dev.initials }}
+              </div>
+              <div>
+                <h3 class="text-label-md text-on-surface">
+                  {{ dev.name }}
+                </h3>
+                <p class="text-label-sm text-primary">
+                  Developer
+                </p>
+              </div>
+            </div>
+            <a
+              v-if="dev.github"
+              :href="dev.github"
+              target="_blank"
+              rel="noopener"
+              class="mt-6 inline-flex items-center gap-1 text-label-sm text-on-surface-variant transition-colors hover:text-primary"
+            >
+              GitHub
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="size-3.5"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+              </svg>
+            </a>
+          </article>
+        </div>
+
+        <p
+          v-reveal
+          class="mt-10 text-center text-sm text-on-surface-variant"
+        >
+          SwitchX is open source.
+          <a
+            href="https://github.com/SubtleArts/SwitchX"
+            target="_blank"
+            rel="noopener"
+            class="text-primary hover:underline"
+          >Contributions welcome on GitHub</a>.
+        </p>
       </div>
     </section>
 

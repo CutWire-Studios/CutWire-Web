@@ -43,11 +43,12 @@ function onDownload() {
           </p>
           <a
             :href="currentDownload.url"
-            download
+            :target="currentDownload.url.startsWith('http') ? '_blank' : undefined"
+            :rel="currentDownload.url.startsWith('http') ? 'noopener' : undefined"
             class="glow-button-primary mt-4 inline-flex px-8 py-3 text-label-md"
             @click="onDownload"
           >
-            Download for {{ platform }}
+            {{ currentDownload.url.startsWith('http') ? `Build for ${platform}` : `Download for ${platform}` }}
           </a>
           <p
             v-if="currentDownload.checksum"

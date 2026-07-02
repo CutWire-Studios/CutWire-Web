@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GraduationCap, Music, Zap, Radio } from 'lucide-vue-next'
+import { GraduationCap, Music, Trophy, Users } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
@@ -9,10 +9,10 @@ useSeoMeta({
 })
 
 const useCases = [
-  { title: 'School events', description: 'Assemblies, graduations, and pep rallies.', icon: GraduationCap },
-  { title: 'Concerts', description: 'Live visuals and backdrop mixing.', icon: Music },
-  { title: 'Sports', description: 'Scoreboard feeds and instant replays.', icon: Zap },
-  { title: 'Streaming', description: 'Multi-source shows for Twitch and YouTube.', icon: Radio },
+  { title: 'School events', description: 'Instant highlight reels and replays during cricket, football, and assembly shows.', icon: GraduationCap },
+  { title: 'Live concerts', description: 'Music videos, audio-reactive shader visuals, and custom graphics that sync with the beat.', icon: Music },
+  { title: 'Visual performances', description: 'Dance, theater, and immersive installations with a dark VJ-style interface.', icon: Users },
+  { title: 'Sports broadcasting', description: 'HTML/QML score overlays, freeze-frame holds, and program recording.', icon: Trophy },
 ]
 </script>
 
@@ -60,7 +60,7 @@ const useCases = [
             </div>
             <p class="mt-8 flex items-center gap-3 text-label-sm text-on-surface-variant/60">
               <span class="size-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-              SwitchX 1.0 — Live now
+              SwitchX 0.1 — Open source
             </p>
           </div>
 

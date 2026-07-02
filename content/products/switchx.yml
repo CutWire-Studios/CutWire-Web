@@ -2,51 +2,87 @@ slug: switchx
 name: SwitchX
 tagline: Trigger. Mix. Create. Live.
 status: live
-version: "1.0"
+version: "0.1.0"
 platforms:
   - macOS
   - Windows
   - Linux
 summary: >-
-  A live media console for triggering clips, mixing sources, and running shows.
-  Built to perform, not to configure.
+  A beginner-friendly live media trigger and overlay tool built with Qt 6, FFmpeg,
+  and OpenGL. Perfect for school events, small concerts, and sports — combining
+  instant clip triggering with the power of live visual control.
+hero:
+  headline: The beginner-friendly live trigger that feels like magic.
+  subheadline: >-
+    Instant clips. Beautiful overlays. Zero stress. Perfect for school events,
+    small concerts, sports, and anywhere you want to look pro — without the headache.
+highlights:
+  - title: Node-based clip canvas
+    description: Visual clip graph with groups, transform contexts, and audio routing — not locked to a fixed grid.
+  - title: Live A/B deck mixing
+    description: Crossfade between two sources with per-deck speed control and hotkey triggers under 50ms latency.
+  - title: Phone camera over WebRTC
+    description: Stream a smartphone camera into SwitchX over LAN or a public relay, paired by QR code.
+  - title: GLSL shaders & HTML overlays
+    description: Built-in visual generators, audio-reactive presets, and dynamic scoreboards via Qt WebEngine.
+  - title: Panic controls & program output
+    description: Blackout, freeze-frame, stay-tuned overlay, NDI output, recording, and OBS WebSocket integration.
+useCases:
+  - title: School events
+    description: Instant highlight reels and replays during cricket, football, and assembly shows.
+  - title: Live concerts
+    description: Music videos, audio-reactive shader visuals, and custom graphics that sync with the beat.
+  - title: Visual performances
+    description: Dance, theater, and immersive installations with a dark VJ-style interface built for low light.
+  - title: Sports broadcasting
+    description: HTML/QML score overlays, freeze-frame holds, and program recording for match-day production.
 features:
   - title: Source
     body: >-
-      Bring anything in — video, images, webcams, NDI, phone via QR + WebRTC,
-      GLSL shaders, HTML/QML, Lua.
+      Video files, images, slideshows, webcams, screen/window capture, custom canvases,
+      GLSL shaders, HTML/QML overlays, text, Lua-scripted sources, NDI inputs, and
+      phone cameras over WebRTC.
     icon: source
   - title: Canvas
-    body: Node-based clip canvas with groups for complex shows.
+    body: >-
+      Node-based clip canvas with groups, per-clip trim/crop/transform editing,
+      text and image overlays, and drag-and-drop media loading.
     icon: canvas
   - title: Mix
-    body: A/B mixing, hotkeys, and live triggering from one surface.
+    body: >-
+      Live A/B deck mixing with crossfader, per-deck speed control, and a hotkey grid
+      (1–0, Q–P, A–L, Z–M) with Shift variants for Deck B.
     icon: mix
   - title: Output
-    body: Panic controls, OBS integration, remote control, multi-output.
+    body: >-
+      Mirror windows, NDI program output, virtual camera, program recording with markers,
+      OBS scene switching, remote control server, and panic controls.
     icon: output
 specs:
   - label: Version
-    value: "1.0"
+    value: "0.1.0"
   - label: Platforms
-    value: macOS 12+, Windows 10+, Ubuntu 22.04+
+    value: macOS, Windows, Linux (Flatpak)
+  - label: Framework
+    value: Qt 6.5+ (Widgets, OpenGL, Multimedia, WebEngine)
+  - label: Video
+    value: FFmpeg decode with OpenGL compositing
   - label: GPU
     value: OpenGL 4.1+ recommended
-  - label: RAM
-    value: 8 GB minimum, 16 GB recommended
+  - label: License
+    value: GPLv3
 downloads:
   - platform: macOS
-    url: /downloads/switchx-macos.dmg
-    size: 124 MB
-    version: "1.0"
-    checksum: abc123def456...
+    url: https://github.com/SubtleArts/SwitchX#building
+    size: Build from source
+    version: "0.1.0"
   - platform: Windows
-    url: /downloads/switchx-windows.exe
-    size: 118 MB
-    version: "1.0"
-    checksum: def456abc789...
+    url: https://github.com/SubtleArts/SwitchX#building
+    size: Build from source
+    version: "0.1.0"
   - platform: Linux
-    url: /downloads/switchx-linux.AppImage
-    size: 121 MB
-    version: "1.0"
-    checksum: 789abc123def...
+    url: https://github.com/SubtleArts/SwitchX#flatpak
+    size: Flatpak or build from source
+    version: "0.1.0"
+repoUrl: https://github.com/SubtleArts/SwitchX
+docsUrl: https://docs.cutwire.org/switchx
