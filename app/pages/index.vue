@@ -21,7 +21,7 @@ const useCases = [
     <!-- Hero -->
     <section class="relative section-y">
       <div class="container-cutwire relative animate-rise-in">
-        <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <div class="relative z-10">
             <div class="mb-6 flex items-center gap-2 text-label-sm uppercase tracking-widest text-primary">
               <span class="size-2 rounded-full bg-primary" />
@@ -58,13 +58,20 @@ const useCases = [
                 About the studio
               </NuxtLink>
             </div>
-            <p class="mt-8 flex items-center gap-3 text-label-sm text-on-surface-variant/60">
-              <span class="size-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-              SwitchX 0.1 — Open source
-            </p>
           </div>
 
-          <MarketingCrossfadeHero />
+          <div class="relative z-0 w-full lg:ml-4 lg:scale-[1.12] lg:origin-left">
+            <div class="ambient-glow" />
+            <div class="relative aspect-[1209/828] overflow-hidden rounded-[24px] border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2">
+              <NuxtImg
+                src="/images/switchx-mock.avif"
+                alt="SwitchX interface preview — live video mixing with dark UI and orange accents"
+                class="h-full w-full object-cover"
+                width="1209"
+                height="828"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

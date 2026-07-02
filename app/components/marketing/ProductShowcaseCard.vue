@@ -7,7 +7,10 @@ const { data: product } = await useAsyncData('switchx-showcase', () =>
 
 const highlightIcons = [GitBranch, Layers, Network, Palette, ShieldAlert]
 
-const previewImage = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCAxvvh1_Z6fAL_QigqkUVxXTsbDBhqqrkCPq-5jjzK0vt_67-csQSJn3C17V0itn02Uci2nEG8927RmbTXpZKK8n76R0x80bUuuBn9jy8G3ClZxKLmRS3L6OIWWrZO6eZc8oP3Qt43A1buZdLSGRc2N3DTTGq6Aac12j3ZyOsEitnB8CMIANL9cnb_DOOANnC4G-MaTmnom0YQxvjkq3_iR2DfsvG07v1IKcjP7e_wwlG70UaxchyG-tQp4fC6J2ejfq0gdYSlQL_k'
+const previewImage = '/images/switchx-ss.avif'
+
+const lightboxOpen = ref(false)
+const previewAlt = 'SwitchX interface preview — live video mixing with dark UI and orange accents'
 
 const showcaseHighlights = computed(() =>
   product.value?.highlights?.slice(0, 3) ?? [],
@@ -17,17 +20,16 @@ const showcaseHighlights = computed(() =>
 <template>
   <div
     v-if="product"
-    class="glass-card group relative overflow-hidden p-8 md:p-16"
+    class="glass-card group relative -mx-4 overflow-hidden rounded-xl md:-mx-8 lg:-mx-12"
   >
     <div class="ambient-glow absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 opacity-60" />
 
-    <div class="relative z-10 grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
-      <div class="order-2 lg:order-1">
-        <div class="mb-8 flex items-center justify-between border-b border-outline-variant pb-6">
-          <h2 class="text-headline-lg tracking-tight text-on-surface">
+    <div class="relative z-10 grid lg:grid-cols-2 lg:items-stretch">
+      <div class="order-2 flex flex-col justify-center p-8 md:p-10 lg:order-1 lg:p-12">
+        <div class="mb-8 border-b border-outline-variant pb-6">
+          <h2 class="text-headline-lg text-on-surface">
             {{ product.name }}
           </h2>
-          <CommonLiveBadge v-if="product.status === 'live'" />
         </div>
 
         <p class="mb-10 text-lg leading-relaxed text-on-surface-variant">
@@ -38,8 +40,8 @@ const showcaseHighlights = computed(() =>
           v-if="showcaseHighlights.length"
           class="mb-12"
         >
-          <h4 class="mb-6 text-xs uppercase tracking-widest text-on-surface-variant">
-            Core Capabilities
+          <h4 class="mb-6 text-label-sm uppercase tracking-widest text-on-surface-variant">
+            Core capabilities
           </h4>
           <ul class="space-y-4">
             <li
@@ -61,31 +63,53 @@ const showcaseHighlights = computed(() =>
           </ul>
         </div>
 
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap gap-4">
           <NuxtLink
             to="/switchx"
-            class="glow-button-primary px-8 py-3 text-sm uppercase tracking-wider"
+            class="glow-button-primary px-8 py-3 text-label-sm uppercase tracking-wider"
           >
             Launch SwitchX
           </NuxtLink>
           <a
             :href="product.docsUrl ?? 'https://docs.cutwire.org'"
-            class="glow-button-secondary px-8 py-3 text-sm uppercase tracking-wider"
+            class="glow-button-secondary px-8 py-3 text-label-sm uppercase tracking-wider"
           >
-            View Documentation
+            View documentation
           </a>
         </div>
       </div>
 
-      <div class="relative order-1 overflow-hidden rounded-2xl border border-outline-variant shadow-2xl lg:order-2">
+      <button
+        type="button"
+        class="relative order-1 min-h-[220px] cursor-zoom-in overflow-hidden sm:min-h-[280px] lg:order-2 lg:min-h-0"
+        aria-label="View full-size SwitchX screenshot"
+        @click="lightboxOpen = true"
+      >
         <NuxtImg
           :src="previewImage"
-          alt="SwitchX interface preview — live video mixing with dark UI and cyan accents"
-          class="h-full w-full object-cover"
-          width="800"
-          height="600"
+          :alt="previewAlt"
+          class="absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-200 hover:opacity-90"
+          width="1866"
+          height="1136"
         />
-      </div>
+      </button>
     </div>
+
+    <UiDialog v-model:open="lightboxOpen">
+      <UiDialogContent
+        class="max-h-[95vh] max-w-[min(96vw,1866px)] border-0 bg-transparent p-0 shadow-none ring-0 sm:max-w-[min(96vw,1866px)]"
+      >
+        <UiDialogHeader class="sr-only">
+          <UiDialogTitle>{{ product.name }} screenshot</UiDialogTitle>
+        </UiDialogHeader>
+        <NuxtImg
+          :src="previewImage"
+          :alt="previewAlt"
+          class="max-h-[90vh] w-full object-contain"
+          width="1866"
+          height="1136"
+        />
+      </UiDialogContent>
+    </UiDialog>
   </div>
 </template>

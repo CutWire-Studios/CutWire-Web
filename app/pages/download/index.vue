@@ -33,11 +33,10 @@ const { data: products } = await useAsyncData('download-products', () =>
           :to="`/download/${product.slug}`"
           class="glass-card group rounded-[24px] p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/30"
         >
-          <div class="mb-4 flex items-center justify-between">
+          <div class="mb-4">
             <h2 class="text-headline-md text-on-surface">
               {{ product.name }}
             </h2>
-            <CommonLiveBadge />
           </div>
           <p class="text-on-surface-variant">
             {{ product.platforms.join(' · ') }}

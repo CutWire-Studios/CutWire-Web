@@ -41,11 +41,10 @@ const NuxtLinkComponent = resolveComponent('NuxtLink')
     </div>
 
     <div class="relative z-10 bg-gradient-to-t from-[#1C1D23] to-transparent p-8">
-      <div class="mb-2 flex items-center justify-between gap-3">
+      <div class="mb-2">
         <h3 class="text-headline-md text-on-surface">
           {{ instrument.name }}
         </h3>
-        <CommonLiveBadge v-if="live" />
       </div>
       <p class="mb-6 max-w-2xl text-body-md text-on-surface-variant">
         {{ instrument.tagline }}

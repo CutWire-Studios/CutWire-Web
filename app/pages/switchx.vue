@@ -55,12 +55,9 @@ const moments = computed(() =>
       <div class="container-cutwire relative animate-rise-in">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <div class="flex items-center gap-3">
-              <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
-                SwitchX · {{ product.tagline }}
-              </p>
-              <CommonLiveBadge />
-            </div>
+            <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+              SwitchX · {{ product.tagline }}
+            </p>
             <h1 class="mt-5 text-display-xl text-on-surface">
               {{ product.hero?.headline ?? product.tagline }}
             </h1>

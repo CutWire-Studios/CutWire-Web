@@ -16,12 +16,9 @@ const videoOpen = ref(false)
       <div class="container-cutwire relative animate-rise-in">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <div>
-            <div class="flex items-center gap-3">
-              <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
-                {{ product.name }} · Live media console
-              </p>
-              <CommonLiveBadge v-if="product.status === 'live'" />
-            </div>
+            <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+              {{ product.name }} · Live media console
+            </p>
             <h1 class="mt-5 text-display-xl text-on-surface">
               {{ product.tagline }}
             </h1>
