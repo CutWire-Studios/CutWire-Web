@@ -8,8 +8,6 @@ useSeoMeta({
   description: 'CutWire Studios builds professional creative tools with clean, beginner-friendly interfaces. SwitchX is our first product.',
 })
 
-const lineup = useLineup()
-
 const useCases = [
   { title: 'School events', description: 'Assemblies, graduations, and pep rallies.', icon: GraduationCap },
   { title: 'Concerts', description: 'Live visuals and backdrop mixing.', icon: Music },
@@ -21,118 +19,123 @@ const useCases = [
 <template>
   <div>
     <!-- Hero -->
-    <section class="hero-glow relative flex min-h-[calc(100vh-6.75rem)] flex-col justify-center overflow-hidden section-y">
-      <div class="bg-grid pointer-events-none absolute inset-0 -z-10" />
+    <section class="relative section-y">
       <div class="container-cutwire relative animate-rise-in">
-        <div class="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr]">
-          <div>
-            <p class="text-eyebrow text-text-faint">
-              <span class="text-live">●</span> CutWire Studios · Software studio
-            </p>
-            <h1 class="mt-5 text-display-xl text-text">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
+          <div class="relative z-10">
+            <div class="mb-6 flex items-center gap-2 text-label-sm uppercase tracking-widest text-primary">
+              <span class="size-2 rounded-full bg-primary" />
+              CutWire Studios · Software studio
+            </div>
+            <h1 class="text-display-xl text-on-surface">
               Professional software.<br>
               <span class="text-crossfade">Intuitive for everyone.</span>
             </h1>
-            <p class="mt-6 max-w-xl text-body-l text-text-muted">
+            <p class="mt-6 max-w-lg text-body-lg text-on-surface-variant">
               CutWire Studios builds powerful creative tools with clean, beginner-friendly interfaces — so anyone can create like a pro. No steep learning curves, no manuals required.
             </p>
-            <div class="mt-8 flex flex-wrap items-center gap-4">
-              <UiButton
-                as-child
-                size="lg"
-                class="btn-signal"
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <NuxtLink
+                to="/products"
+                class="glow-button-primary inline-flex items-center gap-2 px-8 py-4 text-label-md"
               >
-                <NuxtLink to="/products">
-                  See the products →
-                </NuxtLink>
-              </UiButton>
-              <UiButton
-                as-child
-                variant="outline"
-                size="lg"
-                class="btn-panel"
+                See the products
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="size-4"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </NuxtLink>
+              <NuxtLink
+                to="/about"
+                class="glow-button-secondary px-8 py-4 text-label-md"
               >
-                <NuxtLink to="/about">
-                  About the studio
-                </NuxtLink>
-              </UiButton>
+                About the studio
+              </NuxtLink>
             </div>
-            <p class="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-text-faint">
-              <span class="inline-flex items-center gap-1.5 text-text-muted">
-                <span class="size-1.5 animate-pulse rounded-full bg-live" /> SwitchX 1.0 — live now
-              </span>
+            <p class="mt-8 flex items-center gap-3 text-label-sm text-on-surface-variant/60">
+              <span class="size-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+              SwitchX 1.0 — Live now
             </p>
           </div>
 
-          <div class="relative">
-            <MarketingCrossfadeHero />
-          </div>
+          <MarketingCrossfadeHero />
         </div>
       </div>
     </section>
 
     <!-- Mission -->
-    <section class="border-t border-hairline section-y">
+    <section class="section-y">
       <div class="container-cutwire">
-        <p
+        <div
           v-reveal
-          class="text-eyebrow text-text-faint"
+          class="mx-auto max-w-4xl border-l-2 border-primary pl-8 md:pl-12"
         >
-          Mission
-        </p>
-        <p
-          v-reveal="1"
-          class="mt-6 max-w-3xl text-display-l text-text"
-        >
-          Powerful technology shouldn't require a steep learning curve. We build professional-grade software with interfaces so intuitive that beginners feel confident from day one — while giving experts the depth and performance they demand.
-        </p>
+          <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+            Mission
+          </p>
+          <h2
+            v-reveal="1"
+            class="mt-6 text-headline-lg text-on-surface"
+          >
+            Powerful technology shouldn't require a steep learning curve. We build professional-grade software with interfaces so intuitive that beginners feel confident from day one — while giving experts the depth and performance they demand.
+          </h2>
+        </div>
       </div>
     </section>
 
     <!-- Products -->
-    <section class="border-t border-hairline section-y">
+    <section class="section-y">
       <div class="container-cutwire">
         <div
           v-reveal
-          class="flex items-end justify-between gap-6"
+          class="mb-12 flex items-end justify-between border-b border-outline-variant pb-6"
         >
           <div>
-            <p class="text-eyebrow text-text-faint">
+            <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
               Products
             </p>
-            <h2 class="mt-4 text-display-l text-text">
+            <h2 class="mt-2 text-headline-md text-on-surface">
               Our products
             </h2>
           </div>
           <NuxtLink
             to="/products"
-            class="hidden shrink-0 pb-1 font-mono text-xs uppercase tracking-wider text-text-muted transition-colors hover:text-cue sm:block"
+            class="hidden items-center gap-1 text-label-sm uppercase text-primary transition-colors hover:text-primary-fixed-dim sm:flex"
           >
-            All products →
+            All products
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="size-4"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </NuxtLink>
         </div>
 
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <MarketingInstrumentCard
-            v-for="(item, i) in lineup"
-            :key="item.name"
-            v-reveal="i"
-            :instrument="item"
-          />
-        </div>
+        <MarketingProductShowcaseCard v-reveal />
       </div>
     </section>
 
     <!-- Use cases -->
-    <section class="border-t border-hairline section-y">
+    <section class="section-y">
       <div class="container-cutwire">
         <p
           v-reveal
-          class="text-eyebrow text-text-faint"
+          class="mb-12 text-label-sm uppercase tracking-widest text-on-surface-variant"
         >
           Where SwitchX runs
         </p>
-        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <MarketingUseCaseCard
             v-for="(useCase, i) in useCases"
             :key="useCase.title"
@@ -140,69 +143,6 @@ const useCases = [
             v-bind="useCase"
           />
         </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="border-t border-hairline section-y">
-      <div class="container-cutwire">
-        <p
-          v-reveal
-          class="text-eyebrow text-text-faint"
-        >
-          In their words
-        </p>
-        <div class="mt-8 grid gap-6 md:grid-cols-2">
-          <blockquote
-            v-reveal
-            class="panel rounded-xl p-6"
-          >
-            <p class="text-body-l text-text">
-              "We ran our first assembly show in twenty minutes. No manual required."
-            </p>
-            <div class="mt-6 flex items-center gap-3">
-              <UiAvatar>
-                <UiAvatarFallback>JM</UiAvatarFallback>
-              </UiAvatar>
-              <div>
-                <p class="text-sm font-medium text-text">
-                  Jamie M.
-                </p>
-                <p class="text-xs text-text-muted">
-                  School AV operator
-                </p>
-              </div>
-            </div>
-          </blockquote>
-          <blockquote
-            v-reveal="1"
-            class="panel rounded-xl p-6"
-          >
-            <p class="text-body-l text-text">
-              "Hot-swapping sources mid-set used to mean dead air. Now it's one keystroke."
-            </p>
-            <div class="mt-6 flex items-center gap-3">
-              <UiAvatar>
-                <UiAvatarFallback>RD</UiAvatarFallback>
-              </UiAvatar>
-              <div>
-                <p class="text-sm font-medium text-text">
-                  Rey D.
-                </p>
-                <p class="text-xs text-text-muted">
-                  Touring VJ
-                </p>
-              </div>
-            </div>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="border-t border-hairline section-y">
-      <div class="container-cutwire">
-        <CommonNewsletterForm />
       </div>
     </section>
   </div>

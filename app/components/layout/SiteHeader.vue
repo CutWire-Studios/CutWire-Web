@@ -11,57 +11,47 @@ const navLinks = [
 </script>
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50">
-    <!-- primary bar -->
-    <div class="border-b border-hairline bg-surface-2/90 backdrop-blur-md">
-      <div class="container-cutwire flex h-16 items-center justify-between">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-outline-variant bg-background/80 backdrop-blur-2xl">
+    <div class="container-cutwire flex h-[72px] items-center justify-between">
+      <NuxtLink
+        to="/"
+        class="flex items-center gap-2 text-xl font-bold tracking-tight text-on-surface"
+      >
+        <span class="flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="size-4"
+          >
+            <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
+          </svg>
+        </span>
+        CutWire
+        <span class="text-label-sm font-normal normal-case tracking-normal text-on-surface-variant">Studios</span>
+      </NuxtLink>
+
+      <nav class="hidden items-center gap-8 md:flex">
         <NuxtLink
-          to="/"
-          class="group flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-text"
+          v-for="link in navLinks"
+          :key="link.href"
+          :to="link.href"
+          class="text-label-md transition-colors duration-300"
+          :class="isActive(link.href) ? 'border-b-2 border-primary pb-0.5 text-on-surface' : 'text-on-surface/70 hover:text-on-surface'"
         >
-          <span class="relative flex size-5 overflow-hidden rounded-[5px] ring-1 ring-hairline">
-            <span class="w-1/2 bg-live" />
-            <span class="w-1/2 bg-cue transition-all duration-300 group-hover:w-1/3" />
-          </span>
-          CutWire
-          <span class="font-mono text-[0.625rem] font-normal uppercase tracking-[0.18em] text-text-faint">Studios</span>
+          {{ link.label }}
         </NuxtLink>
+      </nav>
 
-        <nav class="hidden items-center gap-8 md:flex">
-          <NuxtLink
-            v-for="link in navLinks"
-            :key="link.href"
-            :to="link.href"
-            class="relative text-sm transition-colors hover:text-text"
-            :class="isActive(link.href) ? 'text-text' : 'text-text-muted'"
-          >
-            {{ link.label }}
-            <span
-              v-if="isActive(link.href)"
-              class="absolute -bottom-1 left-0 h-px w-full bg-crossfade"
-            />
-          </NuxtLink>
-        </nav>
-
-        <div class="flex items-center gap-3">
-          <UiButton
-            as-child
-            size="sm"
-            class="btn-signal hidden md:inline-flex"
-          >
-            <NuxtLink to="/switchx">
-              Get SwitchX
-            </NuxtLink>
-          </UiButton>
-          <LayoutMobileNav />
-        </div>
+      <div class="flex items-center gap-3">
+        <NuxtLink
+          to="/switchx"
+          class="glow-button-secondary hidden px-6 py-2 text-label-md md:inline-flex"
+        >
+          Get SwitchX
+        </NuxtLink>
+        <LayoutMobileNav />
       </div>
     </div>
   </header>
 </template>
-
-<style scoped>
-.font-display {
-  font-family: var(--font-display);
-}
-</style>

@@ -22,30 +22,42 @@ useSeoMeta({
 <template>
   <div
     v-if="product"
-    class="section-y"
+    class="relative overflow-hidden section-y"
   >
-    <div class="container-cutwire max-w-lg">
-      <h1 class="text-display-l text-text">
-        Download {{ product.name }}
+    <div class="ambient-glow top-0 opacity-40" />
+
+    <div class="container-cutwire relative z-10 max-w-lg">
+      <p class="text-label-sm uppercase tracking-widest text-primary">
+        Download
+      </p>
+      <h1 class="mt-4 text-display-xl text-on-surface">
+        {{ product.name }}
       </h1>
-      <p class="mt-4 text-text-muted">
+      <p class="mt-4 text-on-surface-variant">
         Version {{ product.version }} · {{ product.platforms.join(', ') }}
       </p>
-      <div class="mt-8">
+      <div class="glass-card mt-8 rounded-[24px] p-6">
         <CommonDownloadPanel
           :downloads="product.downloads"
           :product-name="product.name"
         />
       </div>
-      <UiButton
-        as-child
-        variant="ghost"
-        class="mt-6 text-cue"
+      <NuxtLink
+        :to="`https://docs.cutwire.org/${product.slug}/getting-started`"
+        class="mt-6 inline-flex items-center gap-1 text-primary transition-colors hover:text-primary-fixed-dim"
       >
-        <NuxtLink :to="`https://docs.cutwire.org/${product.slug}/getting-started`">
-          Getting started →
-        </NuxtLink>
-      </UiButton>
+        Getting started
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          class="size-4"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </NuxtLink>
     </div>
   </div>
 </template>

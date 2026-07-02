@@ -9,25 +9,21 @@ defineProps<{
 </script>
 
 <template>
-  <UiCard class="panel panel-hover group h-full">
-    <UiCardHeader>
-      <span
-        v-if="icon"
-        class="flex size-10 items-center justify-center rounded-md border border-hairline bg-surface-2 text-text-muted transition-colors group-hover:border-live/50 group-hover:text-live"
-      >
-        <component
-          :is="icon"
-          class="size-5"
-        />
-      </span>
-      <UiCardTitle class="mt-4 text-text">
-        {{ title }}
-      </UiCardTitle>
-    </UiCardHeader>
-    <UiCardContent>
-      <p class="text-sm text-text-muted">
-        {{ description }}
-      </p>
-    </UiCardContent>
-  </UiCard>
+  <div class="glass-card group rounded-[24px] p-6 shadow-lg transition-colors hover:bg-white/5">
+    <span
+      v-if="icon"
+      class="mb-6 flex size-12 items-center justify-center rounded-full border border-outline-variant bg-surface text-on-surface-variant transition-all group-hover:border-primary/30 group-hover:text-primary group-hover:shadow-[0_0_20px_rgba(255,77,0,0.3)]"
+    >
+      <component
+        :is="icon"
+        class="size-5"
+      />
+    </span>
+    <h4 class="text-label-md text-on-surface">
+      {{ title }}
+    </h4>
+    <p class="mt-2 text-sm text-on-surface-variant/80">
+      {{ description }}
+    </p>
+  </div>
 </template>

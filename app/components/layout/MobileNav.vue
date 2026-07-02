@@ -18,7 +18,7 @@ const links = [
       <UiButton
         variant="ghost"
         size="icon"
-        class="md:hidden"
+        class="text-on-surface md:hidden"
         aria-label="Open menu"
       >
         <Menu class="size-5" />
@@ -26,11 +26,11 @@ const links = [
     </UiSheetTrigger>
     <UiSheetContent
       side="right"
-      class="w-full border-hairline bg-ink sm:max-w-sm"
+      class="w-full border-outline-variant bg-background sm:max-w-sm"
     >
       <UiSheetHeader>
-        <UiSheetTitle class="font-display text-text">
-          CutWire
+        <UiSheetTitle class="text-on-surface">
+          CutWire Studios
         </UiSheetTitle>
       </UiSheetHeader>
       <nav class="mt-8 flex flex-col gap-1">
@@ -38,7 +38,7 @@ const links = [
           v-for="link in links"
           :key="link.href"
           :to="link.href"
-          class="rounded-md px-3 py-3 text-lg text-text-muted transition-colors hover:bg-surface-1 hover:text-text"
+          class="rounded-lg px-3 py-3 text-lg text-on-surface-variant transition-colors hover:bg-surface hover:text-on-surface"
           @click="open = false"
         >
           {{ link.label }}
@@ -46,24 +46,14 @@ const links = [
       </nav>
 
       <div class="mt-8">
-        <UiButton
-          as-child
-          class="btn-signal w-full"
+        <NuxtLink
+          to="/switchx"
+          class="glow-button-primary flex w-full items-center justify-center px-6 py-3 text-label-md"
+          @click="open = false"
         >
-          <NuxtLink
-            to="/switchx"
-            @click="open = false"
-          >
-            Get SwitchX
-          </NuxtLink>
-        </UiButton>
+          Get SwitchX
+        </NuxtLink>
       </div>
     </UiSheetContent>
   </UiSheet>
 </template>
-
-<style scoped>
-.font-display {
-  font-family: var(--font-display);
-}
-</style>

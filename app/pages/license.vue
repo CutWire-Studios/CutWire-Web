@@ -5,13 +5,13 @@ useSeoMeta({ title: 'License — CutWire Studios' })
 
 <template>
   <div>
-    <h1 class="text-display-l text-text">
+    <h1 class="text-display-xl text-on-surface">
       License
     </h1>
-    <p class="mt-6 text-text-muted">
+    <p class="mt-6 text-on-surface-variant">
       SwitchX end-user license agreement
     </p>
-    <div class="mt-8 space-y-4 text-text-muted">
+    <div class="mt-8 space-y-4 text-on-surface-variant">
       <p>
         CutWire Studios grants you a non-exclusive license to use SwitchX for live media production.
       </p>

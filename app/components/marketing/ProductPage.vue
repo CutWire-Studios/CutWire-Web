@@ -11,71 +11,56 @@ const videoOpen = ref(false)
 <template>
   <div>
     <!-- Hero -->
-    <section class="hero-glow relative overflow-hidden section-y">
-      <div class="bg-grid pointer-events-none absolute inset-0 -z-10" />
+    <section class="relative section-y">
+      <div class="ambient-glow opacity-50" />
       <div class="container-cutwire relative animate-rise-in">
-        <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr]">
+        <div class="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <div class="flex items-center gap-3">
-              <p class="text-eyebrow text-text-faint">
+              <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
                 {{ product.name }} · Live media console
               </p>
               <CommonLiveBadge v-if="product.status === 'live'" />
             </div>
-            <h1 class="mt-5 text-display-xl text-text">
+            <h1 class="mt-5 text-display-xl text-on-surface">
               {{ product.tagline }}
             </h1>
-            <p class="mt-6 text-body-l text-text-muted">
+            <p class="mt-6 text-body-lg text-on-surface-variant">
               {{ product.summary }}
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
-              <UiButton
-                as-child
-                size="lg"
-                class="btn-signal"
+              <NuxtLink
+                :to="`/download/${product.slug}`"
+                class="glow-button-primary px-8 py-4 text-label-md"
               >
-                <NuxtLink :to="`/download/${product.slug}`">
-                  Download {{ product.name }}
-                </NuxtLink>
-              </UiButton>
-              <UiButton
-                variant="outline"
-                size="lg"
-                class="btn-panel"
+                Download {{ product.name }}
+              </NuxtLink>
+              <button
+                type="button"
+                class="glow-button-secondary px-8 py-4 text-label-md"
                 @click="videoOpen = true"
               >
                 Watch the cut
-              </UiButton>
+              </button>
             </div>
-            <p class="mt-8 flex flex-wrap items-center gap-2 font-mono text-xs text-text-faint">
-              <span class="mr-1">Cut live:</span>
-              <kbd class="keycap">Space</kbd>
-              <kbd class="keycap">1</kbd>
-              <kbd class="keycap">2</kbd>
-              <kbd class="keycap">3</kbd>
-              <span class="ml-1">· panic</span>
-              <kbd class="keycap">Esc</kbd>
-            </p>
           </div>
-          <div class="relative">
-            <MarketingCrossfadeHero />
-          </div>
+          <MarketingCrossfadeHero />
         </div>
       </div>
     </section>
 
     <!-- Signal path overview -->
-    <section class="relative overflow-hidden border-t border-hairline section-y">
+    <section class="section-y">
       <div class="container-cutwire">
         <p
           v-reveal
-          class="text-eyebrow text-text-faint"
+          class="text-label-sm uppercase tracking-widest text-on-surface-variant"
         >
           Signal path
         </p>
         <h2
           v-reveal="1"
-          class="mt-4 text-display-l text-text"
+          class="mt-4 text-headline-lg text-on-surface"
         >
           From source to show
         </h2>
@@ -87,21 +72,21 @@ const videoOpen = ref(false)
             v-for="(feature, i) in product.features"
             :key="feature.title"
           >
-            <div class="panel flex-1 rounded-xl p-5">
+            <div class="glass-card flex-1 rounded-[24px] p-5">
               <span
                 class="font-mono text-xs font-semibold"
-                :style="{ color: i % 2 === 1 ? 'var(--cue)' : 'var(--live)' }"
+                :class="i % 2 === 1 ? 'text-primary-fixed-dim' : 'text-primary'"
               >0{{ i + 1 }}</span>
-              <h3 class="mt-2 font-display text-lg font-semibold text-text">
+              <h3 class="mt-2 text-lg font-semibold text-on-surface">
                 {{ feature.title }}
               </h3>
-              <p class="mt-1.5 text-sm text-text-muted">
+              <p class="mt-1.5 text-sm text-on-surface-variant">
                 {{ feature.body }}
               </p>
             </div>
             <div
               v-if="i < product.features.length - 1"
-              class="hidden shrink-0 items-center justify-center font-mono text-text-faint md:flex"
+              class="hidden shrink-0 items-center justify-center text-on-surface-variant md:flex"
               aria-hidden="true"
             >
               →
@@ -115,7 +100,7 @@ const videoOpen = ref(false)
     <section
       v-for="(feature, i) in product.features"
       :key="feature.title"
-      class="border-t border-hairline section-y"
+      class="section-y"
     >
       <div class="container-cutwire">
         <MarketingFeatureSection
@@ -130,18 +115,17 @@ const videoOpen = ref(false)
     </section>
 
     <!-- Specs -->
-    <section class="relative overflow-hidden border-t border-hairline section-y">
-      <div class="bg-grid pointer-events-none absolute inset-0 -z-10" />
-      <div class="container-cutwire relative">
+    <section class="section-y">
+      <div class="container-cutwire">
         <p
           v-reveal
-          class="text-eyebrow text-text-faint"
+          class="text-label-sm uppercase tracking-widest text-on-surface-variant"
         >
           Specs
         </p>
         <div
           v-reveal="1"
-          class="panel mt-8 max-w-xl rounded-xl p-6"
+          class="glass-card mt-8 max-w-xl rounded-[24px] p-6"
         >
           <CommonSpecTable :specs="product.specs" />
         </div>
@@ -149,34 +133,41 @@ const videoOpen = ref(false)
     </section>
 
     <!-- Download -->
-    <section class="border-t border-hairline section-y">
+    <section class="section-y">
       <div class="container-cutwire max-w-lg">
-        <p class="text-eyebrow text-text-faint">
+        <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
           Get it
         </p>
-        <h2 class="mt-4 text-display-l text-text">
+        <h2 class="mt-4 text-headline-lg text-on-surface">
           Get {{ product.name }}
         </h2>
-        <div class="panel mt-8 rounded-xl p-6">
+        <div class="glass-card mt-8 rounded-[24px] p-6">
           <CommonDownloadPanel
             :downloads="product.downloads"
             :product-name="product.name"
           />
         </div>
-        <UiButton
-          as-child
-          variant="ghost"
-          class="mt-6 text-cue"
+        <NuxtLink
+          :to="`https://docs.cutwire.org/${product.slug}`"
+          class="mt-6 inline-flex items-center gap-1 text-primary transition-colors hover:text-primary-fixed-dim"
         >
-          <NuxtLink :to="`https://docs.cutwire.org/${product.slug}`">
-            Start with the docs →
-          </NuxtLink>
-        </UiButton>
+          Start with the docs
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="size-4"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </NuxtLink>
       </div>
     </section>
 
     <UiDialog v-model:open="videoOpen">
-      <UiDialogContent class="border-hairline bg-surface-1 sm:max-w-3xl">
+      <UiDialogContent class="border-outline-variant bg-card sm:max-w-3xl">
         <UiDialogHeader>
           <UiDialogTitle>Watch the cut</UiDialogTitle>
         </UiDialogHeader>
@@ -190,3 +181,9 @@ const videoOpen = ref(false)
     </UiDialog>
   </div>
 </template>
+
+<style scoped>
+.font-mono {
+  font-family: var(--font-mono);
+}
+</style>

@@ -13,46 +13,40 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="dark flex min-h-screen flex-col bg-ink text-text">
+  <div class="flex min-h-screen flex-col bg-background text-on-surface">
     <LayoutSiteHeader />
-    <main class="flex flex-1 flex-col items-center justify-center pt-16 section-y">
+    <main class="flex flex-1 flex-col items-center justify-center pt-[72px] section-y">
       <div class="container-cutwire text-center">
-        <p class="text-eyebrow text-text-faint">
+        <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
           {{ error.statusCode }}
         </p>
-        <h1 class="mt-4 text-display-l text-text">
+        <h1 class="mt-4 text-display-xl text-on-surface">
           {{ is404 ? 'Empty screen.' : 'Something went wrong.' }}
         </h1>
-        <p class="mt-4 text-text-muted">
+        <p class="mt-4 text-on-surface-variant">
           {{ is404
             ? 'An empty screen is an invitation to act — pick a direction.'
             : error.statusMessage || 'Try again or head back home.' }}
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
-          <UiButton
-            class="glow-live bg-live text-ink hover:bg-live/90"
+          <button
+            class="glow-button-primary px-8 py-3 text-label-md"
             @click="clearError({ redirect: '/' })"
           >
             Home
-          </UiButton>
-          <UiButton
-            as-child
-            variant="outline"
-            class="border-hairline hover:border-cue"
+          </button>
+          <NuxtLink
+            to="https://docs.cutwire.org"
+            class="glow-button-secondary px-8 py-3 text-label-md"
           >
-            <NuxtLink to="https://docs.cutwire.org">
-              Docs
-            </NuxtLink>
-          </UiButton>
-          <UiButton
-            as-child
-            variant="outline"
-            class="border-hairline hover:border-cue"
+            Docs
+          </NuxtLink>
+          <NuxtLink
+            to="/download"
+            class="glow-button-secondary px-8 py-3 text-label-md"
           >
-            <NuxtLink to="/download">
-              Download
-            </NuxtLink>
-          </UiButton>
+            Download
+          </NuxtLink>
         </div>
       </div>
     </main>

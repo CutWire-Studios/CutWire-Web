@@ -19,65 +19,53 @@ const footerLinks = {
 </script>
 
 <template>
-  <footer class="border-t border-hairline bg-ink">
-    <div class="h-px w-full bg-crossfade" />
-
-    <div class="container-cutwire section-y pb-12 pt-16">
-      <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-        <div class="lg:col-span-1">
-          <p class="font-display text-lg font-semibold text-text">
-            CutWire Studios
-          </p>
-          <p class="mt-3 text-sm text-text-muted">
-            Live media tools for creators who run the show.
-          </p>
-        </div>
-
-        <div
-          v-for="(links, group) in footerLinks"
-          :key="group"
-        >
-          <p class="text-eyebrow text-text-faint">
-            {{ group }}
-          </p>
-          <ul class="mt-4 space-y-2">
-            <li
-              v-for="link in links"
-              :key="link.href"
+  <footer class="mt-20 w-full border-t border-outline-variant bg-surface">
+    <div class="container-cutwire grid grid-cols-2 gap-6 py-20 md:grid-cols-4 lg:grid-cols-6">
+      <div class="col-span-2 lg:col-span-2">
+        <p class="flex items-center gap-2 text-xl font-bold text-on-surface">
+          <span class="flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-4"
             >
-              <NuxtLink
-                :to="link.href"
-                class="text-sm text-text-muted transition-colors hover:text-text"
-              >
-                {{ link.label }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="mt-16 border-t border-hairline pt-12">
-        <CommonNewsletterForm />
-      </div>
-
-      <div class="mt-12 flex flex-col gap-4 border-t border-hairline pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p class="font-mono text-xs text-text-faint">
-          SwitchX 1.0 · macOS · Windows · Linux
+              <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
+            </svg>
+          </span>
+          CutWire Studios
         </p>
-        <p class="text-xs text-text-faint">
-          © {{ new Date().getFullYear() }} CutWire Studios
+        <p class="mt-4 max-w-xs text-body-md text-on-surface-variant">
+          Live media tools for creators who run the show.
         </p>
       </div>
+
+      <div
+        v-for="(links, group) in footerLinks"
+        :key="group"
+      >
+        <p class="text-label-sm text-on-surface">
+          {{ group }}
+        </p>
+        <ul class="mt-4 space-y-3">
+          <li
+            v-for="link in links"
+            :key="link.href"
+          >
+            <NuxtLink
+              :to="link.href"
+              class="text-body-md text-on-surface-variant transition-colors hover:text-primary"
+            >
+              {{ link.label }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container-cutwire flex flex-col items-center justify-between gap-4 border-t border-outline-variant py-6 text-label-sm text-on-surface-variant/60 sm:flex-row">
+      <p>SwitchX 1.0 · macOS · Windows · Linux</p>
+      <p>© {{ new Date().getFullYear() }} CutWire Studios. All rights reserved.</p>
     </div>
   </footer>
 </template>
-
-<style scoped>
-.font-display {
-  font-family: var(--font-display);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-</style>

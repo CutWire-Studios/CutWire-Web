@@ -16,22 +16,22 @@ defineProps<{
   >
     <div v-reveal>
       <p
-        class="text-eyebrow"
-        :class="signal === 'b' ? 'text-cue' : 'text-live'"
+        class="text-label-sm uppercase tracking-widest"
+        :class="signal === 'b' ? 'text-primary-fixed-dim' : 'text-primary'"
       >
         {{ step }}
       </p>
-      <h2 class="mt-3 text-display-l text-text">
+      <h2 class="mt-3 text-headline-lg text-on-surface">
         {{ title }}
       </h2>
-      <p class="mt-4 text-body-l text-text-muted">
+      <p class="mt-4 text-body-lg text-on-surface-variant">
         {{ description }}
       </p>
       <slot name="content" />
     </div>
     <div
       v-reveal="1"
-      class="aspect-video"
+      class="aspect-video overflow-hidden rounded-2xl border border-outline-variant shadow-2xl"
     >
       <slot name="visual">
         <MarketingConsoleScene

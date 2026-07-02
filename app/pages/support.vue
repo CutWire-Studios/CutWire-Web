@@ -43,16 +43,21 @@ async function submit() {
 </script>
 
 <template>
-  <div class="section-y">
-    <div class="container-cutwire max-w-2xl">
-      <h1 class="text-display-l text-text">
+  <div class="relative overflow-hidden section-y">
+    <div class="ambient-glow top-0 opacity-40" />
+
+    <div class="container-cutwire relative z-10 max-w-2xl">
+      <p class="text-label-sm uppercase tracking-widest text-primary">
         Support
+      </p>
+      <h1 class="mt-4 text-display-xl text-on-surface">
+        How can we help?
       </h1>
-      <p class="mt-4 text-text-muted">
+      <p class="mt-4 text-on-surface-variant">
         Check the
         <a
           href="https://docs.cutwire.org"
-          class="text-cue underline underline-offset-4 hover:text-text"
+          class="text-primary underline-offset-4 hover:underline"
         >docs</a>
         first, then reach out if you're stuck.
       </p>
@@ -66,53 +71,53 @@ async function submit() {
           v-for="(faq, i) in faqs"
           :key="i"
           :value="`faq-${i}`"
-          class="border-hairline"
+          class="border-outline-variant"
         >
-          <UiAccordionTrigger class="text-text">
+          <UiAccordionTrigger class="text-on-surface">
             {{ faq.q }}
           </UiAccordionTrigger>
-          <UiAccordionContent class="text-text-muted">
+          <UiAccordionContent class="text-on-surface-variant">
             {{ faq.a }}
           </UiAccordionContent>
         </UiAccordionItem>
       </UiAccordion>
 
       <form
-        class="mt-16 space-y-4"
+        class="glass-card mt-16 space-y-4 rounded-[24px] p-8"
         @submit.prevent="submit"
       >
-        <h2 class="text-xl font-semibold text-text">
+        <h2 class="text-headline-md text-on-surface">
           Contact us
         </h2>
         <div class="grid gap-4 sm:grid-cols-2">
-          <UiInput
+          <input
             v-model="form.name"
             placeholder="Name"
             required
-            class="border-hairline bg-surface-2"
-          />
-          <UiInput
+            class="rounded-lg border border-outline-variant bg-background px-4 py-3 text-on-surface focus:border-primary/50 focus:outline-none"
+          >
+          <input
             v-model="form.email"
             type="email"
             placeholder="Email"
             required
-            class="border-hairline bg-surface-2"
-          />
+            class="rounded-lg border border-outline-variant bg-background px-4 py-3 text-on-surface focus:border-primary/50 focus:outline-none"
+          >
         </div>
-        <UiTextarea
+        <textarea
           v-model="form.message"
           placeholder="How can we help?"
           required
           rows="5"
-          class="border-hairline bg-surface-2"
+          class="w-full rounded-lg border border-outline-variant bg-background px-4 py-3 text-on-surface focus:border-primary/50 focus:outline-none"
         />
-        <UiButton
+        <button
           type="submit"
           :disabled="loading"
-          class="glow-live bg-live text-ink hover:bg-live/90"
+          class="glow-button-primary px-8 py-3 text-label-md disabled:opacity-50"
         >
           Send message
-        </UiButton>
+        </button>
       </form>
     </div>
   </div>

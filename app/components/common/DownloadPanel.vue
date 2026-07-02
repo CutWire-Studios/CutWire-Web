@@ -15,15 +15,14 @@ const currentDownload = computed(() =>
 
 function onDownload() {
   if (!currentDownload.value) return
-  // Analytics hook — wire to Plausible/Vercel Analytics in Phase 4
   console.info('download_click', { platform: activePlatform.value, product: props.productName })
 }
 </script>
 
 <template>
-  <div class="rounded-lg border border-hairline bg-surface-1 p-6">
+  <div>
     <UiTabs v-model="activePlatform">
-      <UiTabsList class="grid w-full grid-cols-3 bg-surface-2">
+      <UiTabsList class="grid w-full grid-cols-3 bg-surface">
         <UiTabsTrigger
           v-for="platform in platforms"
           :key="platform"
@@ -39,31 +38,27 @@ function onDownload() {
         class="mt-6"
       >
         <template v-if="currentDownload">
-          <p class="font-mono text-sm text-text-muted">
+          <p class="font-mono text-sm text-on-surface-variant">
             Version {{ currentDownload.version || '1.0' }} · {{ currentDownload.size }}
           </p>
-          <UiButton
-            as-child
-            class="mt-4 glow-live bg-live text-ink hover:bg-live/90"
+          <a
+            :href="currentDownload.url"
+            download
+            class="glow-button-primary mt-4 inline-flex px-8 py-3 text-label-md"
             @click="onDownload"
           >
-            <a
-              :href="currentDownload.url"
-              download
-            >
-              Download for {{ platform }}
-            </a>
-          </UiButton>
+            Download for {{ platform }}
+          </a>
           <p
             v-if="currentDownload.checksum"
-            class="mt-4 font-mono text-xs text-text-faint"
+            class="mt-4 font-mono text-xs text-on-surface-variant/60"
           >
             SHA256: {{ currentDownload.checksum }}
           </p>
         </template>
         <p
           v-else
-          class="text-sm text-text-muted"
+          class="text-sm text-on-surface-variant"
         >
           Not available for {{ platform }} yet.
         </p>

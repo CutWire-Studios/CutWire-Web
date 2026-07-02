@@ -5,16 +5,16 @@ defineProps<{
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-hairline">
+  <div class="overflow-hidden rounded-xl border border-outline-variant">
     <div
       v-for="spec in specs"
       :key="spec.label"
-      class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] items-center border-b border-hairline last:border-b-0"
+      class="grid grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] items-center border-b border-outline-variant last:border-b-0"
     >
-      <span class="font-mono text-xs uppercase tracking-wider text-text-faint px-6 py-4">
+      <span class="px-6 py-4 font-mono text-xs uppercase tracking-wider text-on-surface-variant">
         {{ spec.label }}
       </span>
-      <span class="border-l border-hairline text-sm text-text px-6 py-4">
+      <span class="border-l border-outline-variant px-6 py-4 text-sm text-on-surface">
         {{ spec.value }}
       </span>
     </div>

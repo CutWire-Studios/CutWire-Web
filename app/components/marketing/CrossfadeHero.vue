@@ -1,6 +1,4 @@
 <script setup lang="ts">
-// The signature crossfade — DESIGN.md §8.
-// The T-bar cuts the canvas above it from source A (program) to source B (preview).
 const props = withDefaults(defineProps<{
   autoDrift?: boolean
   canvas?: boolean
@@ -70,11 +68,11 @@ const onAir = computed(() => (position.value < 50 ? 'A' : 'B'))
 </script>
 
 <template>
-  <div class="w-full select-none">
-    <!-- canvas: the cut -->
+  <div class="relative z-0 w-full select-none lg:ml-8">
+    <div class="ambient-glow" />
     <div
       v-if="canvas"
-      class="relative mb-5 aspect-video overflow-hidden rounded-lg"
+      class="relative mb-5 aspect-video overflow-hidden rounded-[24px] border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2"
     >
       <MarketingConsoleScene
         signal="a"
@@ -92,31 +90,28 @@ const onAir = computed(() => (position.value < 50 ? 'A' : 'B'))
           class="h-full w-full"
         />
       </div>
-      <!-- wipe seam -->
       <div
-        class="pointer-events-none absolute inset-y-0 w-px bg-crossfade"
-        :style="{ left: `${position}%`, boxShadow: '0 0 12px 1px rgba(120,120,255,.45)' }"
+        class="pointer-events-none absolute inset-y-0 w-px bg-primary"
+        :style="{ left: `${position}%`, boxShadow: '0 0 12px 1px rgba(255,77,0,.45)' }"
       />
-      <!-- on-air tag -->
-      <div class="pointer-events-none absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-hairline bg-ink/70 px-2 py-0.5 backdrop-blur">
-        <span class="size-1.5 animate-pulse rounded-full bg-live" />
-        <span class="font-mono text-[0.625rem] tracking-widest text-text">ON AIR · {{ onAir }}</span>
+      <div class="pointer-events-none absolute right-3 top-3 flex items-center gap-1.5 rounded-full border border-outline-variant bg-background/70 px-2 py-0.5 backdrop-blur">
+        <span class="size-1.5 animate-pulse rounded-full bg-primary" />
+        <span class="font-mono text-[0.625rem] tracking-widest text-on-surface">ON AIR · {{ onAir }}</span>
       </div>
     </div>
 
-    <!-- T-bar -->
     <div class="flex items-center gap-3">
-      <span class="font-mono text-xs font-semibold text-live">A</span>
+      <span class="font-mono text-xs font-semibold text-primary">A</span>
       <div
         ref="track"
-        class="relative h-2 flex-1 cursor-pointer rounded-full bg-surface-2"
+        class="relative h-2 flex-1 cursor-pointer rounded-full bg-surface"
         @pointerdown="onPointerDown"
         @pointermove="onPointerMove"
         @pointerup="onPointerUp"
         @pointercancel="onPointerUp"
       >
         <div
-          class="absolute inset-y-0 left-0 rounded-full bg-crossfade"
+          class="absolute inset-y-0 left-0 rounded-full bg-primary"
           :style="{ width: `${position}%` }"
         />
         <button
@@ -126,18 +121,19 @@ const onAir = computed(() => (position.value < 50 ? 'A' : 'B'))
           aria-valuemin="0"
           aria-valuemax="100"
           :aria-valuenow="Math.round(position)"
-          class="absolute top-1/2 h-6 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-text/80 bg-crossfade shadow-lg transition-transform hover:scale-110"
+          class="absolute top-1/2 h-6 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border border-on-surface/80 bg-primary shadow-lg transition-transform hover:scale-110"
           :style="{ left: `${position}%` }"
           @keydown="onKey"
         />
       </div>
-      <span class="font-mono text-xs font-semibold text-cue">B</span>
-    </div>
-    <div class="mt-2 flex justify-between font-mono text-[0.6875rem] uppercase tracking-wider text-text-faint">
-      <span>Program</span>
-      <span class="hidden sm:inline">← drag to cut →</span>
-      <span>Preview</span>
+      <span class="font-mono text-xs font-semibold text-primary-fixed-dim">B</span>
     </div>
     <slot />
   </div>
 </template>
+
+<style scoped>
+.font-mono {
+  font-family: var(--font-mono);
+}
+</style>
