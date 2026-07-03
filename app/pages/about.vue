@@ -27,7 +27,7 @@ const developers = [
 const milestones = [
   {
     year: '2025',
-    title: 'CutWire starts SwitchX',
+    title: 'CutWire starts Prism',
     body: 'A small team begins building an open-source live media trigger — simpler than Resolume, more approachable than TouchDesigner.',
   },
   {
@@ -38,7 +38,7 @@ const milestones = [
   {
     year: '2026',
     title: 'CutWire Studios launches',
-    body: 'SwitchX 0.1 goes public under GPLv3. CutWire Studios becomes the home for live media tools built for operators everywhere.',
+    body: 'CutWire Prism 0.1 goes public under GPLv3. CutWire Studios becomes the home for live media tools built for operators everywhere.',
   },
 ]
 </script>
@@ -88,7 +88,7 @@ const milestones = [
             </h2>
             <div class="mx-auto mt-8 max-w-2xl space-y-6 text-body-md leading-relaxed text-on-surface-variant">
               <p>
-                SwitchX started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted click-to-trigger clip cards, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
+                CutWire Prism started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted click-to-trigger clip cards, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
               </p>
               <p>
                 Every CutWire product speaks the same signal language — calm under pressure, precise when it counts. We prioritize simplicity over feature bloat, build on open-source foundations, and release under GPLv3 so operators can trust and extend what they run live.
@@ -167,9 +167,9 @@ const milestones = [
           v-reveal
           class="mt-10 text-center text-sm text-on-surface-variant"
         >
-          SwitchX is open source.
+          CutWire Prism is open source.
           <a
-            href="https://github.com/SubtleArts/SwitchX"
+            href="https://github.com/SubtleArts/CutWire-Prism"
             target="_blank"
             rel="noopener"
             class="text-primary hover:underline"

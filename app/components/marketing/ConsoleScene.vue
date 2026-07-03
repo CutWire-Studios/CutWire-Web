@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// A CSS-rendered still of the SwitchX console — no asset required.
+// A CSS-rendered still of the CutWire Prism console — no asset required.
 // signal 'a' = live/program (ember), 'b' = cued/preview (azure).
 const props = withDefaults(defineProps<{
   signal?: 'a' | 'b'

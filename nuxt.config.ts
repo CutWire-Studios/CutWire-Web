@@ -50,12 +50,13 @@ export default defineNuxtConfig({
 
   routeRules: {
     '/': { prerender: true },
-    '/switchx': { prerender: true },
+    '/prism': { prerender: true },
     '/products/**': { prerender: true },
     '/about': { prerender: true },
     '/download/**': { prerender: true },
     '/api/**': { cors: false },
-    '/products/switchx': { redirect: { to: '/switchx', statusCode: 301 } },
+    '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
+    '/switchx': { redirect: { to: '/prism', statusCode: 301 } },
   },
 
   typescript: {

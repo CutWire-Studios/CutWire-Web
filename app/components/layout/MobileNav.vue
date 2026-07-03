@@ -47,11 +47,11 @@ const links = [
 
       <div class="mt-8">
         <NuxtLink
-          to="/switchx"
+          to="/prism"
           class="glow-button-primary flex w-full items-center justify-center px-6 py-3 text-label-md"
           @click="open = false"
         >
-          Get SwitchX
+          Get CutWire Prism
         </NuxtLink>
       </div>
     </UiSheetContent>

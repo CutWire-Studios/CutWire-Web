@@ -13,12 +13,12 @@ export interface Instrument {
 export function useLineup(): Instrument[] {
   return [
     {
-      name: 'SwitchX',
+      name: 'Prism',
       domain: 'Live media',
       tagline: 'Trigger. Mix. Create. Live.',
       status: 'live',
-      slug: 'switchx',
-      href: '/switchx',
+      slug: 'prism',
+      href: '/prism',
       accent: 'live',
     },
   ]

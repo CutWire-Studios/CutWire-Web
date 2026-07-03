@@ -45,10 +45,10 @@ const navLinks = [
 
       <div class="flex items-center gap-3">
         <NuxtLink
-          to="/switchx"
+          to="/prism"
           class="glow-button-secondary hidden px-6 py-2 text-label-md md:inline-flex"
         >
-          Get SwitchX
+          Get CutWire Prism
         </NuxtLink>
         <LayoutMobileNav />
       </div>

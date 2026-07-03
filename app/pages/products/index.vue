@@ -28,10 +28,10 @@ useSeoMeta({
             </p>
             <div class="mt-10">
               <NuxtLink
-                to="/switchx"
+                to="/prism"
                 class="glow-button-primary inline-flex items-center gap-2 px-8 py-4 text-label-sm uppercase tracking-wider"
               >
-                Explore SwitchX
+                Explore CutWire Prism
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"

@@ -1,5 +1,5 @@
-slug: switchx
-name: SwitchX
+slug: prism
+name: Prism
 tagline: Trigger. Mix. Create. Live.
 status: live
 version: "0.1.0"
@@ -22,7 +22,7 @@ highlights:
   - title: Live A/B deck mixing
     description: Crossfade between two sources with per-deck speed control and hotkey triggers under 50ms latency.
   - title: Phone camera over WebRTC
-    description: Stream a smartphone camera into SwitchX over LAN or a public relay, paired by QR code.
+    description: Stream a smartphone camera into CutWire Prism over LAN or a public relay, paired by QR code.
   - title: GLSL shaders & HTML overlays
     description: Built-in visual generators, audio-reactive presets, and dynamic scoreboards via Qt WebEngine.
   - title: Panic controls & program output
@@ -73,16 +73,16 @@ specs:
     value: GPLv3
 downloads:
   - platform: macOS
-    url: https://github.com/SubtleArts/SwitchX#building
+    url: https://github.com/SubtleArts/CutWire-Prism#building
     size: Build from source
     version: "0.1.0"
   - platform: Windows
-    url: https://github.com/SubtleArts/SwitchX#building
+    url: https://github.com/SubtleArts/CutWire-Prism#building
     size: Build from source
     version: "0.1.0"
   - platform: Linux
-    url: https://github.com/SubtleArts/SwitchX#flatpak
+    url: https://github.com/SubtleArts/CutWire-Prism#flatpak
     size: Flatpak or build from source
     version: "0.1.0"
-repoUrl: https://github.com/SubtleArts/SwitchX
-docsUrl: https://docs.cutwire.org/switchx
+repoUrl: https://github.com/SubtleArts/CutWire-Prism
+docsUrl: https://docs.cutwire.org/prism

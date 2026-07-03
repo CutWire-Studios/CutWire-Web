@@ -9,11 +9,11 @@ useSeoMeta({ title: 'License — CutWire Studios' })
       License
     </h1>
     <p class="mt-6 text-on-surface-variant">
-      SwitchX end-user license agreement
+      CutWire Prism end-user license agreement
     </p>
     <div class="mt-8 space-y-4 text-on-surface-variant">
       <p>
-        CutWire Studios grants you a non-exclusive license to use SwitchX for live media production.
+        CutWire Studios grants you a non-exclusive license to use CutWire Prism for live media production.
       </p>
       <p>
         You may not redistribute, reverse-engineer, or sublicense the software without written permission.

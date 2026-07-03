@@ -5,7 +5,7 @@ definePageMeta({ layout: 'default' })
 
 useSeoMeta({
   title: 'CutWire Studios — Professional software, intuitive for everyone',
-  description: 'CutWire Studios builds professional creative tools with clean, beginner-friendly interfaces. SwitchX is our first product.',
+  description: 'CutWire Studios builds professional creative tools with clean, beginner-friendly interfaces. CutWire Prism is our first product.',
 })
 
 const useCases = [
@@ -64,8 +64,8 @@ const useCases = [
             <div class="ambient-glow" />
             <div class="relative aspect-[1209/828] overflow-hidden rounded-[24px] border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2">
               <NuxtImg
-                src="/images/switchx-mock.avif"
-                alt="SwitchX interface preview — live video mixing with dark UI and orange accents"
+                src="/images/prism-mock.avif"
+                alt="CutWire Prism interface preview — live video mixing with dark UI and orange accents"
                 class="h-full w-full object-cover"
                 width="1209"
                 height="828"
@@ -140,7 +140,7 @@ const useCases = [
           v-reveal
           class="mb-12 text-label-sm uppercase tracking-widest text-on-surface-variant"
         >
-          Where SwitchX runs
+          Where CutWire Prism runs
         </p>
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <MarketingUseCaseCard

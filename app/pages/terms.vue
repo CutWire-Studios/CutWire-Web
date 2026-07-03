@@ -19,7 +19,7 @@ useSeoMeta({ title: 'Terms of Service — CutWire Studios' })
         License
       </h2>
       <p>
-        SwitchX is provided under the terms described in our License page. You may use the software for personal and commercial live production.
+        CutWire Prism is provided under the terms described in our License page. You may use the software for personal and commercial live production.
       </p>
       <h2 class="text-lg font-semibold text-on-surface">
         Limitation of liability

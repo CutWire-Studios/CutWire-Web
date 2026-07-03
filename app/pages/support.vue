@@ -10,7 +10,7 @@ useSeoMeta({
 
 const faqs = [
   {
-    q: 'Where do I download SwitchX?',
+    q: 'Where do I download CutWire Prism?',
     a: 'Visit the download page for macOS, Windows, or Linux installers.',
   },
   {

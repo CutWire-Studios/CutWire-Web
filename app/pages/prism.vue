@@ -5,8 +5,8 @@ import type { Component } from 'vue'
 definePageMeta({ layout: 'default' })
 
 const { data: product } = await useAsyncData(
-  'product-switchx',
-  () => queryCollection('products').where('slug', '=', 'switchx').first(),
+  'product-prism',
+  () => queryCollection('products').where('slug', '=', 'prism').first(),
 )
 
 if (!product.value) {
@@ -14,11 +14,11 @@ if (!product.value) {
 }
 
 useSeoMeta({
-  title: 'SwitchX — Trigger. Mix. Create. Live.',
+  title: 'CutWire Prism — Trigger. Mix. Create. Live.',
   description: product.value.summary,
 })
 
-const repoUrl = product.value.repoUrl ?? 'https://github.com/SubtleArts/SwitchX'
+const repoUrl = product.value.repoUrl ?? 'https://github.com/SubtleArts/CutWire-Prism'
 const videoOpen = ref(false)
 
 const highlightIcons: Component[] = [GitBranch, Layers, Network, Palette, ShieldAlert]
@@ -56,7 +56,7 @@ const moments = computed(() =>
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
-              SwitchX · {{ product.tagline }}
+              CutWire Prism · {{ product.tagline }}
             </p>
             <h1 class="mt-5 text-display-xl text-on-surface">
               {{ product.hero?.headline ?? product.tagline }}
@@ -71,7 +71,7 @@ const moments = computed(() =>
                 rel="noopener"
                 class="glow-button-primary px-8 py-4 text-label-md"
               >
-                Get SwitchX on GitHub
+                Get CutWire Prism on GitHub
               </a>
               <button
                 type="button"
@@ -113,7 +113,7 @@ const moments = computed(() =>
       </div>
     </section>
 
-    <!-- Why creators love SwitchX -->
+    <!-- Why creators love CutWire Prism -->
     <section class="section-y">
       <div class="container-cutwire">
         <p
@@ -193,7 +193,7 @@ const moments = computed(() =>
               Sessions autosave
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">
-              Save and reload shows with portable .switchx bundles and asset relinking.
+              Save and reload shows with portable .prism bundles and asset relinking.
             </p>
           </div>
         </div>
@@ -226,7 +226,7 @@ const moments = computed(() =>
             Ready to steal the show?
           </p>
           <h2 class="mt-4 text-headline-lg text-on-surface">
-            Get SwitchX — free & open source
+            Get CutWire Prism — free & open source
           </h2>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a
@@ -254,7 +254,7 @@ const moments = computed(() =>
     <UiDialog v-model:open="videoOpen">
       <UiDialogContent class="border-outline-variant bg-card sm:max-w-3xl">
         <UiDialogHeader>
-          <UiDialogTitle>SwitchX preview</UiDialogTitle>
+          <UiDialogTitle>CutWire Prism preview</UiDialogTitle>
         </UiDialogHeader>
         <div class="aspect-video">
           <MarketingConsoleScene
