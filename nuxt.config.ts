@@ -41,6 +41,17 @@ export default defineNuxtConfig({
     name: 'CutWire Studios',
   },
 
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'icon', type: 'image/png', href: '/images/favicon-32x32.png', sizes: '32x32' },
+        { rel: 'apple-touch-icon', href: '/images/icon-192.png' },
+        { rel: 'manifest', href: '/manifest.webmanifest' },
+      ],
+    },
+  },
+
   fonts: {
     families: [
       { name: 'Hanken Grotesk', provider: 'google', weights: [400, 500, 600, 700] },

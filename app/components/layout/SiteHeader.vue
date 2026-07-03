@@ -17,18 +17,13 @@ const navLinks = [
         to="/"
         class="flex items-center gap-2 text-xl font-bold tracking-tight text-on-surface"
       >
-        <span class="flex size-6 items-center justify-center rounded-md bg-primary/10 text-primary">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="size-4"
-          >
-            <path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z" />
-          </svg>
-        </span>
-        CutWire
-        <span class="text-label-sm font-normal normal-case tracking-normal text-on-surface-variant">Studios</span>
+        <NuxtImg
+          src="/logo-with-name.svg"
+          alt="CutWire Studios"
+          class="h-12 w-auto"
+          width="180"
+          height="48"
+        />
       </NuxtLink>
 
       <nav class="hidden items-center gap-8 md:flex">
