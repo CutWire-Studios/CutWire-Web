@@ -18,7 +18,7 @@ useSeoMeta({
   description: product.value.summary,
 })
 
-const repoUrl = product.value.repoUrl ?? 'https://github.com/SubtleArts/CutWire-Prism'
+const repoUrl = product.value.repoUrl ?? 'https://github.com/CutWire-Studios/Prism'
 const videoOpen = ref(false)
 
 const highlightIcons: Component[] = [GitBranch, Layers, Network, Palette, ShieldAlert]

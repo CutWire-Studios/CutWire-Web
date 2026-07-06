@@ -5,7 +5,6 @@ const isActive = (href: string) => route.path === href || route.path.startsWith(
 const navLinks = [
   { label: 'Products', href: '/products' },
   { label: 'Docs', href: 'https://docs.cutwire.org' },
-  { label: 'Blog', href: 'https://blog.cutwire.org' },
   { label: 'About', href: '/about' },
 ]
 </script>
@@ -39,12 +38,14 @@ const navLinks = [
       </nav>
 
       <div class="flex items-center gap-3">
-        <NuxtLink
-          to="/prism"
+        <a
+          href="https://github.com/CutWire-Studios/Prism"
+          target="_blank"
+          rel="noopener noreferrer"
           class="glow-button-secondary hidden px-6 py-2 text-label-md md:inline-flex"
         >
           Get CutWire Prism
-        </NuxtLink>
+        </a>
         <LayoutMobileNav />
       </div>
     </div>

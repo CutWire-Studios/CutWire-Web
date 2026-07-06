@@ -73,16 +73,16 @@ specs:
     value: GPLv3
 downloads:
   - platform: macOS
-    url: https://github.com/SubtleArts/CutWire-Prism#building
+    url: https://github.com/CutWire-Studios/Prism#building
     size: Build from source
     version: "0.1.0"
   - platform: Windows
-    url: https://github.com/SubtleArts/CutWire-Prism#building
+    url: https://github.com/CutWire-Studios/Prism#building
     size: Build from source
     version: "0.1.0"
   - platform: Linux
-    url: https://github.com/SubtleArts/CutWire-Prism#flatpak
+    url: https://github.com/CutWire-Studios/Prism#flatpak
     size: Flatpak or build from source
     version: "0.1.0"
-repoUrl: https://github.com/SubtleArts/CutWire-Prism
+repoUrl: https://github.com/CutWire-Studios/Prism
 docsUrl: https://docs.cutwire.org/prism

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'legal' })
 useSeoMeta({ title: 'License — CutWire Studios' })
+
+const repoUrl = 'https://github.com/CutWire-Studios/Prism'
 </script>
 
 <template>
@@ -9,17 +11,26 @@ useSeoMeta({ title: 'License — CutWire Studios' })
       License
     </h1>
     <p class="mt-6 text-on-surface-variant">
-      CutWire Prism end-user license agreement
+      CutWire Prism is free and open source software
     </p>
     <div class="mt-8 space-y-4 text-on-surface-variant">
       <p>
-        CutWire Studios grants you a non-exclusive license to use CutWire Prism for live media production.
+        CutWire Prism is licensed under the
+        <strong class="text-on-surface">GNU General Public License v3.0 (GPLv3)</strong>.
+        You are free to use, study, share, and modify the software.
       </p>
       <p>
-        You may not redistribute, reverse-engineer, or sublicense the software without written permission.
+        Any redistributed or modified versions must also be released under the GPLv3
+        and keep the complete corresponding source code available.
       </p>
       <p>
-        Full license text will be included with the installer. Contact legal@cutwire.org for enterprise licensing.
+        The full source code and license text are available on
+        <a
+          :href="repoUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary underline underline-offset-4 hover:text-primary/80"
+        >GitHub</a>.
       </p>
     </div>
   </div>

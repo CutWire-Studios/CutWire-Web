@@ -6,7 +6,6 @@ const open = ref(false)
 const links = [
   { label: 'Products', href: '/products' },
   { label: 'Docs', href: 'https://docs.cutwire.org' },
-  { label: 'Blog', href: 'https://blog.cutwire.org' },
   { label: 'About', href: '/about' },
   { label: 'Support', href: '/support' },
 ]
@@ -46,13 +45,15 @@ const links = [
       </nav>
 
       <div class="mt-8">
-        <NuxtLink
-          to="/prism"
+        <a
+          href="https://github.com/CutWire-Studios/Prism"
+          target="_blank"
+          rel="noopener noreferrer"
           class="glow-button-primary flex w-full items-center justify-center px-6 py-3 text-label-md"
           @click="open = false"
         >
           Get CutWire Prism
-        </NuxtLink>
+        </a>
       </div>
     </UiSheetContent>
   </UiSheet>

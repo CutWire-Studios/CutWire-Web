@@ -7,7 +7,6 @@ const footerLinks = {
   ],
   Company: [
     { label: 'About', href: '/about' },
-    { label: 'Blog', href: 'https://blog.cutwire.org' },
     { label: 'Support', href: '/support' },
   ],
   Legal: [

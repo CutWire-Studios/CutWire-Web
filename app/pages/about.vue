@@ -169,7 +169,7 @@ const milestones = [
         >
           CutWire Prism is open source.
           <a
-            href="https://github.com/SubtleArts/CutWire-Prism"
+            href="https://github.com/CutWire-Studios/Prism"
             target="_blank"
             rel="noopener"
             class="text-primary hover:underline"
