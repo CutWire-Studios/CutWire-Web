@@ -10,7 +10,7 @@ const developers = [
   {
     name: 'Suhas Dissanayake',
     initials: 'SD',
-    github: null,
+    github: 'https://github.com/suhasdissa',
   },
   {
     name: 'Kalana Liyanage',
@@ -33,7 +33,7 @@ const milestones = [
   {
     year: '2025–2026',
     title: 'From prototype to product',
-    body: 'Node-based clip canvas, A/B mixing, GLSL shaders, HTML overlays, NDI output, OBS integration, and Flatpak packaging ship across sprints.',
+    body: 'A node graph with process and layer nodes, A/B mixing, AI background removal, GLSL shaders, HTML overlays, NDI output, OBS integration, and Flatpak packaging ship across sprints.',
   },
   {
     year: '2026',
@@ -88,7 +88,7 @@ const milestones = [
             </h2>
             <div class="mx-auto mt-8 max-w-2xl space-y-6 text-body-md leading-relaxed text-on-surface-variant">
               <p>
-                CutWire Prism started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted click-to-trigger clip cards, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
+                CutWire Prism started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted a visual node graph, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
               </p>
               <p>
                 Every CutWire product speaks the same signal language — calm under pressure, precise when it counts. We prioritize simplicity over feature bloat, build on open-source foundations, and release under GPLv3 so operators can trust and extend what they run live.

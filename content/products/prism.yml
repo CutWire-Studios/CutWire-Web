@@ -2,31 +2,33 @@ slug: prism
 name: Prism
 tagline: Trigger. Mix. Create. Live.
 status: live
-version: "0.1.0"
+version: "0.1.2"
 platforms:
   - macOS
   - Windows
   - Linux
 summary: >-
   A beginner-friendly live media trigger and overlay tool built with Qt 6, FFmpeg,
-  and OpenGL. Perfect for school events, small concerts, and sports — combining
-  instant clip triggering with the power of live visual control.
+  and OpenGL. Wire sources through a node graph, remove backgrounds live with AI,
+  and crossfade decks — perfect for school events, small concerts, and sports.
 hero:
   headline: The beginner-friendly live trigger that feels like magic.
   subheadline: >-
     Instant clips. Beautiful overlays. Zero stress. Perfect for school events,
     small concerts, sports, and anywhere you want to look pro — without the headache.
 highlights:
-  - title: Node-based clip canvas
-    description: Visual clip graph with groups, transform contexts, and audio routing — not locked to a fixed grid.
+  - title: Node graph canvas
+    description: Wire Input → Process → Layer → A/B Select → Output nodes with zoom, pan, and a minimap — no scenes or playlists to manage.
   - title: Live A/B deck mixing
-    description: Crossfade between two sources with per-deck speed control and hotkey triggers under 50ms latency.
+    description: Crossfade between two decks with per-deck speed, AUTO/CUT, and transition modes — wipes, slides, dips, and 3D cube/flip.
+  - title: AI background removal
+    description: Key out a webcam's background live with a MediaPipe selfie-segmentation model via ONNX Runtime, composited over the layers below.
   - title: Phone camera over WebRTC
     description: Stream a smartphone camera into CutWire Prism over LAN or a public relay, paired by QR code.
   - title: GLSL shaders & HTML overlays
-    description: Built-in visual generators, audio-reactive presets, and dynamic scoreboards via Qt WebEngine.
+    description: Audio-reactive FFT shaders, built-in visual generators, and dynamic scoreboards via Qt WebEngine and Lua scripting.
   - title: Panic controls & program output
-    description: Blackout, freeze-frame, stay-tuned overlay, NDI output, recording, and OBS WebSocket integration.
+    description: Blackout, freeze-frame, stay-tuned overlay, NDI output, virtual camera, recording, and OBS WebSocket integration.
 useCases:
   - title: School events
     description: Instant highlight reels and replays during cricket, football, and assembly shows.
@@ -40,49 +42,58 @@ features:
   - title: Source
     body: >-
       Video files, images, slideshows, webcams, screen/window capture, custom canvases,
-      GLSL shaders, HTML/QML overlays, text, Lua-scripted sources, NDI inputs, and
-      phone cameras over WebRTC.
+      GLSL shaders, HTML/QML overlays, text, Lua-scripted sources, NDI inputs, audio
+      capture, and phone cameras over WebRTC.
     icon: source
   - title: Canvas
     body: >-
-      Node-based clip canvas with groups, per-clip trim/crop/transform editing,
-      text and image overlays, and drag-and-drop media loading.
+      A node graph canvas with Process nodes (crop, flip, and AI background removal)
+      and Layer nodes that stack and lay out inputs with GPU compositing — plus
+      per-source trim, transform, and text/image overlays.
     icon: canvas
   - title: Mix
     body: >-
-      Live A/B deck mixing with crossfader, per-deck speed control, and a hotkey grid
-      (1–0, Q–P, A–L, Z–M) with Shift variants for Deck B.
+      Live A/B deck mixing with a crossfader, per-deck speed, AUTO/CUT, and many
+      transition modes (wipes, slides, dips, 3D cube/flip) with a hotkey grid
+      (1–0, Q–P, A–L, Z–M) and Shift variants for Deck B.
     icon: mix
   - title: Output
     body: >-
-      Mirror windows, NDI program output, virtual camera, program recording with markers,
-      OBS scene switching, remote control server, and panic controls.
+      Configurable-resolution program output — mirror windows, NDI, virtual camera,
+      program recording with markers, OBS scene switching, a remote control server,
+      and panic controls.
     icon: output
 specs:
   - label: Version
-    value: "0.1.0"
+    value: "0.1.2"
   - label: Platforms
-    value: macOS, Windows, Linux (Flatpak)
+    value: macOS, Windows, Linux (Flatpak / AppImage)
   - label: Framework
     value: Qt 6.5+ (Widgets, OpenGL, Multimedia, WebEngine)
   - label: Video
-    value: FFmpeg decode with OpenGL compositing
+    value: FFmpeg decode with OpenGL/GPU compositing
+  - label: Audio
+    value: FFT analysis, effect chains, master routing
+  - label: Background removal
+    value: ONNX Runtime (MediaPipe selfie segmentation)
   - label: GPU
     value: OpenGL 4.1+ recommended
   - label: License
     value: GPLv3
 downloads:
   - platform: macOS
-    url: https://github.com/CutWire-Studios/Prism#building
+    url: https://github.com/CutWire-Studios/Prism#macos
     size: Build from source
-    version: "0.1.0"
+    version: "0.1.2"
   - platform: Windows
-    url: https://github.com/CutWire-Studios/Prism#building
-    size: Build from source
-    version: "0.1.0"
+    url: https://github.com/CutWire-Studios/Prism/releases/download/v0.1.2/Prism-Setup-0.1.2-x64.exe
+    size: 137 MB · Installer (.exe)
+    version: "0.1.2"
+    checksum: e5d6224fdfa22eef3d87839fb8831fd071b76f395389a04374f800543956ad2c
   - platform: Linux
-    url: https://github.com/CutWire-Studios/Prism#flatpak
-    size: Flatpak or build from source
-    version: "0.1.0"
+    url: https://github.com/CutWire-Studios/Prism/releases/download/v0.1.2/Prism-0.1.2-x86_64.AppImage
+    size: 178 MB · AppImage (Flatpak in releases)
+    version: "0.1.2"
+    checksum: 5408a0f0721639f4fbb6ac44acaad11c0428aa24ffa95b8eaecc0242424865e3
 repoUrl: https://github.com/CutWire-Studios/Prism
 docsUrl: https://docs.cutwire.org/prism

@@ -13,6 +13,10 @@ const currentDownload = computed(() =>
   props.downloads.find(d => d.platform === activePlatform.value),
 )
 
+const isBinaryDownload = computed(() =>
+  currentDownload.value?.url.includes('/releases/download/') ?? false,
+)
+
 function onDownload() {
   if (!currentDownload.value) return
   console.info('download_click', { platform: activePlatform.value, product: props.productName })
@@ -48,7 +52,7 @@ function onDownload() {
             class="glow-button-primary mt-4 inline-flex px-8 py-3 text-label-md"
             @click="onDownload"
           >
-            {{ currentDownload.url.startsWith('http') ? `Build for ${platform}` : `Download for ${platform}` }}
+            {{ isBinaryDownload ? `Download for ${platform}` : `Build for ${platform}` }}
           </a>
           <p
             v-if="currentDownload.checksum"

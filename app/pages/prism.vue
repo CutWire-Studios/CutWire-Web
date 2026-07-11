@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Clapperboard, GraduationCap, GitBranch, Layers, Music, Network, Palette, ShieldAlert, Trophy, Users } from 'lucide-vue-next'
+import { Clapperboard, GraduationCap, GitBranch, Layers, Music, Network, Palette, ShieldAlert, Sparkles, Trophy, Users } from 'lucide-vue-next'
 import type { Component } from 'vue'
 
 definePageMeta({ layout: 'default' })
@@ -21,7 +21,7 @@ useSeoMeta({
 const repoUrl = product.value.repoUrl ?? 'https://github.com/CutWire-Studios/Prism'
 const videoOpen = ref(false)
 
-const highlightIcons: Component[] = [GitBranch, Layers, Network, Palette, ShieldAlert]
+const highlightIcons: Component[] = [GitBranch, Layers, Sparkles, Network, Palette, ShieldAlert]
 
 const loveFeatures = computed(() =>
   (product.value?.highlights ?? []).map((item, i) => ({
@@ -101,7 +101,7 @@ const moments = computed(() =>
             v-reveal="1"
             class="mt-6 text-headline-lg text-on-surface"
           >
-            Click-to-trigger clip cards, a live A/B crossfader, and panic controls when the show gets wild — all in a dark VJ-style interface optimized for low-light events.
+            A visual node graph, a live A/B crossfader, AI background removal, and panic controls when the show gets wild — all in a dark VJ-style interface optimized for low-light events.
           </p>
           <p
             v-reveal="2"
@@ -166,7 +166,7 @@ const moments = computed(() =>
           v-reveal="1"
           class="mt-6 max-w-2xl text-body-lg text-on-surface-variant"
         >
-          No expensive subscriptions. Sessions autosave with portable asset paths and smart relinking. Drag and drop media onto clip cards and go live.
+          No expensive subscriptions. Sessions autosave with portable asset paths and smart relinking. Drag and drop media onto the node canvas and go live.
         </p>
         <div
           v-reveal="2"
@@ -185,7 +185,7 @@ const moments = computed(() =>
               Drag & drop media
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">
-              Load folders, files, or photos — or drop media directly onto clip cards.
+              Load folders, files, or photos — or drop media directly onto the node canvas.
             </p>
           </div>
           <div class="glass-card rounded-[24px] p-6">
