@@ -13,9 +13,31 @@ if (!product.value) {
   throw createError({ statusCode: 404, statusMessage: 'Product not found' })
 }
 
+const site = useSiteConfig()
+const pageTitle = 'CutWire Prism — Trigger. Mix. Create. Live.'
+const pageDescription = product.value.summary
+const pageUrl = `${site.url}/prism`
+const ogImage = `${site.url}/images/prism-cover.png`
+const ogImageAlt = 'CutWire Prism — Trigger. Mix. Create. Live.'
+
 useSeoMeta({
-  title: 'CutWire Prism — Trigger. Mix. Create. Live.',
-  description: product.value.summary,
+  title: pageTitle,
+  description: pageDescription,
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogType: 'website',
+  ogUrl: pageUrl,
+  ogSiteName: site.name,
+  ogImage,
+  ogImageAlt,
+  ogImageType: 'image/png',
+  ogImageWidth: 700,
+  ogImageHeight: 400,
+  twitterCard: 'summary_large_image',
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: ogImage,
+  twitterImageAlt: ogImageAlt,
 })
 
 const repoUrl = product.value.repoUrl ?? 'https://github.com/CutWire-Studios/Prism'
