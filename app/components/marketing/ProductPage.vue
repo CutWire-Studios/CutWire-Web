@@ -27,7 +27,7 @@ const videoOpen = ref(false)
             </p>
             <div class="mt-8 flex flex-wrap gap-4">
               <NuxtLink
-                :to="`/download/${product.slug}`"
+                :to="`/${product.slug}#download`"
                 class="glow-button-primary px-8 py-4 text-label-md"
               >
                 Download {{ product.name }}

@@ -42,7 +42,7 @@ useSeoMeta({
             Docs
           </NuxtLink>
           <NuxtLink
-            to="/download"
+            to="/prism#download"
             class="glow-button-secondary px-8 py-3 text-label-md"
           >
             Download

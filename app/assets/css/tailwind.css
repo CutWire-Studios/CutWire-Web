@@ -5,6 +5,8 @@
 
 @import "shadcn-vue/tailwind.css";
 
+@import "./prism.css";
+
 @custom-variant dark (&:is(.dark *));
 
 /* Lumina Dark — CutWire design system */

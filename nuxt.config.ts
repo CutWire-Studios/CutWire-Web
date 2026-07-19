@@ -55,6 +55,7 @@ export default defineNuxtConfig({
   fonts: {
     families: [
       { name: 'Hanken Grotesk', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700, 800] },
       { name: 'JetBrains Mono', provider: 'google', weights: [500] },
     ],
   },
@@ -64,7 +65,8 @@ export default defineNuxtConfig({
     '/prism': { prerender: true },
     '/products/**': { prerender: true },
     '/about': { prerender: true },
-    '/download/**': { prerender: true },
+    '/download': { redirect: { to: '/prism#download', statusCode: 301 } },
+    '/download/**': { redirect: { to: '/prism#download', statusCode: 301 } },
     '/api/**': { cors: false },
     '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
     '/switchx': { redirect: { to: '/prism', statusCode: 301 } },
