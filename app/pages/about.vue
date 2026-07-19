@@ -3,7 +3,7 @@ definePageMeta({ layout: 'default' })
 
 useSeoMeta({
   title: 'About — CutWire Studios',
-  description: 'The team behind CutWire Studios — open-source live media software for operators.',
+  description: 'The team behind CutWire Studios — open-source live media software for operators who run shows, streams and events under real pressure.',
 })
 
 const developers = [
@@ -21,6 +21,29 @@ const developers = [
     name: 'Sangeeth Kariyapperuma',
     initials: 'SK',
     github: 'https://github.com/NipunSGeeTH',
+  },
+]
+
+const facts = [
+  'Open source',
+  'GPLv3',
+  'No telemetry',
+  'No subscription',
+  'Built in the open',
+]
+
+const principles = [
+  {
+    title: 'Calm under pressure',
+    body: 'Panic controls, freeze-frame and blackout are always one click away. The moment something goes wrong is the moment the software has to be simple.',
+  },
+  {
+    title: 'Simplicity over feature bloat',
+    body: 'Every addition has to earn its place in the interface. Defaults that work beat options that might.',
+  },
+  {
+    title: 'Open foundations',
+    body: 'Built on Qt, FFmpeg and OpenGL, released under GPLv3 — so operators can trust, audit and extend what they run live.',
   },
 ]
 
@@ -44,99 +67,143 @@ const milestones = [
 </script>
 
 <template>
-  <div class="relative overflow-hidden">
-    <div class="ambient-glow top-0 left-0 -translate-x-1/2 -translate-y-1/4 opacity-60" />
-    <div class="ambient-glow top-[30%] right-0 translate-x-1/4 opacity-40" />
-
+  <div>
     <!-- Hero -->
-    <section class="section-y">
-      <div class="container-cutwire">
-        <div class="grid items-center gap-12 lg:grid-cols-12">
-          <div class="lg:col-span-6">
-            <p class="text-label-sm uppercase tracking-widest text-primary">
-              About
-            </p>
-            <h1 class="mt-4 text-display-xl text-gradient">
-              About CutWire Studios
-            </h1>
-            <p class="mt-6 max-w-xl text-body-lg leading-relaxed text-on-surface-variant">
-              CutWire Studios builds open-source live media software for operators who run shows, streams, and events under real pressure.
-            </p>
-          </div>
-          <div class="relative lg:col-span-6">
-            <div class="glass-card relative aspect-[4/3] overflow-hidden p-1 shadow-2xl">
-              <MarketingConsoleScene
-                signal="b"
-                scene="STAGE"
-                class="h-full w-full rounded-[20px] opacity-70"
-              />
-              <div class="absolute inset-0 bg-gradient-to-tr from-background/80 to-transparent" />
-            </div>
-          </div>
+    <section class="relative overflow-hidden">
+      <div
+        aria-hidden="true"
+        class="grid-bg absolute inset-0 opacity-60"
+      />
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0"
+        style="background: var(--grad-hero)"
+      />
+      <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
+        <div class="animate-rise-in mx-auto max-w-3xl text-center">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            About
+          </p>
+          <h1 class="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
+            Software for people who are <span class="grad-text">live in ten minutes</span>.
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
+            CutWire Studios builds open-source live media software for operators who run shows,
+            streams and events under real pressure — in a school gym as readily as on a small stage.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Company story -->
-    <section class="section-y">
-      <div class="container-cutwire">
-        <div class="glass-card relative mx-auto max-w-4xl overflow-hidden p-12 md:p-20">
-          <div class="absolute top-0 right-0 size-64 rounded-full bg-primary/10 blur-[80px] mix-blend-screen" />
-          <div class="relative z-10">
-            <h2 class="text-center text-headline-lg text-on-surface">
-              The CutWire narrative
-            </h2>
-            <div class="mx-auto mt-8 max-w-2xl space-y-6 text-body-md leading-relaxed text-on-surface-variant">
-              <p>
-                CutWire Prism started from a simple idea: professional live media control shouldn't require a manual or a subscription. We wanted a visual node graph, a live crossfader, and panic controls — in a dark VJ-style interface that works in a school gym as well as on a small stage.
-              </p>
-              <p>
-                Every CutWire product speaks the same signal language — calm under pressure, precise when it counts. We prioritize simplicity over feature bloat, build on open-source foundations, and release under GPLv3 so operators can trust and extend what they run live.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Developers -->
-    <section class="section-y">
-      <div class="container-cutwire">
-        <p
+        <div
           v-reveal
-          class="text-label-sm uppercase tracking-widest text-on-surface-variant"
+          class="relative mx-auto mt-14 max-w-4xl"
         >
-          The team
-        </p>
-        <h2
-          v-reveal="1"
-          class="mt-4 text-headline-md text-on-surface"
-        >
-          Developers
-        </h2>
-        <p
-          v-reveal="2"
-          class="mt-4 max-w-2xl text-on-surface-variant"
-        >
-          The people building CutWire Studios software.
-        </p>
+          <div class="glow-ring relative aspect-video overflow-hidden rounded-xl border border-border bg-surface">
+            <MarketingConsoleScene
+              signal="b"
+              scene="STAGE"
+              class="h-full w-full opacity-80"
+            />
+            <div
+              aria-hidden="true"
+              class="absolute inset-0 bg-gradient-to-tr from-background/70 to-transparent"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
+    <!-- Facts strip -->
+    <div class="border-y border-border/60 bg-surface/40">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 py-5 text-xs uppercase tracking-[0.18em] text-on-surface-variant md:px-6">
+        <span
+          v-for="fact in facts"
+          :key="fact"
+        >{{ fact }}</span>
+      </div>
+    </div>
+
+    <!-- Story -->
+    <section class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div
+          v-reveal
+          class="max-w-2xl"
+        >
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Why we build it
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+            Live media control shouldn't need a manual or a subscription.
+          </h2>
+          <div class="mt-5 space-y-5 text-lg text-on-surface-variant">
+            <p>
+              CutWire Prism started from a simple idea: a visual node graph, a live crossfader and
+              panic controls, in a dark interface that works under stage lighting and in a school
+              hall alike.
+            </p>
+            <p>
+              Every CutWire product speaks the same signal language — calm under pressure, precise
+              when it counts.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-4 md:grid-cols-3">
+          <div
+            v-for="(item, i) in principles"
+            :key="item.title"
+            v-reveal="i"
+            class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
+          >
+            <div
+              aria-hidden="true"
+              class="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
+              style="background: rgba(255, 77, 0, 0.35)"
+            />
+            <div class="relative">
+              <h3 class="font-semibold">
+                {{ item.title }}
+              </h3>
+              <p class="mt-2 text-sm text-on-surface-variant">
+                {{ item.body }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="relative border-y border-border/60 bg-surface/40 py-24">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div
+          v-reveal
+          class="max-w-2xl"
+        >
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            The team
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            The people building it.
+          </h2>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-3">
           <article
             v-for="(dev, i) in developers"
             :key="dev.name"
             v-reveal="i"
-            class="glass-card flex flex-col rounded-[24px] p-8 shadow-lg"
+            class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
           >
             <div class="flex items-center gap-4">
-              <div class="flex size-12 items-center justify-center rounded-full border border-outline-variant bg-surface text-label-md text-on-surface">
+              <div class="flex size-11 flex-none items-center justify-center rounded-lg border border-border bg-card font-mono text-sm text-primary">
                 {{ dev.initials }}
               </div>
               <div>
-                <h3 class="text-label-md text-on-surface">
+                <h3 class="font-semibold text-on-surface">
                   {{ dev.name }}
                 </h3>
-                <p class="text-label-sm text-primary">
+                <p class="text-sm text-on-surface-variant">
                   Developer
                 </p>
               </div>
@@ -146,7 +213,7 @@ const milestones = [
               :href="dev.github"
               target="_blank"
               rel="noopener"
-              class="mt-6 inline-flex items-center gap-1 text-label-sm text-on-surface-variant transition-colors hover:text-primary"
+              class="mt-6 inline-flex items-center gap-1.5 text-sm text-on-surface-variant transition-colors hover:text-primary"
             >
               GitHub
               <svg
@@ -165,7 +232,7 @@ const milestones = [
 
         <p
           v-reveal
-          class="mt-10 text-center text-sm text-on-surface-variant"
+          class="mt-10 text-sm text-on-surface-variant"
         >
           CutWire Prism is open source.
           <a
@@ -178,56 +245,51 @@ const milestones = [
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="section-y">
-      <div class="container-cutwire max-w-[800px]">
-        <h2
+    <!-- Journey -->
+    <section class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div
           v-reveal
-          class="mb-20 text-center text-headline-md text-on-surface"
+          class="max-w-2xl"
         >
-          Our journey
-        </h2>
-        <div class="relative pl-8 md:pl-0">
-          <div class="timeline-line absolute inset-y-0 left-1/2 hidden -translate-x-1/2 md:block" />
-          <div class="absolute inset-y-0 left-0 w-0.5 bg-outline-variant md:hidden" />
-          <div class="absolute top-0 left-0 h-1/2 w-0.5 bg-gradient-to-b from-primary to-transparent md:hidden" />
-
-          <div class="space-y-16">
-            <div
-              v-for="(milestone, i) in milestones"
-              :key="milestone.title"
-              v-reveal="i"
-              class="relative flex w-full flex-col items-start justify-between md:flex-row md:items-center md:even:flex-row-reverse"
-            >
-              <div
-                class="absolute -left-[37px] z-10 mt-1.5 size-3.5 rounded-full border-2 border-primary bg-background shadow-[0_0_15px_rgba(255,77,0,0.8)] md:left-1/2 md:mt-0 md:-translate-x-1/2"
-                :class="i > 0 ? 'border-primary/60 shadow-[0_0_10px_rgba(255,77,0,0.4)]' : ''"
-              />
-              <div class="glass-card w-full p-8 md:w-[45%]">
-                <div
-                  class="mb-3 text-label-sm uppercase tracking-wider"
-                  :class="i === 0 ? 'text-primary' : 'text-on-surface-variant'"
-                >
-                  {{ milestone.year }}
-                </div>
-                <h3 class="mb-3 text-2xl font-semibold text-on-surface">
-                  {{ milestone.title }}
-                </h3>
-                <p class="leading-relaxed text-on-surface-variant">
-                  {{ milestone.body }}
-                </p>
-              </div>
-              <div class="hidden w-[45%] md:block" />
-            </div>
-          </div>
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Journey
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            How we got here.
+          </h2>
         </div>
+
+        <ol class="mt-14 grid gap-3 md:grid-cols-3">
+          <li
+            v-for="(milestone, i) in milestones"
+            :key="milestone.title"
+            v-reveal="i"
+            class="relative rounded-xl border border-border bg-surface/70 p-6 backdrop-blur"
+          >
+            <div class="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant">
+              {{ milestone.year }}
+            </div>
+            <div class="mt-1 text-lg font-semibold text-primary">
+              {{ milestone.title }}
+            </div>
+            <p class="mt-2 text-sm text-on-surface-variant">
+              {{ milestone.body }}
+            </p>
+            <span
+              v-if="i < milestones.length - 1"
+              aria-hidden="true"
+              class="absolute right-[-14px] top-1/2 hidden -translate-y-1/2 text-primary md:block"
+            >→</span>
+          </li>
+        </ol>
       </div>
     </section>
 
     <!-- Newsletter -->
-    <section class="section-y">
-      <div class="container-cutwire">
-        <CommonNewsletterForm />
+    <section class="relative pb-24">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <CommonNewsletterForm v-reveal />
       </div>
     </section>
   </div>

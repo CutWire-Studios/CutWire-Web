@@ -14,7 +14,7 @@ const NuxtLinkComponent = resolveComponent('NuxtLink')
   <component
     :is="live ? NuxtLinkComponent : 'div'"
     :to="live ? (instrument.href ?? `/products/${instrument.slug}`) : undefined"
-    class="glass-card group overflow-hidden rounded-[24px] shadow-xl transition-all duration-500"
+    class="glass-card group overflow-hidden rounded-xl shadow-xl transition-all duration-500"
     :class="[
       live ? 'cursor-pointer hover:-translate-y-2' : 'opacity-80',
       featured ? '' : 'panel-hover',
@@ -40,7 +40,7 @@ const NuxtLinkComponent = resolveComponent('NuxtLink')
       </div>
     </div>
 
-    <div class="relative z-10 bg-gradient-to-t from-[#1C1D23] to-transparent p-8">
+    <div class="relative z-10 bg-gradient-to-t from-card to-transparent p-8">
       <div class="mb-2">
         <h3 class="text-headline-md text-on-surface">
           {{ instrument.name }}

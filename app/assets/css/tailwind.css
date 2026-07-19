@@ -9,19 +9,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Lumina Dark — CutWire design system */
+/* Lumina Dark — CutWire design system.
+   Cooled near-black base: orange is the only hue carrying real chroma. */
 :root {
-  --background: #0D0D0F;
-  --foreground: #e2e2e2;
-  --surface: #17181D;
-  --card: #1C1D23;
-  --outline-variant: rgba(255, 255, 255, 0.08);
+  --background: oklch(0.15 0.008 265);
+  --foreground: oklch(0.96 0.005 265);
+  --surface: oklch(0.19 0.010 265);
+  --card: oklch(0.23 0.012 265);
+  --outline-variant: oklch(0.30 0.015 265);
   --primary: #FF4D00;
   --primary-container: #ff571a;
   --primary-fixed-dim: #ffb59e;
-  --on-surface: #e2e2e2;
-  --on-surface-variant: #a3a5a5;
-  --on-background: #e2e2e2;
+  --on-surface: oklch(0.96 0.005 265);
+  --on-surface-variant: oklch(0.72 0.015 265);
+  --on-background: oklch(0.96 0.005 265);
+
+  --grad-hero:
+    radial-gradient(1200px 600px at 20% 0%, oklch(0.45 0.16 45 / 0.30), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, oklch(0.48 0.14 35 / 0.22), transparent 60%);
+  --grad-text:
+    linear-gradient(100deg, oklch(0.97 0.01 60), #FF4D00 45%, oklch(0.80 0.14 40));
 
   /* Legacy aliases — mapped to Lumina tokens */
   --ink: var(--background);
@@ -104,8 +111,8 @@
   --color-primary-container: var(--primary-container);
   --color-primary-fixed-dim: var(--primary-fixed-dim);
 
-  --font-display: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Hanken Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
   --radius-sm: 0.25rem;
@@ -203,9 +210,10 @@ body {
 
 /* Lumina components */
 .glass-card {
-  background: linear-gradient(180deg, #1C1D23 0%, #17181D 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(24px);
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
 }
 
 .ambient-glow {
@@ -222,18 +230,17 @@ body {
 
 .glow-button-primary,
 .btn-signal {
-  background-color: #FF4D00;
+  background-color: var(--primary);
   color: #ffffff;
-  box-shadow: 0 0 24px rgba(255, 77, 0, 0.4);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 9999px;
-  font-weight: 500;
+  box-shadow: 0 10px 40px -10px rgba(255, 77, 0, 0.8);
+  border-radius: var(--radius-md);
+  font-weight: 600;
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
 .glow-button-primary:hover,
 .btn-signal:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 32px rgba(255, 77, 0, 0.5);
+  box-shadow: 0 12px 46px -10px rgba(255, 77, 0, 0.9);
 }
 .glow-button-primary:active,
 .btn-signal:active {
@@ -242,30 +249,33 @@ body {
 
 .glow-button-secondary,
 .btn-panel {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: color-mix(in oklab, var(--surface) 60%, transparent);
+  border: 1px solid var(--outline-variant);
   color: var(--on-surface);
-  border-radius: 9999px;
-  font-weight: 500;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  backdrop-filter: blur(8px);
   transition: background-color 200ms ease, border-color 200ms ease;
 }
 .glow-button-secondary:hover,
 .btn-panel:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--card);
 }
 
 .panel {
-  background: linear-gradient(180deg, #1C1D23 0%, #17181D 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
 }
 
 .panel-hover {
-  transition: transform 500ms ease, border-color 300ms ease, box-shadow 300ms ease;
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 .panel-hover:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 77, 0, 0.3);
-  box-shadow: 0 20px 40px -20px rgba(255, 77, 0, 0.2);
+  transform: translateY(-4px);
+  border-color: color-mix(in oklab, var(--primary) 50%, transparent);
+  box-shadow: 0 20px 40px -20px rgba(255, 77, 0, 0.25);
 }
 
 .glow-live {
@@ -384,28 +394,50 @@ body {
   @apply mx-auto w-full max-w-[1280px] px-4 md:px-12;
 }
 
+/* Shared with the Prism page's language, in the orange accent. */
+@utility grad-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 77, 0, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 77, 0, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 75%);
+}
+
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px rgba(255, 77, 0, 0.22),
+    0 20px 60px -20px rgba(255, 77, 0, 0.45);
+}
+
 .section-y {
   @apply py-[80px] md:py-[120px];
 }
 
 .dark {
-  --background: #0D0D0F;
-  --foreground: #e2e2e2;
-  --card: #1C1D23;
-  --card-foreground: #e2e2e2;
-  --popover: #1C1D23;
-  --popover-foreground: #e2e2e2;
+  --background: oklch(0.15 0.008 265);
+  --foreground: oklch(0.96 0.005 265);
+  --card: oklch(0.23 0.012 265);
+  --card-foreground: oklch(0.96 0.005 265);
+  --popover: oklch(0.23 0.012 265);
+  --popover-foreground: oklch(0.96 0.005 265);
   --primary: #FF4D00;
   --primary-foreground: #ffffff;
-  --secondary: #17181D;
-  --secondary-foreground: #e2e2e2;
-  --muted: #17181D;
-  --muted-foreground: #a3a5a5;
-  --accent: #17181D;
-  --accent-foreground: #e2e2e2;
+  --secondary: oklch(0.19 0.010 265);
+  --secondary-foreground: oklch(0.96 0.005 265);
+  --muted: oklch(0.19 0.010 265);
+  --muted-foreground: oklch(0.72 0.015 265);
+  --accent: oklch(0.19 0.010 265);
+  --accent-foreground: oklch(0.96 0.005 265);
   --destructive: #ffb4ab;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: #17181D;
+  --border: oklch(0.30 0.015 265);
+  --input: oklch(0.19 0.010 265);
   --ring: #FF4D00;
 }
 

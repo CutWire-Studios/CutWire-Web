@@ -14,141 +14,237 @@ const useCases = [
   { title: 'Visual performances', description: 'Dance, theater, and immersive installations with a dark VJ-style interface.', icon: Users },
   { title: 'Sports broadcasting', description: 'HTML/QML score overlays, freeze-frame holds, and program recording.', icon: Trophy },
 ]
+
+const principles = [
+  {
+    title: 'Usable in ten minutes',
+    body: 'If a volunteer can\'t run it the first time they open it, the design is wrong. Defaults that work beat options that might.',
+  },
+  {
+    title: 'Depth when you want it',
+    body: 'Node graphs, shaders, scripting and network I/O are all there — behind the simple path, not in front of it.',
+  },
+  {
+    title: 'Free and open source',
+    body: 'GPLv3, no account, no telemetry, no feature tier. The tools should belong to the people using them.',
+  },
+]
 </script>
 
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative section-y">
-      <div class="container-cutwire relative animate-rise-in">
-        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-          <div class="relative z-10">
-            <div class="mb-6 flex items-center gap-2 text-label-sm uppercase tracking-widest text-primary">
-              <span class="size-2 rounded-full bg-primary" />
-              CutWire Studios · Software studio
-            </div>
-            <h1 class="text-display-xl text-on-surface">
-              Professional software.<br>
-              <span class="text-crossfade">Intuitive for everyone.</span>
-            </h1>
-            <p class="mt-6 max-w-lg text-body-lg text-on-surface-variant">
-              CutWire Studios builds powerful creative tools with clean, beginner-friendly interfaces — so anyone can create like a pro. No steep learning curves, no manuals required.
-            </p>
-            <div class="mt-10 flex flex-wrap items-center gap-4">
-              <NuxtLink
-                to="/products"
-                class="glow-button-primary inline-flex items-center gap-2 px-8 py-4 text-label-md"
-              >
-                See the products
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  class="size-4"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </NuxtLink>
-              <NuxtLink
-                to="/about"
-                class="glow-button-secondary px-8 py-4 text-label-md"
-              >
-                About the studio
-              </NuxtLink>
-            </div>
+    <section
+      id="top"
+      class="relative overflow-hidden"
+    >
+      <div
+        aria-hidden="true"
+        class="grid-bg absolute inset-0 opacity-60"
+      />
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute inset-0"
+        style="background: var(--grad-hero)"
+      />
+      <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
+        <div class="animate-rise-in mx-auto max-w-3xl text-center">
+          <NuxtLink
+            to="/prism"
+            class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-on-surface-variant backdrop-blur transition-colors hover:text-on-surface"
+          >
+            <span class="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
+            CutWire Prism v0.1.2 is out — free &amp; open source
+          </NuxtLink>
+          <h1 class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
+            Professional software. <span class="grad-text">Intuitive for everyone.</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
+            CutWire Studios builds powerful creative tools with clean, beginner-friendly
+            interfaces — so anyone can create like a pro. No steep learning curves, no manuals
+            required.
+          </p>
+          <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+            <NuxtLink
+              to="/prism"
+              class="glow-button-primary px-5 py-3 text-sm"
+            >
+              Explore CutWire Prism
+            </NuxtLink>
+            <NuxtLink
+              to="/about"
+              class="glow-button-secondary px-5 py-3 text-sm"
+            >
+              About the studio
+            </NuxtLink>
           </div>
+          <p class="mt-4 font-mono text-xs text-on-surface-variant">
+            Linux · Windows · macOS · GPLv3
+          </p>
+        </div>
 
-          <div class="relative z-0 w-full lg:ml-4 lg:scale-[1.12] lg:origin-left">
-            <div class="ambient-glow" />
-            <div class="relative aspect-[1209/828] overflow-hidden rounded-[24px] border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2">
-              <NuxtImg
-                src="/images/prism-mock.avif"
-                alt="CutWire Prism interface preview — live video mixing with dark UI and orange accents"
-                class="h-full w-full object-cover"
-                width="1209"
-                height="828"
-              />
-            </div>
+        <div
+          v-reveal
+          class="relative mx-auto mt-14 max-w-6xl"
+        >
+          <div
+            aria-hidden="true"
+            class="absolute -inset-x-8 -inset-y-6 rounded-3xl opacity-60 blur-2xl"
+            style="background: linear-gradient(120deg, rgba(255, 77, 0, 0.35), rgba(255, 140, 60, 0.25))"
+          />
+          <div class="glow-ring relative overflow-hidden rounded-xl border border-border bg-surface">
+            <NuxtImg
+              src="/images/prism-mock.avif"
+              alt="CutWire Prism interface preview — live video mixing with dark UI and orange accents"
+              class="block w-full"
+              width="1209"
+              height="828"
+              sizes="xs:100vw sm:100vw md:100vw lg:1152px"
+              loading="eager"
+              preload
+            />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Mission -->
-    <section class="section-y">
-      <div class="container-cutwire">
+    <section class="relative py-24 md:py-32">
+      <div
+        aria-hidden="true"
+        class="absolute inset-x-0 top-0 h-px"
+        style="background: linear-gradient(90deg, transparent, rgba(255, 77, 0, 0.5), transparent)"
+      />
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
         <div
           v-reveal
-          class="mx-auto max-w-4xl border-l-2 border-primary pl-8 md:pl-12"
+          class="max-w-2xl"
         >
-          <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
             Mission
           </p>
-          <h2
-            v-reveal="1"
-            class="mt-6 text-headline-lg text-on-surface"
-          >
-            Powerful technology shouldn't require a steep learning curve. We build professional-grade software with interfaces so intuitive that beginners feel confident from day one — while giving experts the depth and performance they demand.
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+            Powerful technology shouldn't require a steep learning curve.
           </h2>
+          <p class="mt-5 text-lg text-on-surface-variant">
+            We build professional-grade software with interfaces so intuitive that beginners feel
+            confident from day one — while giving experts the depth and performance they demand.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-4 md:grid-cols-3">
+          <div
+            v-for="(item, i) in principles"
+            :key="item.title"
+            v-reveal="i"
+            class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
+          >
+            <div
+              aria-hidden="true"
+              class="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
+              style="background: rgba(255, 77, 0, 0.35)"
+            />
+            <div class="relative">
+              <h3 class="font-semibold">
+                {{ item.title }}
+              </h3>
+              <p class="mt-2 text-sm text-on-surface-variant">
+                {{ item.body }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Products -->
-    <section class="section-y">
-      <div class="container-cutwire">
+    <section class="relative py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
         <div
           v-reveal
-          class="mb-12 flex items-end justify-between border-b border-outline-variant pb-6"
+          class="flex flex-wrap items-end justify-between gap-4"
         >
-          <div>
-            <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+          <div class="max-w-2xl">
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
               Products
             </p>
-            <h2 class="mt-2 text-headline-md text-on-surface">
-              Our products
+            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+              One product, built properly.
             </h2>
           </div>
           <NuxtLink
             to="/products"
-            class="hidden items-center gap-1 text-label-sm uppercase text-primary transition-colors hover:text-primary-fixed-dim sm:flex"
+            class="rounded-md border border-border bg-surface/60 px-4 py-2 text-sm transition-colors hover:bg-card"
           >
-            All products
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              class="size-4"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            All products →
           </NuxtLink>
         </div>
 
-        <MarketingProductShowcaseCard v-reveal />
+        <MarketingProductShowcaseCard
+          v-reveal
+          class="mt-12"
+        />
       </div>
     </section>
 
     <!-- Use cases -->
-    <section class="section-y">
-      <div class="container-cutwire">
-        <p
+    <section class="relative border-y border-border/60 bg-surface/40 py-24">
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div
           v-reveal
-          class="mb-12 text-label-sm uppercase tracking-widest text-on-surface-variant"
+          class="max-w-2xl"
         >
-          Where CutWire Prism runs
-        </p>
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Where CutWire Prism runs
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            People with a real deadline and no budget.
+          </h2>
+        </div>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <MarketingUseCaseCard
             v-for="(useCase, i) in useCases"
             :key="useCase.title"
-            v-reveal="i"
+            v-reveal="i % 2"
             v-bind="useCase"
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-24">
+      <div class="mx-auto max-w-4xl px-4 text-center md:px-6">
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-0 mx-auto max-w-2xl blur-3xl"
+          style="background: var(--grad-hero)"
+        />
+        <div
+          v-reveal
+          class="relative"
+        >
+          <h2 class="text-balance text-3xl font-bold tracking-tight md:text-5xl">
+            Start with <span class="grad-text">CutWire Prism</span>.
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-on-surface-variant">
+            Free and open source. No login, no trial, no feature tier — wire a few nodes and go
+            live tonight.
+          </p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <NuxtLink
+              to="/prism"
+              class="glow-button-primary px-6 py-3 text-sm"
+            >
+              Explore CutWire Prism
+            </NuxtLink>
+            <NuxtLink
+              to="/about"
+              class="glow-button-secondary px-6 py-3 text-sm"
+            >
+              About the studio
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </section>

@@ -20,9 +20,9 @@ const showcaseHighlights = computed(() =>
 <template>
   <div
     v-if="product"
-    class="glass-card group relative -mx-4 overflow-hidden rounded-xl md:-mx-8 lg:-mx-12"
+    class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 backdrop-blur"
   >
-    <div class="ambient-glow absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 opacity-60" />
+    <div class="ambient-glow absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 opacity-50" />
 
     <div class="relative z-10 grid lg:grid-cols-2 lg:items-stretch">
       <div class="order-2 flex flex-col justify-center p-8 md:p-10 lg:order-1 lg:p-12">
@@ -35,7 +35,7 @@ const showcaseHighlights = computed(() =>
               width="56"
               height="56"
             />
-            <h2 class="text-headline-lg text-on-surface">
+            <h2 class="text-3xl font-bold tracking-tight text-on-surface">
               {{ product.name }}
             </h2>
           </div>
@@ -49,7 +49,7 @@ const showcaseHighlights = computed(() =>
           v-if="showcaseHighlights.length"
           class="mb-12"
         >
-          <h4 class="mb-6 text-label-sm uppercase tracking-widest text-on-surface-variant">
+          <h4 class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
             Core capabilities
           </h4>
           <ul class="space-y-4">
@@ -72,16 +72,16 @@ const showcaseHighlights = computed(() =>
           </ul>
         </div>
 
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-3">
           <NuxtLink
             to="/prism"
-            class="glow-button-primary px-8 py-3 text-label-sm uppercase tracking-wider"
+            class="glow-button-primary px-5 py-3 text-sm"
           >
-            Launch CutWire Prism
+            Explore CutWire Prism
           </NuxtLink>
           <a
             :href="product.docsUrl ?? 'https://docs.cutwire.org'"
-            class="glow-button-secondary px-8 py-3 text-label-sm uppercase tracking-wider"
+            class="glow-button-secondary px-5 py-3 text-sm"
           >
             View documentation
           </a>

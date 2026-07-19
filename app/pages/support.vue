@@ -83,7 +83,7 @@ async function submit() {
       </UiAccordion>
 
       <form
-        class="glass-card mt-16 space-y-4 rounded-[24px] p-8"
+        class="glass-card mt-16 space-y-4 rounded-xl p-8"
         @submit.prevent="submit"
       >
         <h2 class="text-headline-md text-on-surface">

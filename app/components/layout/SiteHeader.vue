@@ -10,42 +10,48 @@ const navLinks = [
 </script>
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-outline-variant bg-background/80 backdrop-blur-2xl">
-    <div class="container-cutwire flex h-[72px] items-center justify-between">
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
       <NuxtLink
         to="/"
-        class="flex items-center gap-2 text-xl font-bold tracking-tight text-on-surface"
+        class="flex items-center transition-opacity hover:opacity-80"
       >
         <NuxtImg
           src="/logo-with-name.svg"
           alt="CutWire Studios"
-          class="h-12 w-auto"
+          class="h-8 w-auto"
           width="180"
           height="48"
         />
       </NuxtLink>
 
-      <nav class="hidden items-center gap-8 md:flex">
+      <nav class="hidden items-center gap-7 text-sm md:flex">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.href"
           :to="link.href"
-          class="text-label-md transition-colors duration-300"
-          :class="isActive(link.href) ? 'border-b-2 border-primary pb-0.5 text-on-surface' : 'text-on-surface/70 hover:text-on-surface'"
+          class="transition-colors"
+          :class="isActive(link.href) ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface'"
         >
           {{ link.label }}
         </NuxtLink>
       </nav>
 
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
         <a
           href="https://github.com/CutWire-Studios/Prism"
           target="_blank"
           rel="noopener noreferrer"
-          class="glow-button-secondary hidden px-6 py-2 text-label-md md:inline-flex"
+          class="hidden rounded-md border border-border px-3 py-1.5 text-sm text-on-surface/90 transition-colors hover:bg-card sm:inline-block"
         >
-          Get CutWire Prism
+          GitHub
         </a>
+        <NuxtLink
+          to="/prism"
+          class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-[0_0_30px_-8px_rgba(255,77,0,0.7)] transition-transform hover:scale-[1.02]"
+        >
+          Get Prism
+        </NuxtLink>
         <LayoutMobileNav />
       </div>
     </div>

@@ -72,7 +72,7 @@ const onAir = computed(() => (position.value < 50 ? 'A' : 'B'))
     <div class="ambient-glow" />
     <div
       v-if="canvas"
-      class="relative mb-5 aspect-video overflow-hidden rounded-[24px] border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2"
+      class="relative mb-5 aspect-video overflow-hidden rounded-xl border border-outline-variant shadow-2xl transition-transform duration-700 ease-out hover:rotate-0 lg:rotate-2"
     >
       <MarketingConsoleScene
         signal="a"

@@ -69,7 +69,7 @@ const videoOpen = ref(false)
             v-for="(feature, i) in product.features"
             :key="feature.title"
           >
-            <div class="glass-card flex-1 rounded-[24px] p-5">
+            <div class="glass-card flex-1 rounded-xl p-5">
               <span
                 class="font-mono text-xs font-semibold"
                 :class="i % 2 === 1 ? 'text-primary-fixed-dim' : 'text-primary'"
@@ -122,7 +122,7 @@ const videoOpen = ref(false)
         </p>
         <div
           v-reveal="1"
-          class="glass-card mt-8 max-w-xl rounded-[24px] p-6"
+          class="glass-card mt-8 max-w-xl rounded-xl p-6"
         >
           <CommonSpecTable :specs="product.specs" />
         </div>
@@ -138,7 +138,7 @@ const videoOpen = ref(false)
         <h2 class="mt-4 text-headline-lg text-on-surface">
           Get {{ product.name }}
         </h2>
-        <div class="glass-card mt-8 rounded-[24px] p-6">
+        <div class="glass-card mt-8 rounded-xl p-6">
           <CommonDownloadPanel
             :downloads="product.downloads"
             :product-name="product.name"
