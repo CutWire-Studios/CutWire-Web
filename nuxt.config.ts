@@ -64,11 +64,25 @@ export default defineNuxtConfig({
     '/prism': { prerender: true },
     '/products/**': { prerender: true },
     '/about': { prerender: true },
+    '/support': { prerender: true },
+    '/license': { prerender: true },
+    '/privacy': { prerender: true },
+    '/terms': { prerender: true },
     '/download': { redirect: { to: '/prism#download', statusCode: 301 } },
     '/download/**': { redirect: { to: '/prism#download', statusCode: 301 } },
     '/api/**': { cors: false },
     '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
     '/switchx': { redirect: { to: '/prism', statusCode: 301 } },
+  },
+
+  // 1200x630 is the size Open Graph and Twitter large cards expect;
+  // the module's default is 1200x600.
+  ogImage: {
+    defaults: {
+      width: 1200,
+      height: 630,
+      component: 'Default',
+    },
   },
 
   typescript: {

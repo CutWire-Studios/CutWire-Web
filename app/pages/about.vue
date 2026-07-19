@@ -1,9 +1,26 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'default' })
 
+const site = useSiteConfig()
+
 useSeoMeta({
   title: 'About — CutWire Studios',
   description: 'The team behind CutWire Studios — open-source live media software for operators who run shows, streams and events under real pressure.',
+  ogTitle: 'Software for people who are live in ten minutes',
+  ogDescription: 'Why we build CutWire Prism, the principles behind it, and the people writing it.',
+  ogType: 'website',
+  ogUrl: `${site.url}/about`,
+  ogSiteName: site.name,
+  ogLocale: 'en_US',
+  twitterCard: 'summary_large_image',
+})
+
+useHead({ link: [{ rel: 'canonical', href: `${site.url}/about` }] })
+
+defineOgImageComponent('Default', {
+  title: 'Software for people who are live in ten minutes.',
+  description: 'Open-source live media tools, built by a small team in the open.',
+  eyebrow: 'About',
 })
 
 const developers = [

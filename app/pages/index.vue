@@ -3,9 +3,37 @@ import { GraduationCap, Music, Trophy, Users } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
+const site = useSiteConfig()
+const pageDescription = 'CutWire Studios builds free, open-source live media software with beginner-friendly interfaces. CutWire Prism is a node-based live video mixer for schools, churches and small venues.'
+
 useSeoMeta({
   title: 'CutWire Studios — Professional software, intuitive for everyone',
-  description: 'CutWire Studios builds professional creative tools with clean, beginner-friendly interfaces. CutWire Prism is our first product.',
+  description: pageDescription,
+  ogTitle: 'Professional software. Intuitive for everyone.',
+  ogDescription: 'Free, open-source live media tools for people who run shows, streams and events under real pressure.',
+  ogType: 'website',
+  ogUrl: site.url,
+  ogSiteName: site.name,
+  ogLocale: 'en_US',
+  twitterCard: 'summary_large_image',
+})
+
+useHead({ link: [{ rel: 'canonical', href: site.url }] })
+
+useSchemaOrg([
+  defineOrganization({
+    name: 'CutWire Studios',
+    description: pageDescription,
+    url: site.url,
+    logo: `${site.url}/logo-with-name.svg`,
+    sameAs: ['https://github.com/CutWire-Studios'],
+  }),
+])
+
+defineOgImageComponent('Default', {
+  title: 'Professional software. Intuitive for everyone.',
+  description: 'Free, open-source live media tools for people who run things live.',
+  eyebrow: 'CutWire Studios',
 })
 
 const useCases = [
