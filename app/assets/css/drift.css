@@ -1,0 +1,81 @@
+/* Drift — scoped theme. Warm charcoal canvas with gold accent (#fcad01).
+   Applied only under .theme-drift so the CutWire orange + Prism violet themes stay untouched. */
+
+.theme-drift {
+  --background: oklch(0.14 0.015 55);
+  --foreground: oklch(0.96 0.01 85);
+  --surface: oklch(0.18 0.018 55);
+  --surface-2: oklch(0.22 0.02 55);
+  --card: oklch(0.18 0.018 55);
+  --card-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.22 0.02 55);
+  --muted-foreground: oklch(0.72 0.025 70);
+  --primary: #fcad01;
+  --primary-foreground: oklch(0.16 0.03 55);
+  --accent: #fcad01;
+  --accent-foreground: oklch(0.16 0.03 55);
+  --border: oklch(0.30 0.025 60);
+  --outline-variant: oklch(0.30 0.025 60);
+  --input: oklch(0.18 0.018 55);
+  --ring: #fcad01;
+  --on-surface: oklch(0.96 0.01 85);
+  --on-surface-variant: oklch(0.72 0.025 70);
+
+  --font-body: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Syne', ui-sans-serif, system-ui, sans-serif;
+
+  --grad-hero:
+    radial-gradient(1100px 560px at 18% -5%, color-mix(in srgb, #fcad01 28%, transparent), transparent 62%),
+    radial-gradient(900px 480px at 92% 18%, color-mix(in srgb, #fcad01 16%, transparent), transparent 60%);
+  --grad-text:
+    linear-gradient(100deg, oklch(0.98 0.02 95), #fcad01 48%, oklch(0.78 0.14 45));
+
+  background-color: var(--background);
+  color: var(--foreground);
+  background-image:
+    radial-gradient(520px 360px at 88% -8%, color-mix(in srgb, #fcad01 18%, transparent), transparent 60%),
+    radial-gradient(480px 320px at -8% 12%, color-mix(in srgb, #fcad01 10%, transparent), transparent 60%);
+  background-attachment: fixed;
+  font-family: var(--font-body);
+}
+
+.theme-drift h1,
+.theme-drift h2,
+.theme-drift h3 {
+  font-family: var(--font-display);
+}
+
+.theme-drift ::selection {
+  background: color-mix(in srgb, #fcad01 35%, transparent);
+}
+
+@utility drift-grad-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility drift-grid-bg {
+  background-image:
+    linear-gradient(color-mix(in srgb, #fcad01 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, #fcad01 9%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 38%, transparent 75%);
+}
+
+@utility drift-glow-ring {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, #fcad01 28%, transparent),
+    0 24px 64px -24px color-mix(in srgb, #fcad01 45%, transparent);
+}
+
+@utility drift-film-edge {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      transparent 0 18px,
+      color-mix(in srgb, #fcad01 55%, transparent) 18px 22px,
+      transparent 22px 40px
+    );
+}

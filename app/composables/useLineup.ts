@@ -21,5 +21,14 @@ export function useLineup(): Instrument[] {
       href: '/prism',
       accent: 'live',
     },
+    {
+      name: 'Drift',
+      domain: 'Video editing',
+      tagline: 'Create polished videos fast.',
+      status: 'live',
+      slug: 'drift',
+      href: '/drift',
+      accent: 'cue',
+    },
   ]
 }

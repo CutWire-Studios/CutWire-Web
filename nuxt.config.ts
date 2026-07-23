@@ -56,12 +56,15 @@ export default defineNuxtConfig({
     families: [
       { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700, 800] },
       { name: 'JetBrains Mono', provider: 'google', weights: [500] },
+      { name: 'Syne', provider: 'google', weights: [600, 700, 800] },
+      { name: 'Outfit', provider: 'google', weights: [400, 500, 600, 700] },
     ],
   },
 
   routeRules: {
     '/': { prerender: true },
     '/prism': { prerender: true },
+    '/drift': { prerender: true },
     '/products/**': { prerender: true },
     '/about': { prerender: true },
     '/support': { prerender: true },
