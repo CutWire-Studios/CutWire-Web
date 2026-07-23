@@ -5,9 +5,9 @@ const site = useSiteConfig()
 
 useSeoMeta({
   title: 'About — CutWire Studios',
-  description: 'The team behind CutWire Studios — open-source live media software for operators who run shows, streams and events under real pressure.',
-  ogTitle: 'Software for people who are live in ten minutes',
-  ogDescription: 'Why we build CutWire Prism, the principles behind it, and the people writing it.',
+  description: 'The team behind CutWire Studios — free, open-source creative tools for live media and video editing, built for people who need to create under real pressure.',
+  ogTitle: 'Software for people who create and go live',
+  ogDescription: 'Why we build CutWire Prism and Drift, the principles behind them, and the people writing them.',
   ogType: 'website',
   ogUrl: `${site.url}/about`,
   ogSiteName: site.name,
@@ -18,8 +18,8 @@ useSeoMeta({
 useHead({ link: [{ rel: 'canonical', href: `${site.url}/about` }] })
 
 defineOgImageComponent('Default', {
-  title: 'Software for people who are live in ten minutes.',
-  description: 'Open-source live media tools, built by a small team in the open.',
+  title: 'Software for people who create and go live.',
+  description: 'Open-source creative tools, built by a small team in the open.',
   eyebrow: 'About',
 })
 
@@ -52,7 +52,7 @@ const facts = [
 const principles = [
   {
     title: 'Calm under pressure',
-    body: 'Panic controls, freeze-frame and blackout are always one click away. The moment something goes wrong is the moment the software has to be simple.',
+    body: 'Whether you are live on stage or finishing a cut before it ships, the software has to stay simple when it matters most.',
   },
   {
     title: 'Simplicity over feature bloat',
@@ -60,7 +60,7 @@ const principles = [
   },
   {
     title: 'Open foundations',
-    body: 'Built on Qt, FFmpeg and OpenGL, released under GPLv3 — so operators can trust, audit and extend what they run live.',
+    body: 'Built on Qt and FFmpeg, released under GPLv3 — so creators can trust, audit and extend what they run.',
   },
 ]
 
@@ -73,12 +73,12 @@ const milestones = [
   {
     year: '2025–2026',
     title: 'From prototype to product',
-    body: 'A node graph with process and layer nodes, A/B mixing, AI background removal, GLSL shaders, HTML overlays, NDI output, OBS integration, and Flatpak packaging ship across sprints.',
+    body: 'Prism ships a node graph, A/B mixing, AI background removal, shaders, overlays and NDI. Drift starts as a free CapCut alternative for desktop editing.',
   },
   {
     year: '2026',
     title: 'CutWire Studios launches',
-    body: 'CutWire Prism 0.1 goes public under GPLv3. CutWire Studios becomes the home for live media tools built for operators everywhere.',
+    body: 'CutWire Prism 0.1 goes public under GPLv3. Drift joins the lineup as the studio\'s free desktop video editor — coming soon.',
   },
 ]
 </script>
@@ -102,11 +102,11 @@ const milestones = [
             About
           </p>
           <h1 class="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-            Software for people who are <span class="grad-text">live in ten minutes</span>.
+            Software for people who <span class="grad-text">create and go live</span>.
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
-            CutWire Studios builds open-source live media software for operators who run shows,
-            streams and events under real pressure — in a school gym as readily as on a small stage.
+            CutWire Studios builds free, open-source creative tools — live media mixing with Prism,
+            and desktop video editing with Drift — for people who need to create under real pressure.
           </p>
         </div>
 
@@ -150,7 +150,7 @@ const milestones = [
             Why we build it
           </p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-            Live media control shouldn't need a manual or a subscription.
+            Creative tools shouldn't need a manual or a subscription.
           </h2>
           <div class="mt-5 space-y-5 text-lg text-on-surface-variant">
             <p>
@@ -159,8 +159,9 @@ const milestones = [
               hall alike.
             </p>
             <p>
-              Every CutWire product speaks the same signal language — calm under pressure, precise
-              when it counts.
+              Drift extends that same philosophy to desktop editing — a free CapCut alternative
+              without watermarks, accounts or cloud lock-in. Every CutWire product speaks the same
+              language: calm under pressure, precise when it counts.
             </p>
           </div>
         </div>
@@ -251,9 +252,9 @@ const milestones = [
           v-reveal
           class="mt-10 text-sm text-on-surface-variant"
         >
-          CutWire Prism is open source.
+          CutWire tools are open source.
           <a
-            href="https://github.com/CutWire-Studios/Prism"
+            href="https://github.com/CutWire-Studios"
             target="_blank"
             rel="noopener"
             class="text-primary hover:underline"
@@ -300,13 +301,6 @@ const milestones = [
             >→</span>
           </li>
         </ol>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="relative pb-24">
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <CommonNewsletterForm v-reveal />
       </div>
     </section>
   </div>

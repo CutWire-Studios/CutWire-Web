@@ -7,11 +7,15 @@ const { gh, releases, flathub, issues } = useDriftLinks()
 
 const site = useSiteConfig()
 
-const pageTitle = 'CutWire Drift — Free desktop video editor'
-const socialTitle = 'CutWire Drift — Create polished videos fast'
-const pageDescription = 'Free, open-source desktop video editor for creators. Multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
-const socialDescription = 'Drop in clips, add effects and stickers, generate captions, and export polished videos. Free and open source under GPLv3.'
+// Search titles truncate near 60 chars once the site name is appended, so the
+// CapCut-alternative keyword is kept front-loaded for the SERP snippet.
+const pageTitle = 'CutWire Drift — Free CapCut Alternative'
+const socialTitle = 'CutWire Drift — Free CapCut alternative for desktop'
+const pageDescription = 'Free CapCut alternative for desktop. Open-source video editor with a multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
+const socialDescription = 'A free CapCut alternative that runs on your desktop. Drop in clips, add effects and stickers, generate captions, and export polished videos. Open source under GPLv3.'
 const pageUrl = `${site.url}/drift`
+const ogImage = `${site.url}/images/drift-cover.png`
+const ogImageAlt = 'CutWire Drift — Free CapCut alternative'
 
 useSeoMeta({
   title: pageTitle,
@@ -22,9 +26,16 @@ useSeoMeta({
   ogUrl: pageUrl,
   ogSiteName: site.name,
   ogLocale: 'en_US',
+  ogImage,
+  ogImageAlt,
+  ogImageType: 'image/png',
+  ogImageWidth: 700,
+  ogImageHeight: 400,
   twitterCard: 'summary_large_image',
   twitterTitle: socialTitle,
   twitterDescription: socialDescription,
+  twitterImage: ogImage,
+  twitterImageAlt: ogImageAlt,
 })
 
 useHead({
@@ -38,15 +49,10 @@ useSchemaOrg([
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Linux, Windows, macOS',
     softwareVersion: '0.1.0',
+    screenshot: `${site.url}/images/drift-main-window.png`,
     offers: { price: '0.00', priceCurrency: 'USD' },
   }),
 ])
-
-defineOgImageComponent('Default', {
-  title: 'Create polished videos fast',
-  description: 'Free desktop video editor — no subscription, no watermark, no account.',
-  eyebrow: 'CutWire Drift',
-})
 
 const audiences = [
   'For creators',
@@ -109,11 +115,21 @@ const steps = [
   'Export an MP4 that matches what you saw in preview.',
 ]
 
-const shots = [
+const shots: {
+  title: string
+  body: string
+  label: string
+  src?: string
+  w?: number
+  h?: number
+}[] = [
   {
+    src: '/images/drift-main-window.png',
+    w: 1866,
+    h: 1136,
     label: 'Editor overview — timeline, preview and media panels',
     title: 'Everything in one window',
-    body: 'Preview, assets and a multi-track timeline share the same workspace so you stay in flow.',
+    body: 'Preview, effects and a multi-track timeline share the same workspace so you stay in flow.',
   },
   {
     label: 'Effects browser with templates',
@@ -222,15 +238,15 @@ const stack: [string, string][] = [
       />
       <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
         <div class="animate-rise-in mx-auto max-w-3xl text-center">
-          <div
-            class="mx-auto mb-7 flex h-20 w-20 items-center justify-center rounded-[1.35rem] border border-primary/40 bg-surface-2 shadow-[0_12px_40px_-12px_color-mix(in_srgb,#fcad01_55%,transparent)]"
-            aria-hidden="true"
-          >
-            <span
-              class="text-3xl font-extrabold tracking-tight text-primary"
-              style="font-family: var(--font-display)"
-            >D</span>
-          </div>
+          <NuxtImg
+            src="/images/drift-icon.png"
+            alt="CutWire Drift app icon"
+            class="mx-auto mb-7 h-20 w-20 drop-shadow-[0_12px_40px_-12px_color-mix(in_srgb,#fcad01_55%,transparent)]"
+            width="160"
+            height="160"
+            format="avif"
+            loading="eager"
+          />
           <a
             :href="gh"
             target="_blank"
@@ -278,11 +294,17 @@ const stack: [string, string][] = [
             class="absolute -inset-x-8 -inset-y-6 rounded-3xl opacity-70 blur-2xl"
             style="background: linear-gradient(120deg, color-mix(in srgb, #fcad01 28%, transparent), color-mix(in srgb, #fcad01 12%, transparent))"
           />
-          <div class="drift-glow-ring relative">
-            <DriftPlaceholder
-              label="Main editor window — timeline, preview and asset library"
-              hint="Screenshot placeholder"
-              aspect="16 / 10"
+          <div class="drift-glow-ring relative overflow-hidden rounded-xl border border-border bg-surface">
+            <NuxtImg
+              src="/images/drift-main-window.png"
+              alt="CutWire Drift main window: effects library, video preview and multi-track timeline"
+              class="block w-full"
+              format="avif"
+              width="1866"
+              height="1136"
+              sizes="xs:100vw sm:100vw md:100vw lg:1152px"
+              loading="eager"
+              preload
             />
           </div>
         </div>
@@ -316,8 +338,9 @@ const stack: [string, string][] = [
             Creator-speed editing. Desktop freedom.
           </h2>
           <p class="mt-5 text-lg text-muted-foreground">
-            Popular consumer editors are fast — until the watermark, the account wall, or the
-            cloud lock-in. Drift keeps the approachable workflow and leaves the strings off.
+            CapCut is fast — until the watermark, the account wall, or the cloud lock-in.
+            Drift is a free CapCut alternative that keeps the approachable workflow and leaves
+            the strings off.
           </p>
         </div>
         <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -381,12 +404,17 @@ const stack: [string, string][] = [
         <div class="mt-14 grid gap-10 lg:grid-cols-2 lg:items-center">
           <div
             v-reveal
-            class="drift-glow-ring"
+            class="drift-glow-ring overflow-hidden rounded-xl border border-border bg-surface"
           >
-            <DriftPlaceholder
-              label="Timeline with multi-track clips, transitions and playhead"
-              hint="Screenshot placeholder"
-              aspect="4 / 3"
+            <NuxtImg
+              src="/images/drift-main-window.png"
+              alt="CutWire Drift editor with effects panel, preview and timeline"
+              class="block w-full"
+              format="avif"
+              width="1866"
+              height="1136"
+              sizes="xs:100vw sm:100vw md:100vw lg:556px"
+              loading="lazy"
             />
           </div>
           <div v-reveal="1">
@@ -428,7 +456,7 @@ const stack: [string, string][] = [
             Screenshots
           </p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-            Placeholders for now — real UI coming.
+            Real UI — more shots coming.
           </h2>
         </div>
         <div class="mt-14 grid gap-6 md:grid-cols-2">
@@ -438,7 +466,19 @@ const stack: [string, string][] = [
             v-reveal="i % 2"
             class="overflow-hidden rounded-xl border border-border bg-surface"
           >
+            <NuxtImg
+              v-if="shot.src"
+              :src="shot.src"
+              :alt="shot.title"
+              :width="shot.w"
+              :height="shot.h"
+              class="block w-full border-b border-border"
+              format="avif"
+              sizes="xs:100vw sm:100vw md:564px"
+              loading="lazy"
+            />
             <DriftPlaceholder
+              v-else
               :label="shot.label"
               hint="Screenshot placeholder"
               aspect="16 / 10"

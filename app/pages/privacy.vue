@@ -19,7 +19,7 @@ useSeoMeta({ title: 'Privacy Policy — CutWire Studios' })
         What we collect
       </h2>
       <p>
-        Newsletter signups store your email address. Support form submissions store your name, email, and message. Analytics may collect anonymized page views.
+        Support form submissions store your name, email, and message. Analytics may collect anonymized page views.
       </p>
       <h2 class="text-lg font-semibold text-on-surface">
         Contact

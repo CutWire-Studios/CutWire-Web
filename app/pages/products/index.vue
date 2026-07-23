@@ -3,13 +3,13 @@ definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const pageTitle = 'Products — CutWire Studios'
-const pageDescription = 'The CutWire product lineup. CutWire Prism is a free, open-source node-based live video mixer for schools, churches, streamers and small venues.'
+const pageDescription = 'The CutWire product lineup. CutWire Prism is a free live video mixer; CutWire Drift is a free CapCut alternative for desktop video editing — coming soon.'
 
 useSeoMeta({
   title: pageTitle,
   description: pageDescription,
   ogTitle: 'The CutWire product lineup',
-  ogDescription: 'Software built for people who run things live — starting with CutWire Prism, a free node-based live video mixer.',
+  ogDescription: 'CutWire Prism for live mixing, and CutWire Drift — a free CapCut alternative for desktop editing (coming soon).',
   ogType: 'website',
   ogUrl: `${site.url}/products`,
   ogSiteName: site.name,
@@ -20,8 +20,8 @@ useSeoMeta({
 useHead({ link: [{ rel: 'canonical', href: `${site.url}/products` }] })
 
 defineOgImageComponent('Default', {
-  title: 'Software for people who run things live.',
-  description: 'One product, built properly. CutWire Prism — free and open source.',
+  title: 'Software for creators who run the show.',
+  description: 'Prism is live. Drift — a free CapCut alternative — is coming soon.',
   eyebrow: 'Products',
 })
 </script>
@@ -45,19 +45,19 @@ defineOgImageComponent('Default', {
             Product suite
           </p>
           <h1 class="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-            Software for people who <span class="grad-text">run things live</span>.
+            Software for people who <span class="grad-text">create and go live</span>.
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
-            Every CutWire tool speaks the same signal language — calm under pressure, precise when
-            it counts.
+            Every CutWire tool speaks the same language — calm under pressure, precise when it
+            counts. Prism is live; Drift is on the way.
           </p>
           <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <NuxtLink
-              to="/prism"
+            <a
+              href="#lineup"
               class="glow-button-primary px-5 py-3 text-sm"
             >
-              Explore CutWire Prism
-            </NuxtLink>
+              See the lineup
+            </a>
             <a
               href="https://docs.cutwire.org"
               class="glow-button-secondary px-5 py-3 text-sm"
@@ -83,24 +83,33 @@ defineOgImageComponent('Default', {
     </section>
 
     <!-- Product showcase -->
-    <section class="relative py-24 md:py-32">
+    <section
+      id="lineup"
+      class="relative py-24 md:py-32"
+    >
       <div class="mx-auto max-w-6xl px-4 md:px-6">
         <div
           v-reveal
           class="max-w-2xl"
         >
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Available now
+            Lineup
           </p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            One product, built properly.
+            Tools built properly.
           </h2>
         </div>
 
-        <MarketingProductShowcaseCard
-          v-reveal
-          class="mt-12"
-        />
+        <div class="mt-12 space-y-8">
+          <MarketingProductShowcaseCard
+            v-reveal
+            slug="prism"
+          />
+          <MarketingProductShowcaseCard
+            v-reveal="1"
+            slug="drift"
+          />
+        </div>
       </div>
     </section>
   </div>

@@ -39,7 +39,7 @@ const navLinks = [
 
       <div class="flex items-center gap-2">
         <a
-          href="https://github.com/CutWire-Studios/Prism"
+          href="https://github.com/CutWire-Studios"
           target="_blank"
           rel="noopener noreferrer"
           class="hidden rounded-md border border-border px-3 py-1.5 text-sm text-on-surface/90 transition-colors hover:bg-card sm:inline-block"
@@ -47,10 +47,10 @@ const navLinks = [
           GitHub
         </a>
         <NuxtLink
-          to="/prism"
+          to="/products"
           class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-[0_0_30px_-8px_rgba(255,77,0,0.7)] transition-transform hover:scale-[1.02]"
         >
-          Get Prism
+          Products
         </NuxtLink>
         <LayoutMobileNav />
       </div>

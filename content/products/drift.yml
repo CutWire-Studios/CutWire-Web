@@ -1,0 +1,68 @@
+slug: drift
+name: Drift
+tagline: Create polished videos fast.
+status: coming-soon
+version: "0.1.0"
+platforms:
+  - Linux
+  - Windows
+  - macOS
+summary: >-
+  A free CapCut alternative for desktop. Multi-track timeline, effects, stickers,
+  auto captions, cutouts, and export — no subscription, no watermark, no account.
+  Open source under GPLv3.
+hero:
+  headline: Create polished videos fast — free, open, and yours.
+  subheadline: >-
+    Drop in video, photos and music, add effects and stickers, generate captions,
+    and export — without the watermark, account wall, or cloud lock-in.
+highlights:
+  - title: Multi-track timeline
+    description: Stack video, audio, text and shapes. Trim, split, snap and undo — edits feel immediate.
+  - title: Effects, stickers & captions
+    description: Style clips with GPU effects, finish the frame with stickers and titles, and generate captions from speech.
+  - title: Preview equals export
+    description: The same compositor drives what you see and what you export — H.264 + AAC MP4 with no surprise renders.
+useCases:
+  - title: Social & short-form
+    description: Cut, caption and style clips for the platforms you already post to.
+  - title: Teachers & course makers
+    description: Explainers, lesson clips and demos with titles, shapes and clean audio.
+  - title: YouTubers & podcasters
+    description: Multi-track edits, noise cleanup and captions that match preview.
+features:
+  - title: Timeline
+    body: >-
+      Multi-track editing for video, audio, text and shapes with trim, split, snap
+      and undo that feels immediate.
+    icon: timeline
+  - title: Looks
+    body: >-
+      GPU effects, transitions and reusable templates so you can style clips and
+      save looks for the next project.
+    icon: spark
+  - title: Captions
+    body: >-
+      Generate captions from talking clips, then tweak timing and wording on a
+      dedicated subtitle track.
+    icon: captions
+  - title: Export
+    body: >-
+      H.264 + AAC MP4 with quality presets that keep your project aspect ratio —
+      matching what you saw in preview.
+    icon: package
+specs:
+  - label: Version
+    value: "0.1.0"
+  - label: Platforms
+    value: Linux, Windows, macOS (source build)
+  - label: Framework
+    value: Qt 6 · QML
+  - label: Video
+    value: FFmpeg decode & encode
+  - label: AI
+    value: ONNX Runtime (captions & ML)
+  - label: License
+    value: GPLv3
+downloads: []
+repoUrl: https://github.com/CutWire-Studios/Drift

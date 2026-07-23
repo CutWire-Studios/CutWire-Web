@@ -45,15 +45,13 @@ const links = [
       </nav>
 
       <div class="mt-8">
-        <a
-          href="https://github.com/CutWire-Studios/Prism"
-          target="_blank"
-          rel="noopener noreferrer"
+        <NuxtLink
+          to="/products"
           class="glow-button-primary flex w-full items-center justify-center px-6 py-3 text-label-md"
           @click="open = false"
         >
-          Get CutWire Prism
-        </a>
+          Explore products
+        </NuxtLink>
       </div>
     </UiSheetContent>
   </UiSheet>

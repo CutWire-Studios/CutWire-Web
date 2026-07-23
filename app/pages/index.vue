@@ -78,11 +78,11 @@ const principles = [
       <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
         <div class="animate-rise-in mx-auto max-w-3xl text-center">
           <NuxtLink
-            to="/prism"
+            to="/products"
             class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-on-surface-variant backdrop-blur transition-colors hover:text-on-surface"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
-            CutWire Prism v0.1.2 is out — free &amp; open source
+            Free &amp; open source · Prism live · Drift coming soon
           </NuxtLink>
           <h1 class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
             Professional software. <span class="grad-text">Intuitive for everyone.</span>
@@ -94,10 +94,10 @@ const principles = [
           </p>
           <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
             <NuxtLink
-              to="/prism"
+              to="/products"
               class="glow-button-primary px-5 py-3 text-sm"
             >
-              Explore CutWire Prism
+              Explore products
             </NuxtLink>
             <NuxtLink
               to="/about"
@@ -197,7 +197,7 @@ const principles = [
               Products
             </p>
             <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-              One product, built properly.
+              Tools built properly.
             </h2>
           </div>
           <NuxtLink
@@ -208,10 +208,16 @@ const principles = [
           </NuxtLink>
         </div>
 
-        <MarketingProductShowcaseCard
-          v-reveal
-          class="mt-12"
-        />
+        <div class="mt-12 space-y-8">
+          <MarketingProductShowcaseCard
+            v-reveal
+            slug="prism"
+          />
+          <MarketingProductShowcaseCard
+            v-reveal="1"
+            slug="drift"
+          />
+        </div>
       </div>
     </section>
 
@@ -253,18 +259,18 @@ const principles = [
           class="relative"
         >
           <h2 class="text-balance text-3xl font-bold tracking-tight md:text-5xl">
-            Start with <span class="grad-text">CutWire Prism</span>.
+            Meet the <span class="grad-text">CutWire</span> tools.
           </h2>
           <p class="mx-auto mt-5 max-w-xl text-on-surface-variant">
-            Free and open source. No login, no trial, no feature tier — wire a few nodes and go
-            live tonight.
+            Free and open source. No login, no trial, no feature tier — pick a tool and start
+            creating.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-3">
             <NuxtLink
-              to="/prism"
+              to="/products"
               class="glow-button-primary px-6 py-3 text-sm"
             >
-              Explore CutWire Prism
+              Explore products
             </NuxtLink>
             <NuxtLink
               to="/about"

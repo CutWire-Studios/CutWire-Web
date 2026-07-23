@@ -5,35 +5,35 @@ definePageMeta({ layout: 'default' })
 
 const faqs = [
   {
-    q: 'Where do I download CutWire Prism?',
-    a: 'Grab it from the download section on the Prism page — Flathub or an AppImage on Linux, an installer on Windows, or build from source on macOS.',
+    q: 'Where do I download CutWire software?',
+    a: 'Prism is available from the download section on its product page — Flathub or an AppImage on Linux, an installer on Windows, or build from source on macOS. Drift is coming soon; follow the Drift page and GitHub releases for builds.',
   },
   {
     q: 'How do I report a bug?',
-    a: 'Open an issue on GitHub with your OS, Prism version and what you were doing. If it involves a crash, the log helps. You can also email support@cutwire.org.',
+    a: 'Open an issue on the relevant GitHub repo (Prism or Drift) with your OS, app version and what you were doing. If it involves a crash, the log helps. You can also email support@cutwire.org.',
   },
   {
     q: 'Is there a community?',
-    a: 'Join our Discord for operator tips, help during a show, and release announcements.',
+    a: 'Join our Discord for operator tips, editing help, and release announcements.',
   },
   {
-    q: 'Is CutWire Prism really free?',
-    a: 'Yes — GPLv3, no account, no telemetry, no feature tier. If you can run it, you have all of it.',
+    q: 'Are CutWire tools really free?',
+    a: 'Yes — Prism and Drift are GPLv3, with no account, no telemetry and no feature tier. If you can run it, you have all of it.',
   },
 ]
 
 const channels = [
   {
     title: 'Documentation',
-    body: 'Setup guides, node reference and troubleshooting. Start here — most answers are already written down.',
+    body: 'Setup guides, references and troubleshooting. Start here — most answers are already written down.',
     action: 'Read the docs',
     href: 'https://docs.cutwire.org',
   },
   {
     title: 'GitHub issues',
-    body: 'Bug reports and feature requests. Public, tracked, and the fastest route to a fix landing in a release.',
-    action: 'Open an issue',
-    href: 'https://github.com/CutWire-Studios/Prism/issues',
+    body: 'Bug reports and feature requests for Prism and Drift. Public, tracked, and the fastest route to a fix landing in a release.',
+    action: 'Browse repositories',
+    href: 'https://github.com/CutWire-Studios',
   },
   {
     title: 'Email',
@@ -63,13 +63,13 @@ async function submit() {
 
 const site = useSiteConfig()
 const pageTitle = 'Support — CutWire Studios'
-const pageDescription = 'Get help with CutWire Prism — documentation, GitHub issues, Discord and direct support. Answers to common setup, download and bug-reporting questions.'
+const pageDescription = 'Get help with CutWire Prism and Drift — documentation, GitHub issues, Discord and direct support. Answers to common setup, download and bug-reporting questions.'
 
 useSeoMeta({
   title: pageTitle,
   description: pageDescription,
   ogTitle: 'Support — CutWire Studios',
-  ogDescription: 'Documentation, GitHub issues, Discord and direct support for CutWire Prism.',
+  ogDescription: 'Documentation, GitHub issues, Discord and direct support for CutWire Prism and Drift.',
   ogType: 'website',
   ogUrl: `${site.url}/support`,
   ogSiteName: site.name,
@@ -81,7 +81,7 @@ useHead({ link: [{ rel: 'canonical', href: `${site.url}/support` }] })
 
 defineOgImageComponent('Default', {
   title: 'How can we help?',
-  description: 'Docs, GitHub issues, Discord and direct support for CutWire Prism.',
+  description: 'Docs, GitHub issues, Discord and direct support for CutWire tools.',
   eyebrow: 'Support',
 })
 </script>
@@ -199,8 +199,8 @@ defineOgImageComponent('Default', {
               Still stuck? Tell us what's happening.
             </h2>
             <p class="mt-5 text-on-surface-variant">
-              The more detail the better — your OS, Prism version, and what you were doing when it
-              went wrong. We read everything.
+              The more detail the better — which product (Prism or Drift), your OS, app version, and
+              what you were doing when it went wrong. We read everything.
             </p>
           </div>
 

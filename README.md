@@ -38,7 +38,7 @@ app/
   layouts/      # default, docs, blog, legal
   pages/        # File-based routes
 content/        # Markdown + YAML collections
-server/         # API routes (newsletter, support, RSS)
+server/         # API routes (support, RSS)
 ```
 
 ## Content
@@ -47,4 +47,4 @@ Add docs under `content/docs/<product>/`, blog posts under `content/blog/`, and 
 
 ## Environment
 
-Server routes (`/api/newsletter`, `/api/support`) log submissions until a provider is configured — see PLAN.md §13 for open decisions.
+The support route (`/api/support`) logs submissions until a provider is configured — see PLAN.md §13 for open decisions.

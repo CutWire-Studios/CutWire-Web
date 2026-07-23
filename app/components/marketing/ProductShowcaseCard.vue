@@ -1,16 +1,42 @@
 <script setup lang="ts">
-import { GitBranch, Layers, Network, Palette, ShieldAlert } from 'lucide-vue-next'
+import { Captions, GitBranch, Layers, Network, Palette, Scissors, ShieldAlert, Sparkles } from 'lucide-vue-next'
 
-const { data: product } = await useAsyncData('prism-showcase', () =>
-  queryCollection('products').where('slug', '=', 'prism').first(),
+const props = withDefaults(defineProps<{
+  slug?: 'prism' | 'drift'
+}>(), {
+  slug: 'prism',
+})
+
+const { data: product } = await useAsyncData(`showcase-${props.slug}`, () =>
+  queryCollection('products').where('slug', '=', props.slug).first(),
 )
 
-const highlightIcons = [GitBranch, Layers, Network, Palette, ShieldAlert]
+const assets = {
+  prism: {
+    icon: '/images/prism-icon.png',
+    iconAlt: 'Prism icon',
+    preview: '/images/prism-ss.avif',
+    previewAlt: 'CutWire Prism interface preview — live video mixing with dark UI and orange accents',
+    href: '/prism',
+    exploreLabel: 'Explore CutWire Prism',
+    icons: [GitBranch, Layers, Network, Palette, ShieldAlert],
+  },
+  drift: {
+    icon: '/images/drift-icon.png',
+    iconAlt: 'Drift icon',
+    preview: '/images/drift-main-window.png',
+    previewAlt: 'CutWire Drift interface preview — timeline, effects and video preview',
+    href: '/drift',
+    exploreLabel: 'Explore CutWire Drift',
+    icons: [Scissors, Sparkles, Captions, Layers, ShieldAlert],
+  },
+} as const
 
-const previewImage = '/images/prism-ss.avif'
+const meta = computed(() => assets[props.slug])
+const isLive = computed(() => product.value?.status === 'live')
+const highlightIcons = computed(() => meta.value.icons)
 
 const lightboxOpen = ref(false)
-const previewAlt = 'CutWire Prism interface preview — live video mixing with dark UI and orange accents'
 
 const showcaseHighlights = computed(() =>
   product.value?.highlights?.slice(0, 3) ?? [],
@@ -29,15 +55,23 @@ const showcaseHighlights = computed(() =>
         <div class="mb-8 border-b border-outline-variant pb-6">
           <div class="flex items-center gap-3">
             <NuxtImg
-              src="/images/prism-icon.png"
-              alt="Prism icon"
+              :src="meta.icon"
+              :alt="meta.iconAlt"
               class="size-14 rounded-lg"
               width="56"
               height="56"
             />
-            <h2 class="text-3xl font-bold tracking-tight text-on-surface">
-              {{ product.name }}
-            </h2>
+            <div>
+              <h2 class="text-3xl font-bold tracking-tight text-on-surface">
+                {{ product.name }}
+              </h2>
+              <p
+                v-if="!isLive"
+                class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant"
+              >
+                Coming soon
+              </p>
+            </div>
           </div>
         </div>
 
@@ -74,13 +108,22 @@ const showcaseHighlights = computed(() =>
 
         <div class="flex flex-wrap gap-3">
           <NuxtLink
-            to="/prism"
+            v-if="isLive"
+            :to="meta.href"
             class="glow-button-primary px-5 py-3 text-sm"
           >
-            Explore CutWire Prism
+            {{ meta.exploreLabel }}
           </NuxtLink>
+          <span
+            v-else
+            class="inline-flex cursor-not-allowed items-center rounded-md border border-border bg-surface/60 px-5 py-3 text-sm text-on-surface-variant opacity-70"
+            :aria-disabled="true"
+          >
+            {{ meta.exploreLabel }} (coming soon)
+          </span>
           <a
-            :href="product.docsUrl ?? 'https://docs.cutwire.org'"
+            v-if="isLive && product.docsUrl"
+            :href="product.docsUrl"
             class="glow-button-secondary px-5 py-3 text-sm"
           >
             View documentation
@@ -91,12 +134,12 @@ const showcaseHighlights = computed(() =>
       <button
         type="button"
         class="relative order-1 min-h-[220px] cursor-zoom-in overflow-hidden sm:min-h-[280px] lg:order-2 lg:min-h-0"
-        aria-label="View full-size CutWire Prism screenshot"
+        :aria-label="`View full-size CutWire ${product.name} screenshot`"
         @click="lightboxOpen = true"
       >
         <NuxtImg
-          :src="previewImage"
-          :alt="previewAlt"
+          :src="meta.preview"
+          :alt="meta.previewAlt"
           class="absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-200 hover:opacity-90"
           width="1866"
           height="1136"
@@ -112,8 +155,8 @@ const showcaseHighlights = computed(() =>
           <UiDialogTitle>{{ product.name }} screenshot</UiDialogTitle>
         </UiDialogHeader>
         <NuxtImg
-          :src="previewImage"
-          :alt="previewAlt"
+          :src="meta.preview"
+          :alt="meta.previewAlt"
           class="max-h-[90vh] w-full object-contain"
           width="1866"
           height="1136"

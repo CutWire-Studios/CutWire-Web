@@ -2,6 +2,7 @@
 const footerLinks = {
   Product: [
     { label: 'CutWire Prism', href: '/prism' },
+    { label: 'CutWire Drift (coming soon)', href: null },
     { label: 'Docs', href: 'https://docs.cutwire.org' },
   ],
   Company: [
@@ -28,7 +29,7 @@ const footerLinks = {
           height="48"
         />
         <p class="mt-4 max-w-xs text-sm text-on-surface-variant">
-          Live media tools for creators who run the show.
+          Live media and video tools for creators who run the show.
         </p>
       </div>
 
@@ -42,14 +43,21 @@ const footerLinks = {
         <ul class="mt-4 space-y-3">
           <li
             v-for="link in links"
-            :key="link.href"
+            :key="link.label"
           >
             <NuxtLink
+              v-if="link.href"
               :to="link.href"
               class="text-sm text-on-surface-variant transition-colors hover:text-on-surface"
             >
               {{ link.label }}
             </NuxtLink>
+            <span
+              v-else
+              class="text-sm text-on-surface-variant/70"
+            >
+              {{ link.label }}
+            </span>
           </li>
         </ul>
       </div>

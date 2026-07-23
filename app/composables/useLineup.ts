@@ -25,7 +25,7 @@ export function useLineup(): Instrument[] {
       name: 'Drift',
       domain: 'Video editing',
       tagline: 'Create polished videos fast.',
-      status: 'live',
+      status: 'coming-soon',
       slug: 'drift',
       href: '/drift',
       accent: 'cue',
