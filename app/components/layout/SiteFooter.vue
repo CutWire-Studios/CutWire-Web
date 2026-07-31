@@ -2,7 +2,7 @@
 const footerLinks = {
   Product: [
     { label: 'CutWire Prism', href: '/prism' },
-    { label: 'CutWire Drift (coming soon)', href: null },
+    { label: 'CutWire Drift', href: '/drift' },
     { label: 'Docs', href: 'https://docs.cutwire.org' },
   ],
   Company: [

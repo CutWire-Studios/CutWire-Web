@@ -5,5 +5,6 @@ export function useDriftLinks() {
     releases: 'https://github.com/CutWire-Studios/Drift/releases/latest',
     flathub: 'https://flathub.org/apps/org.cutwire.Drift',
     issues: 'https://github.com/CutWire-Studios/Drift/issues',
+    docs: 'https://docs.cutwire.org/drift',
   }
 }

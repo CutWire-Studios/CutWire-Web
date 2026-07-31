@@ -3,7 +3,7 @@ import type { DriftIconName } from '~/components/drift/Icon.vue'
 
 definePageMeta({ layout: 'drift' })
 
-const { gh, releases, flathub, issues } = useDriftLinks()
+const { gh, releases, flathub, issues, docs } = useDriftLinks()
 
 const site = useSiteConfig()
 
@@ -49,7 +49,7 @@ useSchemaOrg([
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Linux, Windows, macOS',
     softwareVersion: '0.1.0',
-    screenshot: `${site.url}/images/drift-main-window.png`,
+    screenshot: `${site.url}/images/drift-main-window.avif`,
     offers: { price: '0.00', priceCurrency: 'USD' },
   }),
 ])
@@ -119,39 +119,86 @@ const shots: {
   title: string
   body: string
   label: string
-  src?: string
-  w?: number
-  h?: number
+  src: string
+  w: number
+  h: number
 }[] = [
   {
-    src: '/images/drift-main-window.png',
-    w: 1866,
-    h: 1136,
-    label: 'Editor overview — timeline, preview and media panels',
-    title: 'Everything in one window',
-    body: 'Preview, effects and a multi-track timeline share the same workspace so you stay in flow.',
+    src: '/images/drift-text-styles.avif',
+    w: 456,
+    h: 534,
+    label: 'Text style inspector',
+    title: 'Titles with real style control',
+    body: 'Pick a style pack, then tune font, color, outline, shadow and alignment — titles that match the cut without leaving the editor.',
   },
   {
-    label: 'Effects browser with templates',
+    src: '/images/drift-stickers.avif',
+    w: 454,
+    h: 535,
+    label: 'Stickers panel',
+    title: 'Stickers & emoji on demand',
+    body: 'Browse sticker packs and drop emoji onto the timeline — optional packs install from Extras when you want more.',
+  },
+  {
+    src: '/images/drift-effects.avif',
+    w: 454,
+    h: 535,
+    label: 'Effects browser',
     title: 'Looks you can reuse',
-    body: 'Browse effects and transitions, then save combinations as templates for the next project.',
+    body: 'Browse GPU effects by category, then save combinations as templates for the next project.',
   },
   {
+    src: '/images/drift-transitions.avif',
+    w: 462,
+    h: 537,
+    label: 'Transitions panel',
+    title: 'Transitions between clips',
+    body: 'Drag a style onto overlapping clips — crossfades, wipes, glitch and cinematic blends with adjustable duration.',
+  },
+  {
+    src: '/images/drift-captions.avif',
+    w: 459,
+    h: 703,
     label: 'Auto captions on the subtitle track',
     title: 'Captions without the busywork',
     body: 'Speech becomes editable cues on a dedicated track — ready for social or accessibility.',
   },
   {
+    src: '/images/drift-cutout.avif',
+    w: 777,
+    h: 715,
     label: 'Subject cutout / mask session',
     title: 'Cut subjects out of the frame',
     body: 'Mark what to keep, generate a matte, and composite without a studio setup.',
   },
   {
-    label: 'Speed curve editor',
+    src: '/images/drift-speed.avif',
+    w: 455,
+    h: 535,
+    label: 'Speed & fade controls',
     title: 'Speed that feels intentional',
-    body: 'Shape playback speed over time for ramps, freezes and dramatic holds.',
+    body: 'Change playback rate, reverse clips, and fade edges — or open a custom speed curve when you need more control.',
   },
   {
+    src: '/images/drift-audio.avif',
+    w: 455,
+    h: 532,
+    label: 'Audio effects library',
+    title: 'Audio effects that fit the track',
+    body: 'Chain EQ, space, voice and utility presets from the Sounds library — mix and clean without a separate DAW.',
+  },
+  {
+    src: '/images/drift-export.avif',
+    w: 656,
+    h: 515,
+    label: 'Export dialog',
+    title: 'Export formats that match preview',
+    body: 'Pick a size, then choose H.264, H.265, AV1, ProRes and more — with quality or bitrate control and matching audio codecs.',
+  },
+  {
+    src: '/images/drift-addons.avif',
+    w: 657,
+    h: 585,
     label: 'Addon Manager',
     title: 'Start light, grow as you go',
     body: 'Fonts, stickers and speech models install on demand so the base download stays lean.',
@@ -192,10 +239,10 @@ const downloads = [
   },
   {
     os: 'Windows',
-    tag: 'Coming soon',
-    body: 'Native packages are on the roadmap. Build from source today, or follow releases for installers.',
-    code: '# Track Windows builds at\n# github.com/CutWire-Studios/Drift/releases',
-    primary: { label: 'Watch releases', href: releases },
+    tag: 'Installer',
+    body: 'Download the Windows installer from GitHub Releases, or build from source with CMake and Qt 6.',
+    code: '# Grab Drift-Setup-*.exe from\n# github.com/CutWire-Studios/Drift/releases',
+    primary: { label: 'Download installer', href: releases },
     secondary: { label: 'Source on GitHub', href: gh },
   },
   {
@@ -272,6 +319,14 @@ const stack: [string, string][] = [
               Download Drift
             </a>
             <a
+              :href="docs"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-md border border-border bg-surface/60 px-5 py-3 text-sm font-semibold text-foreground/90 backdrop-blur transition-colors hover:bg-surface-2"
+            >
+              Read the docs →
+            </a>
+            <a
               :href="gh"
               target="_blank"
               rel="noreferrer"
@@ -296,12 +351,11 @@ const stack: [string, string][] = [
           />
           <div class="drift-glow-ring relative overflow-hidden rounded-xl border border-border bg-surface">
             <NuxtImg
-              src="/images/drift-main-window.png"
+              src="/images/drift-main-window.avif"
               alt="CutWire Drift main window: effects library, video preview and multi-track timeline"
               class="block w-full"
-              format="avif"
               width="1866"
-              height="1136"
+              height="1134"
               sizes="xs:100vw sm:100vw md:100vw lg:1152px"
               loading="eager"
               preload
@@ -407,12 +461,11 @@ const stack: [string, string][] = [
             class="drift-glow-ring overflow-hidden rounded-xl border border-border bg-surface"
           >
             <NuxtImg
-              src="/images/drift-main-window.png"
-              alt="CutWire Drift editor with effects panel, preview and timeline"
+              src="/images/drift-timeline.avif"
+              alt="CutWire Drift multi-track timeline with video, effects and audio"
               class="block w-full"
-              format="avif"
-              width="1866"
-              height="1136"
+              width="1833"
+              height="520"
               sizes="xs:100vw sm:100vw md:100vw lg:556px"
               loading="lazy"
             />
@@ -456,7 +509,7 @@ const stack: [string, string][] = [
             Screenshots
           </p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
-            Real UI — more shots coming.
+            Real UI from the editor.
           </h2>
         </div>
         <div class="mt-14 grid gap-6 md:grid-cols-2">
@@ -467,23 +520,13 @@ const stack: [string, string][] = [
             class="overflow-hidden rounded-xl border border-border bg-surface"
           >
             <NuxtImg
-              v-if="shot.src"
               :src="shot.src"
               :alt="shot.title"
               :width="shot.w"
               :height="shot.h"
               class="block w-full border-b border-border"
-              format="avif"
               sizes="xs:100vw sm:100vw md:564px"
               loading="lazy"
-            />
-            <DriftPlaceholder
-              v-else
-              :label="shot.label"
-              hint="Screenshot placeholder"
-              aspect="16 / 10"
-              bare
-              class="border-b border-border"
             />
             <figcaption class="p-5">
               <h3 class="font-semibold">

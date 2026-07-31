@@ -24,7 +24,7 @@ const assets = {
   drift: {
     icon: '/images/drift-icon.png',
     iconAlt: 'Drift icon',
-    preview: '/images/drift-main-window.png',
+    preview: '/images/drift-main-window.avif',
     previewAlt: 'CutWire Drift interface preview — timeline, effects and video preview',
     href: '/drift',
     exploreLabel: 'Explore CutWire Drift',

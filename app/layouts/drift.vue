@@ -7,7 +7,7 @@ const links: [string, string][] = [
   ['Built with', '#tech'],
 ]
 
-const { gh, releases, flathub, issues } = useDriftLinks()
+const { gh, releases, flathub, issues, docs } = useDriftLinks()
 const year = new Date().getFullYear()
 </script>
 
@@ -97,6 +97,12 @@ const year = new Date().getFullYear()
           </div>
         </div>
         <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <a
+            :href="docs"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-foreground"
+          >Docs</a>
           <a
             :href="gh"
             target="_blank"

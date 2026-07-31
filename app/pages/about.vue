@@ -78,7 +78,7 @@ const milestones = [
   {
     year: '2026',
     title: 'CutWire Studios launches',
-    body: 'CutWire Prism 0.1 goes public under GPLv3. Drift joins the lineup as the studio\'s free desktop video editor — coming soon.',
+    body: 'CutWire Prism 0.1 goes public under GPLv3. Drift joins the lineup as the studio\'s free desktop video editor.',
   },
 ]
 </script>

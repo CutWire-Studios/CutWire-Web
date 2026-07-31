@@ -82,7 +82,7 @@ const principles = [
             class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-on-surface-variant backdrop-blur transition-colors hover:text-on-surface"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
-            Free &amp; open source · Prism live · Drift coming soon
+            Free &amp; open source · Prism &amp; Drift live
           </NuxtLink>
           <h1 class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
             Professional software. <span class="grad-text">Intuitive for everyone.</span>

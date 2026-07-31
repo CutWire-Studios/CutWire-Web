@@ -3,13 +3,13 @@ definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const pageTitle = 'Products — CutWire Studios'
-const pageDescription = 'The CutWire product lineup. CutWire Prism is a free live video mixer; CutWire Drift is a free CapCut alternative for desktop video editing — coming soon.'
+const pageDescription = 'The CutWire product lineup. CutWire Prism is a free live video mixer; CutWire Drift is a free CapCut alternative for desktop video editing.'
 
 useSeoMeta({
   title: pageTitle,
   description: pageDescription,
   ogTitle: 'The CutWire product lineup',
-  ogDescription: 'CutWire Prism for live mixing, and CutWire Drift — a free CapCut alternative for desktop editing (coming soon).',
+  ogDescription: 'CutWire Prism for live mixing, and CutWire Drift — a free CapCut alternative for desktop editing.',
   ogType: 'website',
   ogUrl: `${site.url}/products`,
   ogSiteName: site.name,
@@ -21,7 +21,7 @@ useHead({ link: [{ rel: 'canonical', href: `${site.url}/products` }] })
 
 defineOgImageComponent('Default', {
   title: 'Software for creators who run the show.',
-  description: 'Prism is live. Drift — a free CapCut alternative — is coming soon.',
+  description: 'Prism for live mixing. Drift for desktop video editing. Both free and open source.',
   eyebrow: 'Products',
 })
 </script>
@@ -49,7 +49,7 @@ defineOgImageComponent('Default', {
           </h1>
           <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
             Every CutWire tool speaks the same language — calm under pressure, precise when it
-            counts. Prism is live; Drift is on the way.
+            counts. Prism for live shows; Drift for desktop edits.
           </p>
           <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
             <a

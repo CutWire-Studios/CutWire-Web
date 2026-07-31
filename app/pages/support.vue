@@ -6,7 +6,7 @@ definePageMeta({ layout: 'default' })
 const faqs = [
   {
     q: 'Where do I download CutWire software?',
-    a: 'Prism is available from the download section on its product page — Flathub or an AppImage on Linux, an installer on Windows, or build from source on macOS. Drift is coming soon; follow the Drift page and GitHub releases for builds.',
+    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer on Windows, or build from source on macOS. Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
   },
   {
     q: 'How do I report a bug?',

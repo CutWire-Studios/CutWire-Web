@@ -1,7 +1,7 @@
 slug: drift
 name: Drift
 tagline: Create polished videos fast.
-status: coming-soon
+status: live
 version: "0.1.0"
 platforms:
   - Linux
@@ -66,3 +66,4 @@ specs:
     value: GPLv3
 downloads: []
 repoUrl: https://github.com/CutWire-Studios/Drift
+docsUrl: https://docs.cutwire.org/drift
