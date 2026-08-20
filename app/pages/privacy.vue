@@ -1,6 +1,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'legal' })
-useSeoMeta({ title: 'Privacy Policy — CutWire Studios' })
+useSeoMeta({
+  title: 'Privacy Policy — CutWire Studios',
+  description: 'How CutWire Studios handles website support messages and anonymized page views. Prism and Drift themselves collect no telemetry.',
+})
 </script>
 
 <template>

@@ -1,21 +1,28 @@
 <script setup lang="ts">
-const links: [string, string][] = [
-  ['Features', '#features'],
-  ['How it works', '#how'],
-  ['Screenshots', '#screens'],
-  ['Download', '#download'],
-  ['Built with', '#tech'],
+const route = useRoute()
+const { version } = useDriftProduct()
+const { gh, releases, flathub, issues, docs, android } = useDriftLinks()
+const year = new Date().getFullYear()
+
+const links = [
+  { label: 'Overview', to: '/drift' },
+  { label: 'Features', to: '/drift/features' },
+  { label: 'Alternatives', to: '/drift/alternatives' },
+  { label: 'FAQ', to: '/drift/faq' },
 ]
 
-const { gh, releases, flathub, issues, docs } = useDriftLinks()
-const year = new Date().getFullYear()
+function isActive(to: string) {
+  if (to === '/drift')
+    return route.path === '/drift'
+  return route.path === to || route.path.startsWith(`${to}/`)
+}
 </script>
 
 <template>
   <div class="theme-drift flex min-h-screen flex-col">
     <header class="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
-      <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-        <div class="flex items-center gap-2.5 font-semibold tracking-tight">
+      <nav class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-6">
+        <div class="flex min-w-0 items-center gap-2.5 font-semibold tracking-tight">
           <NuxtLink
             to="/"
             aria-label="CutWire Studios home"
@@ -29,8 +36,8 @@ const year = new Date().getFullYear()
               height="48"
             />
           </NuxtLink>
-          <a
-            href="#top"
+          <NuxtLink
+            to="/drift"
             class="flex items-center gap-2.5"
           >
             <span
@@ -38,19 +45,20 @@ const year = new Date().getFullYear()
               style="font-family: var(--font-display)"
             >Drift</span>
             <span class="hidden rounded-full border border-border bg-surface-2 px-2 py-0.5 font-mono text-[10px] text-muted-foreground sm:inline-block">
-              v0.1.0
+              v{{ version }}
             </span>
-          </a>
+          </NuxtLink>
         </div>
-        <ul class="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
+        <ul class="hidden items-center gap-6 text-sm text-muted-foreground lg:flex">
           <li
-            v-for="[label, href] in links"
-            :key="href"
+            v-for="link in links"
+            :key="link.to"
           >
-            <a
-              :href="href"
+            <NuxtLink
+              :to="link.to"
               class="transition-colors hover:text-foreground"
-            >{{ label }}</a>
+              :class="isActive(link.to) ? 'text-foreground' : ''"
+            >{{ link.label }}</NuxtLink>
           </li>
         </ul>
         <div class="flex items-center gap-2">
@@ -62,14 +70,26 @@ const year = new Date().getFullYear()
           >
             GitHub
           </a>
-          <a
-            href="#download"
+          <NuxtLink
+            to="/drift#download"
             class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground shadow-[0_0_30px_-8px_color-mix(in_srgb,#fcad01_70%,transparent)] transition-transform hover:scale-[1.02]"
           >
             Download
-          </a>
+          </NuxtLink>
         </div>
       </nav>
+      <ul class="flex gap-4 overflow-x-auto border-t border-border/40 px-4 py-2 text-xs text-muted-foreground lg:hidden">
+        <li
+          v-for="link in links"
+          :key="`m-${link.to}`"
+        >
+          <NuxtLink
+            :to="link.to"
+            class="whitespace-nowrap transition-colors hover:text-foreground"
+            :class="isActive(link.to) ? 'text-foreground' : ''"
+          >{{ link.label }}</NuxtLink>
+        </li>
+      </ul>
     </header>
 
     <main class="flex-1">
@@ -93,10 +113,22 @@ const year = new Date().getFullYear()
             >Drift</span>
           </div>
           <div class="text-sm text-muted-foreground">
-            © {{ year }} CutWire Studios · GPLv3
+            © {{ year }} CutWire Studios · GPLv3 · v{{ version }}
           </div>
         </div>
         <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+          <NuxtLink
+            to="/drift/features"
+            class="hover:text-foreground"
+          >Features</NuxtLink>
+          <NuxtLink
+            to="/drift/alternatives"
+            class="hover:text-foreground"
+          >Alternatives</NuxtLink>
+          <NuxtLink
+            to="/drift/faq"
+            class="hover:text-foreground"
+          >FAQ</NuxtLink>
           <a
             :href="docs"
             target="_blank"
@@ -115,6 +147,12 @@ const year = new Date().getFullYear()
             rel="noreferrer"
             class="hover:text-foreground"
           >Releases</a>
+          <a
+            :href="android"
+            target="_blank"
+            rel="noreferrer"
+            class="hover:text-foreground"
+          >Android (dev)</a>
           <a
             :href="flathub"
             target="_blank"

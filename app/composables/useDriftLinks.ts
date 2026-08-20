@@ -6,5 +6,6 @@ export function useDriftLinks() {
     flathub: 'https://flathub.org/apps/org.cutwire.Drift',
     issues: 'https://github.com/CutWire-Studios/Drift/issues',
     docs: 'https://docs.cutwire.org/drift',
+    android: 'https://github.com/CutWire-Studios/Drift-Android',
   }
 }

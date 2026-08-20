@@ -159,9 +159,23 @@ const milestones = [
               hall alike.
             </p>
             <p>
-              Drift extends that same philosophy to desktop editing — a free CapCut alternative
-              without watermarks, accounts or cloud lock-in. Every CutWire product speaks the same
-              language: calm under pressure, precise when it counts.
+              Drift extends that same philosophy to desktop editing —
+              a
+              <NuxtLink
+                to="/drift"
+                class="text-primary hover:underline"
+              >free CapCut alternative</NuxtLink>
+              without watermarks, accounts or cloud lock-in. See
+              <NuxtLink
+                to="/drift/features"
+                class="text-primary hover:underline"
+              >every Drift feature</NuxtLink>
+              or
+              <NuxtLink
+                to="/drift/alternatives"
+                class="text-primary hover:underline"
+              >compare it with other editors</NuxtLink>.
+              Every CutWire product speaks the same language: calm under pressure, precise when it counts.
             </p>
           </div>
         </div>

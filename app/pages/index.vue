@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { GraduationCap, Music, Trophy, Users } from 'lucide-vue-next'
+import { Captions, Clapperboard, GraduationCap, Music } from 'lucide-vue-next'
 
 definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
-const pageDescription = 'CutWire Studios builds free, open-source live media software with beginner-friendly interfaces. CutWire Prism is a node-based live video mixer for schools, churches and small venues.'
+const pageDescription = 'CutWire Studios builds free, open-source creative tools. Prism is a live video mixer for schools, churches and venues. Drift is a free CapCut alternative for desktop video editing — no watermark, no account.'
 
 useSeoMeta({
   title: 'CutWire Studios — Professional software, intuitive for everyone',
   description: pageDescription,
   ogTitle: 'Professional software. Intuitive for everyone.',
-  ogDescription: 'Free, open-source live media tools for people who run shows, streams and events under real pressure.',
+  ogDescription: 'Free open-source tools: Prism for live mixing, Drift as a CapCut-style desktop video editor with no watermark.',
   ogType: 'website',
   ogUrl: site.url,
   ogSiteName: site.name,
@@ -32,15 +32,15 @@ useSchemaOrg([
 
 defineOgImageComponent('Default', {
   title: 'Professional software. Intuitive for everyone.',
-  description: 'Free, open-source live media tools for people who run things live.',
+  description: 'Prism for live mixing. Drift for desktop video editing. Both free and open source.',
   eyebrow: 'CutWire Studios',
 })
 
 const useCases = [
-  { title: 'School events', description: 'Instant highlight reels and replays during cricket, football, and assembly shows.', icon: GraduationCap },
-  { title: 'Live concerts', description: 'Music videos, audio-reactive shader visuals, and custom graphics that sync with the beat.', icon: Music },
-  { title: 'Visual performances', description: 'Dance, theater, and immersive installations with a dark VJ-style interface.', icon: Users },
-  { title: 'Sports broadcasting', description: 'HTML/QML score overlays, freeze-frame holds, and program recording.', icon: Trophy },
+  { title: 'School events', description: 'Prism for live highlights and replays during cricket, football, and assembly shows.', icon: GraduationCap },
+  { title: 'Live concerts', description: 'Prism for music videos, audio-reactive shaders, and graphics that sync with the beat.', icon: Music },
+  { title: 'Social & short-form', description: 'Drift for Reels, Shorts and TikTok cuts — captions, stickers and export with no watermark.', icon: Clapperboard },
+  { title: 'YouTube & explainers', description: 'Drift for tutorials, lesson clips and talking-head videos with auto captions and a real timeline.', icon: Captions },
 ]
 
 const principles = [
@@ -229,7 +229,7 @@ const principles = [
           class="max-w-2xl"
         >
           <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Where CutWire Prism runs
+            Where CutWire tools run
           </p>
           <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
             People with a real deadline and no budget.

@@ -3,11 +3,14 @@ const footerLinks = {
   Product: [
     { label: 'CutWire Prism', href: '/prism' },
     { label: 'CutWire Drift', href: '/drift' },
+    { label: 'Drift features', href: '/drift/features' },
+    { label: 'Editor alternatives', href: '/drift/alternatives' },
     { label: 'Docs', href: 'https://docs.cutwire.org' },
   ],
   Company: [
     { label: 'About', href: '/about' },
     { label: 'Support', href: '/support' },
+    { label: 'Drift FAQ', href: '/drift/faq' },
   ],
   Legal: [
     { label: 'Privacy', href: '/privacy' },
@@ -29,7 +32,7 @@ const footerLinks = {
           height="48"
         />
         <p class="mt-4 max-w-xs text-sm text-on-surface-variant">
-          Live media and video tools for creators who run the show.
+          Live mixers and a free desktop video editor for people who create and go live.
         </p>
       </div>
 
@@ -64,7 +67,7 @@ const footerLinks = {
     </div>
 
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-border/60 px-4 py-6 text-sm text-on-surface-variant md:px-6 sm:flex-row">
-      <p>CutWire Prism 0.1 · macOS · Windows · Linux · GPLv3</p>
+      <p>CutWire Studios · Prism &amp; Drift · Linux · Windows · macOS · GPLv3</p>
       <p>© {{ new Date().getFullYear() }} CutWire Studios. All rights reserved.</p>
     </div>
   </footer>

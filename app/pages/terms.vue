@@ -1,6 +1,9 @@
 <script setup lang="ts">
 definePageMeta({ layout: 'legal' })
-useSeoMeta({ title: 'Terms of Service — CutWire Studios' })
+useSeoMeta({
+  title: 'Terms of Service — CutWire Studios',
+  description: 'Terms for using CutWire Studios software and the cutwire.org website, including CutWire Prism and CutWire Drift.',
+})
 </script>
 
 <template>
@@ -19,7 +22,7 @@ useSeoMeta({ title: 'Terms of Service — CutWire Studios' })
         License
       </h2>
       <p>
-        CutWire Prism is provided under the terms described in our License page. You may use the software for personal and commercial live production.
+        CutWire Prism and CutWire Drift are provided under the terms described in our License page. You may use the software for personal and commercial work, including live production and video editing.
       </p>
       <h2 class="text-lg font-semibold text-on-surface">
         Limitation of liability

@@ -79,3 +79,128 @@
       transparent 22px 40px
     );
 }
+
+@utility drift-prose {
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.drift-prose :where(h2) {
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.drift-prose :where(h3) {
+  color: var(--foreground);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.drift-prose :where(p) {
+  margin: 0.85rem 0;
+}
+
+.drift-prose :where(ul, ol) {
+  margin: 0.85rem 0;
+  padding-left: 1.25rem;
+}
+
+.drift-prose :where(ul) {
+  list-style: disc;
+}
+
+.drift-prose :where(ol) {
+  list-style: decimal;
+}
+
+.drift-prose :where(li) {
+  margin: 0.35rem 0;
+}
+
+.drift-prose :where(a) {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.drift-prose :where(strong) {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.drift-prose :where(hr) {
+  border-color: var(--border);
+  margin: 2rem 0;
+}
+
+.theme-drift .drift-prose {
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.theme-drift .drift-prose :where(h2) {
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.theme-drift .drift-prose :where(h3) {
+  color: var(--foreground);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-drift .drift-prose :where(p) {
+  margin-top: 0.85rem;
+}
+
+.theme-drift .drift-prose :where(ul, ol) {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
+.theme-drift .drift-prose :where(ul) {
+  list-style: disc;
+}
+
+.theme-drift .drift-prose :where(ol) {
+  list-style: decimal;
+}
+
+.theme-drift .drift-prose :where(li) {
+  margin-top: 0.35rem;
+}
+
+.theme-drift .drift-prose :where(a) {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+
+.theme-drift .drift-prose :where(a:hover) {
+  text-decoration: underline;
+}
+
+.theme-drift .drift-prose :where(strong) {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+.theme-drift .drift-prose :where(hr) {
+  border-color: var(--border);
+  margin: 2rem 0;
+}

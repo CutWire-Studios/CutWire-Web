@@ -1,0 +1,31 @@
+export const DRIFT_VERSION = '0.3.0'
+
+export const DRIFT_FEATURE_LIST = [
+  'Multi-track timeline',
+  'GPU effects and transitions',
+  'Stickers, titles and shapes',
+  'Auto captions from speech',
+  'Subject cutouts, masks and green screen',
+  'Speed ramps, reverse and beat snap',
+  'Audio mixing and noise cleanup',
+  'Multicam and scene detection',
+  'Local AI addons and MCP agent access',
+  'Export without a watermark',
+] as const
+
+export function useDriftProduct() {
+  const { gh, releases, flathub, issues, docs } = useDriftLinks()
+
+  return {
+    name: 'CutWire Drift',
+    version: DRIFT_VERSION,
+    gh,
+    releases,
+    flathub,
+    issues,
+    docs,
+    featureList: [...DRIFT_FEATURE_LIST],
+    operatingSystem: 'Linux, Windows, macOS',
+    license: 'https://www.gnu.org/licenses/gpl-3.0.html',
+  }
+}

@@ -6,7 +6,15 @@ definePageMeta({ layout: 'default' })
 const faqs = [
   {
     q: 'Where do I download CutWire software?',
-    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer on Windows, or build from source on macOS. Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
+    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer or portable zip on Windows, and a disk image on macOS (Apple Silicon). Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
+  },
+  {
+    q: 'Is Drift a free CapCut alternative?',
+    a: 'Yes. Drift is a free, open-source desktop video editor with no watermark and no account. The Drift FAQ and feature list cover captions, cutouts, Linux support and how it compares to other editors.',
+  },
+  {
+    q: 'Is Drift a free CapCut alternative?',
+    a: 'Yes. Drift is a free, open-source desktop video editor with no watermark and no account. See the Drift FAQ and the full feature list for captions, cutouts, Linux support and how it compares to other editors.',
   },
   {
     q: 'How do I report a bug?',
@@ -184,6 +192,23 @@ defineOgImageComponent('Default', {
             </UiAccordionContent>
           </UiAccordionItem>
         </UiAccordion>
+        <p class="mt-8 text-sm text-on-surface-variant">
+          Editing questions live on the
+          <NuxtLink
+            to="/drift/faq"
+            class="text-primary hover:underline"
+          >Drift FAQ</NuxtLink>
+          and the
+          <NuxtLink
+            to="/drift/features"
+            class="text-primary hover:underline"
+          >full feature list</NuxtLink>.
+          Comparing CapCut or another editor?
+          <NuxtLink
+            to="/drift/alternatives"
+            class="text-primary hover:underline"
+          >See alternatives</NuxtLink>.
+        </p>
       </div>
     </section>
 

@@ -3,7 +3,8 @@ import type { DriftIconName } from '~/components/drift/Icon.vue'
 
 definePageMeta({ layout: 'drift' })
 
-const { gh, releases, flathub, issues, docs } = useDriftLinks()
+const { gh, releases, flathub, issues, docs, android } = useDriftLinks()
+const { version, featureList } = useDriftProduct()
 
 const site = useSiteConfig()
 
@@ -14,8 +15,6 @@ const socialTitle = 'CutWire Drift — Free CapCut alternative for desktop'
 const pageDescription = 'Free CapCut alternative for desktop. Open-source video editor with a multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
 const socialDescription = 'A free CapCut alternative that runs on your desktop. Drop in clips, add effects and stickers, generate captions, and export polished videos. Open source under GPLv3.'
 const pageUrl = `${site.url}/drift`
-const ogImage = `${site.url}/images/drift-cover.png`
-const ogImageAlt = 'CutWire Drift — Free CapCut alternative'
 
 useSeoMeta({
   title: pageTitle,
@@ -26,20 +25,19 @@ useSeoMeta({
   ogUrl: pageUrl,
   ogSiteName: site.name,
   ogLocale: 'en_US',
-  ogImage,
-  ogImageAlt,
-  ogImageType: 'image/png',
-  ogImageWidth: 700,
-  ogImageHeight: 400,
   twitterCard: 'summary_large_image',
   twitterTitle: socialTitle,
   twitterDescription: socialDescription,
-  twitterImage: ogImage,
-  twitterImageAlt: ogImageAlt,
 })
 
 useHead({
   link: [{ rel: 'canonical', href: pageUrl }],
+})
+
+defineOgImageComponent('Default', {
+  title: 'Free CapCut alternative for desktop',
+  description: 'Open-source video editor. No subscription, no watermark, no account.',
+  eyebrow: 'CutWire Drift',
 })
 
 useSchemaOrg([
@@ -48,8 +46,13 @@ useSchemaOrg([
     description: pageDescription,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Linux, Windows, macOS',
-    softwareVersion: '0.1.0',
+    softwareVersion: version,
     screenshot: `${site.url}/images/drift-main-window.avif`,
+    downloadUrl: releases,
+    featureList: [...featureList],
+    isAccessibleForFree: true,
+    license: 'https://www.gnu.org/licenses/gpl-3.0.html',
+    url: pageUrl,
     offers: { price: '0.00', priceCurrency: 'USD' },
   }),
 ])
@@ -232,26 +235,26 @@ const downloads = [
   {
     os: 'Linux',
     tag: 'Recommended',
-    body: 'Install from Flathub when available, or build from source with CMake.',
+    body: 'Install from Flathub, or grab an AppImage from GitHub Releases.',
     code: 'flatpak install flathub org.cutwire.Drift\nflatpak run org.cutwire.Drift',
     primary: { label: 'Open on Flathub', href: flathub },
     secondary: { label: 'Releases on GitHub', href: releases },
   },
   {
     os: 'Windows',
-    tag: 'Installer',
-    body: 'Download the Windows installer from GitHub Releases, or build from source with CMake and Qt 6.',
-    code: '# Grab Drift-Setup-*.exe from\n# github.com/CutWire-Studios/Drift/releases',
-    primary: { label: 'Download installer', href: releases },
+    tag: 'Installer + portable',
+    body: 'Download the Windows installer, or the portable zip if you prefer not to install.',
+    code: '# Drift-Setup-*.exe or Drift-Portable-*.zip from\n# github.com/CutWire-Studios/Drift/releases',
+    primary: { label: 'Download for Windows', href: releases },
     secondary: { label: 'Source on GitHub', href: gh },
   },
   {
     os: 'macOS',
-    tag: 'Build from source',
-    body: 'No prebuilt binary yet — clone the repo and build with CMake and Qt 6.',
-    code: 'git clone https://github.com/CutWire-Studios/Drift\ncmake -B build && cmake --build build',
-    primary: { label: 'Build instructions', href: gh },
-    secondary: { label: 'Track macOS binary', href: issues },
+    tag: 'Apple Silicon',
+    body: 'Open the disk image and drag Drift to Applications. Intel Macs can build from source.',
+    code: '# Drift-*-arm64.dmg from GitHub Releases\n# First launch: right-click the app → Open',
+    primary: { label: 'Download disk image', href: releases },
+    secondary: { label: 'Build from source', href: gh },
   },
 ]
 
@@ -301,7 +304,7 @@ const stack: [string, string][] = [
             class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
-            Free &amp; open source · GPLv3 · v0.1.0
+            Free &amp; open source · GPLv3 · v{{ version }}
           </a>
           <h1 class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
             Create polished videos <span class="drift-grad-text">fast</span> — free, open, and yours.
@@ -336,7 +339,7 @@ const stack: [string, string][] = [
             </a>
           </div>
           <p class="mt-4 font-mono text-xs text-muted-foreground">
-            Linux · Windows &amp; macOS (source build)
+            Linux · Windows · macOS · Android in development
           </p>
         </div>
 
@@ -425,6 +428,25 @@ const stack: [string, string][] = [
             </div>
           </div>
         </div>
+        <p
+          v-reveal
+          class="mt-8 text-sm text-muted-foreground"
+        >
+          <NuxtLink
+            to="/drift/features"
+            class="font-medium text-primary hover:underline"
+          >See every feature</NuxtLink>
+          ·
+          <NuxtLink
+            to="/drift/alternatives"
+            class="font-medium text-primary hover:underline"
+          >Compare with CapCut and other editors</NuxtLink>
+          ·
+          <NuxtLink
+            to="/drift/faq"
+            class="font-medium text-primary hover:underline"
+          >FAQ</NuxtLink>
+        </p>
       </div>
     </section>
 
@@ -593,7 +615,7 @@ const stack: [string, string][] = [
             Free. Open source. Actually free.
           </h2>
           <p class="mt-5 text-lg text-muted-foreground">
-            GPLv3, no account, no telemetry, no upsell. Version 0.1.0 is early and under active
+            GPLv3, no account, no telemetry, no upsell. Version {{ version }} is early and under active
             development — please file the bugs you hit.
           </p>
         </div>
@@ -636,6 +658,19 @@ const stack: [string, string][] = [
             </div>
           </div>
         </div>
+        <p
+          v-reveal
+          class="mt-8 text-sm text-muted-foreground"
+        >
+          Want Drift on a phone?
+          <a
+            :href="android"
+            target="_blank"
+            rel="noreferrer"
+            class="font-medium text-primary hover:underline"
+          >Android is under development</a>
+          — follow the repo, it is not on the Play Store yet. There is no iOS app.
+        </p>
       </div>
     </section>
 

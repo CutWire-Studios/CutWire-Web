@@ -2,7 +2,7 @@ slug: drift
 name: Drift
 tagline: Create polished videos fast.
 status: live
-version: "0.1.0"
+version: "0.3.0"
 platforms:
   - Linux
   - Windows
@@ -22,7 +22,7 @@ highlights:
   - title: Effects, stickers & captions
     description: Style clips with GPU effects, finish the frame with stickers and titles, and generate captions from speech.
   - title: Preview equals export
-    description: The same compositor drives what you see and what you export — H.264 + AAC MP4 with no surprise renders.
+    description: The same compositor drives what you see and what you export — no watermark, no surprise renders.
 useCases:
   - title: Social & short-form
     description: Cut, caption and style clips for the platforms you already post to.
@@ -48,14 +48,14 @@ features:
     icon: captions
   - title: Export
     body: >-
-      H.264 + AAC MP4 with quality presets that keep your project aspect ratio —
-      matching what you saw in preview.
+      H.264, H.265, AV1, ProRes and more — quality presets that keep your project
+      aspect ratio and match what you saw in preview.
     icon: package
 specs:
   - label: Version
-    value: "0.1.0"
+    value: "0.3.0"
   - label: Platforms
-    value: Linux, Windows, macOS (source build)
+    value: Linux, Windows, macOS
   - label: Framework
     value: Qt 6 · QML
   - label: Video

@@ -1,5 +1,11 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
+const comparisonRow = z.object({
+  label: z.string(),
+  them: z.string(),
+  us: z.string(),
+})
+
 export default defineContentConfig({
   collections: {
     products: defineCollection({
@@ -30,6 +36,22 @@ export default defineContentConfig({
           version: z.string().optional(),
           checksum: z.string().optional(),
         })).default([]),
+      }),
+    }),
+    driftPages: defineCollection({
+      type: 'page',
+      source: 'drift/**/*.md',
+      schema: z.object({
+        eyebrow: z.string().optional(),
+        headline: z.string().optional(),
+        competitor: z.string().optional(),
+        competitorOwner: z.string().optional(),
+        who: z.string().optional(),
+        wins: z.array(z.string()).optional(),
+        rows: z.array(comparisonRow).optional(),
+        faqs: z.array(z.object({ q: z.string(), a: z.string() })).optional(),
+        hubBlurb: z.string().optional(),
+        order: z.number().optional(),
       }),
     }),
   },
