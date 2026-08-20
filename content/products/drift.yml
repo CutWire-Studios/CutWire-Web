@@ -19,8 +19,8 @@ hero:
 highlights:
   - title: Multi-track timeline
     description: Stack video, audio, text and shapes. Trim, split, snap and undo — edits feel immediate.
-  - title: Effects, stickers & captions
-    description: Style clips with GPU effects, finish the frame with stickers and titles, and generate captions from speech.
+  - title: Agent access (MCP)
+    description: Turn on a local MCP server so Cursor, Claude Code or another agent can edit the real timeline — undoable, localhost only.
   - title: Preview equals export
     description: The same compositor drives what you see and what you export — no watermark, no surprise renders.
 useCases:

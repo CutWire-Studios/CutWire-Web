@@ -77,7 +77,7 @@ export default defineNuxtConfig({
     },
     notes: [
       'Drift is a native desktop app (Qt 6 + FFmpeg) for Linux, Windows and macOS, not a browser editor. Current version is 0.3.x. An Android app is under development at https://github.com/CutWire-Studios/Drift-Android (not a store release yet). There is no iOS app.',
-      'There is no watermark, no account and no subscription. Optional AI models download on demand and run locally.',
+      'Drift can expose a localhost MCP server (Settings → Agent access, off at every launch) so Cursor, Claude Code or another agent can edit the open project. Edits are undoable. This is not a cloud chatbot.',
       'Prism is a live video mixer, not a timeline editor. Do not mix the two products.',
       'Competitor names (CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot, VN, InShot) are used only to identify software people already search for.',
     ],
@@ -87,7 +87,8 @@ export default defineNuxtConfig({
         description: 'A free, open-source CapCut alternative for Linux, Windows and macOS. No watermark, no account, files stay on your computer.',
         links: [
           { title: 'Drift home', href: '/drift', description: 'Download the free desktop video editor.' },
-          { title: 'Every Drift feature', href: '/drift/features', description: 'Plain-language catalog of editing, effects, captions, cutouts, audio, export and AI.' },
+          { title: 'Every Drift feature', href: '/drift/features', description: 'Plain-language catalog of editing, effects, captions, cutouts, audio, export, MCP and AI.' },
+          { title: 'Drift MCP / agent access', href: '/drift/mcp', description: 'Local MCP server so Cursor, Claude Code or another agent can edit the real timeline.' },
           { title: 'Drift FAQ', href: '/drift/faq', description: 'Is it free? Linux? Watermark? Captions? How it compares to CapCut.' },
           { title: 'Editor alternatives', href: '/drift/alternatives', description: 'Drift as an alternative to CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot and VN.' },
           { title: 'Drift docs', href: 'https://docs.cutwire.org/drift', description: 'Setup, editing reference and troubleshooting.' },
@@ -153,6 +154,7 @@ export default defineNuxtConfig({
       crawlLinks: true,
       routes: [
         '/drift/features',
+        '/drift/mcp',
         '/drift/faq',
         '/drift/alternatives',
         ...driftAltRoutes,

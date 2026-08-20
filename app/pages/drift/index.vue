@@ -63,6 +63,7 @@ const audiences = [
   'For social video',
   'For explainers',
   'For everyday edits',
+  'For AI agents',
   'For open-source fans',
 ]
 
@@ -106,6 +107,11 @@ const features: { icon: DriftIconName, title: string, body: string }[] = [
     icon: 'package',
     title: 'Projects that travel',
     body: 'Bundle a project with its media so collaborators and backups stay together.',
+  },
+  {
+    icon: 'agent',
+    title: 'MCP agent access',
+    body: 'Turn on a local MCP server so Cursor, Claude Code or another agent can edit the real timeline. Off until you enable it. Undo anything.',
   },
 ]
 
@@ -228,6 +234,25 @@ const audienceRows = [
   {
     t: 'Open-source builders',
     d: 'GPLv3 desktop app on Qt 6 and FFmpeg — fork it, ship addons, or just use it.',
+  },
+  {
+    t: 'People who pair the editor with an agent',
+    d: 'Cursor, Claude Code or any MCP client can import, cut, caption and export — on the real timeline, with undo.',
+  },
+]
+
+const mcpPoints = [
+  {
+    t: 'Off until you say so',
+    d: 'Settings → Agent access. Disabled at every launch. Listens only on 127.0.0.1, with a token that rotates each session.',
+  },
+  {
+    t: 'The same jobs you do',
+    d: 'Import media, place and trim clips, titles, captions, effects, beat snap, scene detection, export. One apply batch is one undo step.',
+  },
+  {
+    t: 'Check the frame',
+    d: 'The agent can capture a JPEG of the composition before export, so it is not editing blind.',
   },
 ]
 
@@ -400,11 +425,11 @@ const stack: [string, string][] = [
             the strings off.
           </p>
         </div>
-        <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div
             v-for="(card, i) in features"
             :key="card.title"
-            v-reveal="i % 4"
+            v-reveal="i % 3"
             class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
           >
             <div
@@ -438,6 +463,11 @@ const stack: [string, string][] = [
           >See every feature</NuxtLink>
           ·
           <NuxtLink
+            to="/drift/mcp"
+            class="font-medium text-primary hover:underline"
+          >MCP / agent access</NuxtLink>
+          ·
+          <NuxtLink
             to="/drift/alternatives"
             class="font-medium text-primary hover:underline"
           >Compare with CapCut and other editors</NuxtLink>
@@ -447,6 +477,63 @@ const stack: [string, string][] = [
             class="font-medium text-primary hover:underline"
           >FAQ</NuxtLink>
         </p>
+      </div>
+    </section>
+
+    <!-- MCP / agent access -->
+    <section
+      id="mcp"
+      class="relative border-y border-border/60 bg-surface/40 py-24 md:py-32"
+    >
+      <div class="mx-auto max-w-6xl px-4 md:px-6">
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div v-reveal>
+            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+              Agent access
+            </p>
+            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+              Let Cursor or Claude edit the <span class="drift-grad-text">real timeline</span>.
+            </h2>
+            <p class="mt-5 text-lg text-muted-foreground">
+              Drift includes a localhost MCP server. Turn on Agent access and an AI tool can import
+              clips, trim, caption, apply effects, capture a still, and export — then you undo
+              anything you do not like. Not a chatbot bolted onto a webpage.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <NuxtLink
+                to="/drift/mcp"
+                class="rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_color-mix(in_srgb,#fcad01_80%,transparent)] transition-transform hover:scale-[1.02]"
+              >
+                How MCP works in Drift
+              </NuxtLink>
+              <a
+                href="https://github.com/CutWire-Studios/Drift/blob/main/docs/MCP.md"
+                target="_blank"
+                rel="noreferrer"
+                class="rounded-md border border-border bg-surface/60 px-5 py-3 text-sm font-semibold backdrop-blur transition-colors hover:bg-surface-2"
+              >
+                Protocol guide →
+              </a>
+            </div>
+          </div>
+          <ul
+            v-reveal="1"
+            class="space-y-4"
+          >
+            <li
+              v-for="item in mcpPoints"
+              :key="item.t"
+              class="rounded-xl border border-border bg-surface/70 p-5"
+            >
+              <h3 class="font-semibold">
+                {{ item.t }}
+              </h3>
+              <p class="mt-1.5 text-sm text-muted-foreground">
+                {{ item.d }}
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 

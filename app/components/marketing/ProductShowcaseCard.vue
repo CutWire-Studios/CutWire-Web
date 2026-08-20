@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Captions, GitBranch, Layers, Network, Palette, Scissors, ShieldAlert, Sparkles } from 'lucide-vue-next'
+import { Bot, GitBranch, Layers, Network, Palette, Scissors, ShieldAlert } from 'lucide-vue-next'
 
 const props = withDefaults(defineProps<{
   slug?: 'prism' | 'drift'
@@ -28,7 +28,7 @@ const assets = {
     previewAlt: 'CutWire Drift interface preview — timeline, effects and video preview',
     href: '/drift',
     exploreLabel: 'Explore CutWire Drift',
-    icons: [Scissors, Sparkles, Captions, Layers, ShieldAlert],
+    icons: [Scissors, Bot, ShieldAlert],
   },
 } as const
 

@@ -4,6 +4,7 @@ const footerLinks = {
     { label: 'CutWire Prism', href: '/prism' },
     { label: 'CutWire Drift', href: '/drift' },
     { label: 'Drift features', href: '/drift/features' },
+    { label: 'Drift MCP', href: '/drift/mcp' },
     { label: 'Editor alternatives', href: '/drift/alternatives' },
     { label: 'Docs', href: 'https://docs.cutwire.org' },
   ],

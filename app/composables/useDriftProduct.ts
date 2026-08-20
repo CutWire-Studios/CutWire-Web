@@ -9,7 +9,7 @@ export const DRIFT_FEATURE_LIST = [
   'Speed ramps, reverse and beat snap',
   'Audio mixing and noise cleanup',
   'Multicam and scene detection',
-  'Local AI addons and MCP agent access',
+  'MCP agent access for Cursor and Claude Code',
   'Export without a watermark',
 ] as const
 

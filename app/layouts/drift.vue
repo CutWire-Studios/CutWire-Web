@@ -7,6 +7,7 @@ const year = new Date().getFullYear()
 const links = [
   { label: 'Overview', to: '/drift' },
   { label: 'Features', to: '/drift/features' },
+  { label: 'MCP', to: '/drift/mcp' },
   { label: 'Alternatives', to: '/drift/alternatives' },
   { label: 'FAQ', to: '/drift/faq' },
 ]
@@ -121,6 +122,10 @@ function isActive(to: string) {
             to="/drift/features"
             class="hover:text-foreground"
           >Features</NuxtLink>
+          <NuxtLink
+            to="/drift/mcp"
+            class="hover:text-foreground"
+          >MCP</NuxtLink>
           <NuxtLink
             to="/drift/alternatives"
             class="hover:text-foreground"

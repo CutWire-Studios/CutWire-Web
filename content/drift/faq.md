@@ -36,11 +36,15 @@ faqs:
   - q: Does Drift have a mobile app?
     a: An Android app is under development at github.com/CutWire-Studios/Drift-Android — not a store release yet. There is no iOS app. The desktop editor (Linux, Windows, macOS) is what you can download today. Phone clips still import and keep portrait orientation.
   - q: Can an AI assistant edit my timeline?
-    a: Optionally. Drift can run a local MCP server for tools like Cursor or Claude Code. It is off at every launch until you enable it, and it only binds to 127.0.0.1. Edits are undoable. This is not a cloud chatbot.
+    a: Yes, optionally. Drift has a built-in localhost MCP server. Turn on Settings → Agent access (off at every launch) and Cursor, Claude Code or another MCP client can import media, place and trim clips, add captions and effects, capture a still, and export. Edits are undoable. This is not a cloud chatbot. Details at cutwire.org/drift/mcp.
+  - q: What can a Drift MCP agent actually do?
+    a: The same jobs you do in the UI, grouped into toolboxes — media, timeline, canvas, playback, text, shapes, subtitles, effects, project, keyframes, speed, cutouts, denoise, audio/beats, scene detection, and UI prefs. It cannot install add-on models; install those in Drift first. Protocol reference is in the Drift GitHub MCP guide.
+  - q: Is Drift MCP safe? Does my video leave the machine?
+    a: Agent access binds to 127.0.0.1 only. CutWire does not receive your footage. Any local process with the session token can drive the editor, so treat the token like a password. Drift itself is not a sandbox. Your agent may still send prompts to its own model — that is the agent’s cloud, not Drift’s.
   - q: Where do I download Drift?
     a: From cutwire.org/drift, GitHub Releases, or Flathub on Linux. Current version is listed on the product page.
   - q: Is CutWire Prism the same thing?
     a: No. Prism is a live video mixer for shows, streams and events. Drift is the timeline editor. They are sister apps from CutWire Studios.
 ---
 
-Short answers for people and chatbots. For the full catalog see [every Drift feature](/drift/features). To compare a specific app, open [editor alternatives](/drift/alternatives).
+Short answers for people and chatbots. For the full catalog see [every Drift feature](/drift/features). Agent editing is covered on [Drift MCP](/drift/mcp). To compare a specific app, open [editor alternatives](/drift/alternatives).

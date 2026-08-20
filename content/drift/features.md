@@ -7,7 +7,7 @@ eyebrow: Features
 
 This page lists what **CutWire Drift** can do today. Drift is a free, open-source desktop video editor for Linux, Windows and macOS. There is no subscription, no account and no watermark on export.
 
-If you are comparing editors, start at [Drift as an alternative](/drift/alternatives) or the [FAQ](/drift/faq).
+If you are comparing editors, start at [Drift as an alternative](/drift/alternatives) or the [FAQ](/drift/faq). If you want an AI tool to drive the timeline, see [MCP / agent access](/drift/mcp).
 
 ## Who it is for
 
@@ -136,12 +136,18 @@ Preview and export share the same compositor.
 - Ranged export from the In/Out work area
 - **No watermark. No account.**
 
-## Projects, addons and AI
+## Agent access (MCP)
+
+Drift can run a **localhost MCP server** so Cursor, Claude Code, or another agent edits the **open project** — import, trim, captions, effects, capture a still, export. Off until you enable **Settings → Agent access**. Listens only on `127.0.0.1`. One batch of edits is one undo step.
+
+This is a real editor hook, not a webpage chatbot. Full plain-language list: [Drift MCP / agent access](/drift/mcp). Protocol: [MCP guide on GitHub](https://github.com/CutWire-Studios/Drift/blob/main/docs/MCP.md).
+
+## Projects, addons and extra AI models
 
 - Save as a `.drift` project
 - **Project bundles** pack media with the edit for sharing and backup
 - Addon Manager: fonts, stickers, speech models and extra effects as optional downloads so the base install stays small
-- Optional **MCP server** for local AI tools (Cursor, Claude Code and similar). Off until you turn it on. Listens only on your computer (`127.0.0.1`). Edits are undoable.
+- Speech-to-text, subject cutout and denoise are optional on-device models — MCP will not install them for you
 
 ## Platforms, price and license
 

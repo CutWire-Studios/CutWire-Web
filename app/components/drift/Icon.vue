@@ -8,6 +8,7 @@ export type DriftIconName =
   | 'speed'
   | 'audio'
   | 'package'
+  | 'agent'
 
 defineProps<{ name: DriftIconName }>()
 
@@ -46,6 +47,11 @@ const paths: Record<DriftIconName, string[]> = {
   package: [
     'M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z',
     'M12 12l8-4.5M12 12v9M12 12L4 7.5',
+  ],
+  agent: [
+    'M12 3a4 4 0 0 1 4 4v1h1.5a2.5 2.5 0 0 1 0 5H16v1a4 4 0 1 1-8 0v-1H6.5a2.5 2.5 0 0 1 0-5H8V7a4 4 0 0 1 4-4z',
+    'M9.5 13h.01M14.5 13h.01',
+    'M12 2v1',
   ],
 }
 </script>
