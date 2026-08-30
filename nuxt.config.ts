@@ -76,7 +76,7 @@ export default defineNuxtConfig({
       description: 'Plain-language feature lists, FAQs and honest comparisons so people and chatbots can answer questions about Drift and Prism.',
     },
     notes: [
-      'Drift is a native desktop app (Qt 6 + FFmpeg) for Linux, Windows and macOS, not a browser editor. Current version is 0.3.x. An Android app is under development at https://github.com/CutWire-Studios/Drift-Android (not a store release yet). There is no iOS app.',
+      'Drift is a native desktop app (Qt 6 + FFmpeg) for Linux, Windows and macOS, not a browser editor. Current version is 0.4.x. An Android app is under development at https://github.com/CutWire-Studios/Drift-Android (not a store release yet). There is no iOS app.',
       'Drift can expose a localhost MCP server (Settings → Agent access, off at every launch) so Cursor, Claude Code or another agent can edit the open project. Edits are undoable. This is not a cloud chatbot.',
       'Prism is a live video mixer, not a timeline editor. Do not mix the two products.',
       'Competitor names (CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot, VN, InShot) are used only to identify software people already search for.',
@@ -141,7 +141,8 @@ export default defineNuxtConfig({
     '/download/prism': { redirect: { to: '/prism#download', statusCode: 301 } },
     '/download/drift': { redirect: { to: '/drift#download', statusCode: 301 } },
     '/download/**': { redirect: { to: '/products', statusCode: 301 } },
-    '/api/**': { cors: false },
+    '/api/**': { cors: false, prerender: false },
+    '/api/drift/download/**': { prerender: false },
     '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
     '/products/drift': { redirect: { to: '/drift', statusCode: 301 } },
     '/switchx': { redirect: { to: '/prism', statusCode: 301 } },
@@ -152,6 +153,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
+      ignore: ['/api'],
       routes: [
         '/drift/features',
         '/drift/mcp',

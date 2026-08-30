@@ -1,4 +1,4 @@
-export const DRIFT_VERSION = '0.3.0'
+export const DRIFT_VERSION = '0.4.0'
 
 export const DRIFT_FEATURE_LIST = [
   'Multi-track timeline',

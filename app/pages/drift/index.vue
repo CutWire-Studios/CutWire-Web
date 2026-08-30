@@ -3,7 +3,7 @@ import type { DriftIconName } from '~/components/drift/Icon.vue'
 
 definePageMeta({ layout: 'drift' })
 
-const { gh, releases, flathub, issues, docs, android } = useDriftLinks()
+const { gh, flathub, issues, docs, android, downloadWindows, downloadWindowsPortable, downloadLinux, downloadMacos } = useDriftLinks()
 const { version, featureList } = useDriftProduct()
 
 const site = useSiteConfig()
@@ -48,7 +48,7 @@ useSchemaOrg([
     operatingSystem: 'Linux, Windows, macOS',
     softwareVersion: version,
     screenshot: `${site.url}/images/drift-main-window.avif`,
-    downloadUrl: releases,
+    downloadUrl: `${site.url}/drift#download`,
     featureList: [...featureList],
     isAccessibleForFree: true,
     license: 'https://www.gnu.org/licenses/gpl-3.0.html',
@@ -260,25 +260,25 @@ const downloads = [
   {
     os: 'Linux',
     tag: 'Recommended',
-    body: 'Install from Flathub, or grab an AppImage from GitHub Releases.',
+    body: 'Install from Flathub, or download the latest AppImage.',
     code: 'flatpak install flathub org.cutwire.Drift\nflatpak run org.cutwire.Drift',
     primary: { label: 'Open on Flathub', href: flathub },
-    secondary: { label: 'Releases on GitHub', href: releases },
+    secondary: { label: 'Download AppImage', href: downloadLinux },
   },
   {
     os: 'Windows',
     tag: 'Installer + portable',
-    body: 'Download the Windows installer, or the portable zip if you prefer not to install.',
-    code: '# Drift-Setup-*.exe or Drift-Portable-*.zip from\n# github.com/CutWire-Studios/Drift/releases',
-    primary: { label: 'Download for Windows', href: releases },
-    secondary: { label: 'Source on GitHub', href: gh },
+    body: 'Download the latest Windows installer, or the portable zip if you prefer not to install.',
+    code: '# Latest Drift-Setup-*-x64.exe or Drift-Portable-*-x64.zip',
+    primary: { label: 'Download for Windows', href: downloadWindows },
+    secondary: { label: 'Download portable zip', href: downloadWindowsPortable },
   },
   {
     os: 'macOS',
     tag: 'Apple Silicon',
-    body: 'Open the disk image and drag Drift to Applications. Intel Macs can build from source.',
-    code: '# Drift-*-arm64.dmg from GitHub Releases\n# First launch: right-click the app → Open',
-    primary: { label: 'Download disk image', href: releases },
+    body: 'Download the latest disk image and drag Drift to Applications. Intel Macs can build from source.',
+    code: '# Latest Drift-*-arm64.dmg\n# First launch: right-click the app → Open',
+    primary: { label: 'Download disk image', href: downloadMacos },
     secondary: { label: 'Build from source', href: gh },
   },
 ]
@@ -728,16 +728,16 @@ const stack: [string, string][] = [
             <div class="mt-auto flex flex-col gap-2 pt-5">
               <a
                 :href="card.primary.href"
-                target="_blank"
-                rel="noreferrer"
+                :target="card.primary.href.startsWith('http') ? '_blank' : undefined"
+                :rel="card.primary.href.startsWith('http') ? 'noreferrer' : undefined"
                 class="rounded-md bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 {{ card.primary.label }}
               </a>
               <a
                 :href="card.secondary.href"
-                target="_blank"
-                rel="noreferrer"
+                :target="card.secondary.href.startsWith('http') ? '_blank' : undefined"
+                :rel="card.secondary.href.startsWith('http') ? 'noreferrer' : undefined"
                 class="rounded-md border border-border bg-surface-2 px-4 py-2 text-center text-sm text-foreground/90 transition-colors hover:bg-surface"
               >
                 {{ card.secondary.label }}
