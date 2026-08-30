@@ -44,6 +44,6 @@ VN and InShot own a simple job: **edit a TikTok on the device that filmed it**. 
 
 ## Who should stay on VN or InShot
 
-Stay for edits you will only ever make on a phone today. An [Android build of Drift](https://github.com/CutWire-Studios/Drift-Android) is under development; there is no iOS app yet.
+Stay if you only edit on iPhone, or you want a polished phone-first app from a store. Drift has an [Android APK](/drift#download) you sideload; there is no iOS app.
 
 [Download Drift](/drift#download) · [CapCut comparison](/drift/alternatives/capcut) (closest overall rival)

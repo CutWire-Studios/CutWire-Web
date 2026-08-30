@@ -1,4 +1,4 @@
-export const DRIFT_VERSION = '0.4.0'
+export const DRIFT_VERSION = '0.5.0'
 
 export const DRIFT_FEATURE_LIST = [
   'Multi-track timeline',
@@ -25,7 +25,7 @@ export function useDriftProduct() {
     issues,
     docs,
     featureList: [...DRIFT_FEATURE_LIST],
-    operatingSystem: 'Linux, Windows, macOS',
+    operatingSystem: 'Linux, Windows, macOS, Android',
     license: 'https://www.gnu.org/licenses/gpl-3.0.html',
   }
 }

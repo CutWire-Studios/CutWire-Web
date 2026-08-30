@@ -6,7 +6,7 @@ definePageMeta({ layout: 'default' })
 const faqs = [
   {
     q: 'Where do I download CutWire software?',
-    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer or portable zip on Windows, and a disk image on macOS (Apple Silicon). Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
+    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer or portable zip on Windows, a disk image on macOS (Apple Silicon), and an Android APK for Drift. Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
   },
   {
     q: 'Is Drift a free CapCut alternative?',

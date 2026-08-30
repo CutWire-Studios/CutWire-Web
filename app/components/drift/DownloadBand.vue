@@ -9,7 +9,7 @@ const { releases } = useDriftLinks()
         Download Drift — <span class="drift-grad-text">free, no watermark</span>
       </h2>
       <p class="mx-auto mt-4 max-w-xl text-muted-foreground">
-        Linux, Windows and macOS. GPLv3, no account, no subscription. What you preview is what you export.
+        Linux, Windows, macOS and Android. GPLv3, no account, no subscription. What you preview is what you export.
       </p>
       <div class="mt-8 flex flex-wrap justify-center gap-3">
         <NuxtLink

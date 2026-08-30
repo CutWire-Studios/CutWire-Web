@@ -3,7 +3,7 @@ import type { DriftIconName } from '~/components/drift/Icon.vue'
 
 definePageMeta({ layout: 'drift' })
 
-const { gh, flathub, issues, docs, android, downloadWindows, downloadWindowsPortable, downloadLinux, downloadMacos } = useDriftLinks()
+const { gh, flathub, issues, docs, downloadWindows, downloadWindowsPortable, downloadLinux, downloadMacos, downloadAndroid, downloadAndroid32 } = useDriftLinks()
 const { version, featureList } = useDriftProduct()
 
 const site = useSiteConfig()
@@ -45,7 +45,7 @@ useSchemaOrg([
     name: 'CutWire Drift',
     description: pageDescription,
     applicationCategory: 'MultimediaApplication',
-    operatingSystem: 'Linux, Windows, macOS',
+    operatingSystem: 'Linux, Windows, macOS, Android',
     softwareVersion: version,
     screenshot: `${site.url}/images/drift-main-window.avif`,
     downloadUrl: `${site.url}/drift#download`,
@@ -281,6 +281,14 @@ const downloads = [
     primary: { label: 'Download disk image', href: downloadMacos },
     secondary: { label: 'Build from source', href: gh },
   },
+  {
+    os: 'Android',
+    tag: 'Sideload APK',
+    body: 'Install the latest APK on a 64-bit phone. Not on the Play Store yet. There is no iOS app.',
+    code: '# Phones: Drift-*-arm64-v8a.apk\n# Older 32-bit: Drift-*-armeabi-v7a.apk',
+    primary: { label: 'Download APK', href: downloadAndroid },
+    secondary: { label: 'Download 32-bit APK', href: downloadAndroid32 },
+  },
 ]
 
 const stack: [string, string][] = [
@@ -364,7 +372,7 @@ const stack: [string, string][] = [
             </a>
           </div>
           <p class="mt-4 font-mono text-xs text-muted-foreground">
-            Linux · Windows · macOS · Android in development
+            Linux · Windows · macOS · Android
           </p>
         </div>
 
@@ -706,7 +714,7 @@ const stack: [string, string][] = [
             development — please file the bugs you hit.
           </p>
         </div>
-        <div class="mt-12 grid gap-5 md:grid-cols-3">
+        <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           <div
             v-for="(card, i) in downloads"
             :key="card.os"
@@ -749,14 +757,7 @@ const stack: [string, string][] = [
           v-reveal
           class="mt-8 text-sm text-muted-foreground"
         >
-          Want Drift on a phone?
-          <a
-            :href="android"
-            target="_blank"
-            rel="noreferrer"
-            class="font-medium text-primary hover:underline"
-          >Android is under development</a>
-          — follow the repo, it is not on the Play Store yet. There is no iOS app.
+          Android is a sideloaded APK from GitHub — not on the Play Store yet. There is no iOS app.
         </p>
       </div>
     </section>

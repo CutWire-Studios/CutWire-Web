@@ -23,7 +23,7 @@ rows:
     us: No account
   - label: Where it runs
     them: iOS, Android, Windows, macOS (no Linux app)
-    us: Linux, Windows, macOS
+    us: Linux, Windows, macOS, Android
   - label: Your files
     them: Cloud and account tied
     us: Stay on your computer
@@ -51,7 +51,7 @@ CapCut is the editor most people mean when they say “make a Reel tonight.” I
 
 ## Who should stay on CapCut
 
-If you only edit on a phone today, or you live inside CapCut’s template store, stay for now. An [Android version of Drift](https://github.com/CutWire-Studios/Drift-Android) is under development; there is no iOS app. Drift does not pretend to replace CapCut’s template catalog.
+If you live inside CapCut’s template store, or you edit on iPhone, stay for now. Drift has an [Android APK](/drift#download) you sideload — not a Play Store app — and there is no iOS app. Drift does not pretend to replace CapCut’s template catalog.
 
 ## What you get in Drift instead
 

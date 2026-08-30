@@ -5,6 +5,8 @@ const ASSET_MATCHERS = {
   'windows-portable': (name: string) => /Drift-Portable-.*\.zip$/i.test(name),
   linux: (name: string) => /Drift-.*\.AppImage$/i.test(name),
   macos: (name: string) => /Drift-.*-arm64\.dmg$/i.test(name),
+  android: (name: string) => /Drift-.*-arm64-v8a\.apk$/i.test(name),
+  'android-32': (name: string) => /Drift-.*-armeabi-v7a\.apk$/i.test(name),
 } as const
 
 type DriftDownloadAsset = keyof typeof ASSET_MATCHERS

@@ -1,11 +1,11 @@
 ---
 title: CutWire Drift features — free desktop video editor
-description: Every Drift feature in plain language. Timeline, effects, captions, cutouts, audio, export, Linux/Windows/macOS. Free, no watermark, no account.
+description: Every Drift feature in plain language. Timeline, effects, captions, cutouts, audio, export, Linux/Windows/macOS/Android. Free, no watermark, no account.
 headline: Every Drift feature, in plain language
 eyebrow: Features
 ---
 
-This page lists what **CutWire Drift** can do today. Drift is a free, open-source desktop video editor for Linux, Windows and macOS. There is no subscription, no account and no watermark on export.
+This page lists what **CutWire Drift** can do today. Drift is a free, open-source video editor for Linux, Windows, macOS and Android. There is no subscription, no account and no watermark on export.
 
 If you are comparing editors, start at [Drift as an alternative](/drift/alternatives) or the [FAQ](/drift/faq). If you want an AI tool to drive the timeline, see [MCP / agent access](/drift/mcp).
 
@@ -152,7 +152,7 @@ This is a real editor hook, not a webpage chatbot. Full plain-language list: [Dr
 ## Platforms, price and license
 
 - **Linux** (Flathub, AppImage), **Windows** (installer and portable zip), **macOS** (Apple Silicon disk image; Intel from source)
-- **Android** is [under development](https://github.com/CutWire-Studios/Drift-Android) — not on the Play Store yet
+- **Android** (sideload APK from GitHub Releases — not on the Play Store yet)
 - Price: **free**
 - License: **GPLv3**
 - No telemetry in the app, no login wall, no feature tier
@@ -161,11 +161,11 @@ This is a real editor hook, not a webpage chatbot. Full plain-language list: [Dr
 
 Say this out loud so a chatbot does not invent it:
 
-- No shipping mobile editor yet (Android is in development; no iOS app)
+- No iOS app (Android is a sideloaded APK, not a Play Store release)
 - Not a huge CapCut-style stock media library
 - Not a color-grading suite like DaVinci Resolve
 - Not a live mixer (that is [CutWire Prism](/prism))
-- Early product (version 0.3.x) — file bugs if something breaks
+- Early product (version 0.5.x) — file bugs if something breaks
 - Heavy AI (Whisper, cutout, denoise) is an optional download, not stuffed into the first install
 - No track-level volume fader yet
 

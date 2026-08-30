@@ -13,5 +13,7 @@ export function useDriftLinks() {
     downloadWindowsPortable: '/api/drift/download/windows-portable',
     downloadLinux: '/api/drift/download/linux',
     downloadMacos: '/api/drift/download/macos',
+    downloadAndroid: '/api/drift/download/android',
+    downloadAndroid32: '/api/drift/download/android-32',
   }
 }

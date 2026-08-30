@@ -4,7 +4,7 @@ description: Is Drift free? Does it watermark exports? Does it run on Linux? How
 headline: Drift questions, answered simply
 faqs:
   - q: What is CutWire Drift?
-    a: Drift is a free, open-source desktop video editor from CutWire Studios. You import clips, edit on a multi-track timeline, add effects, captions and stickers, then export. It runs on Linux, Windows and macOS. There is no account and no watermark.
+    a: Drift is a free, open-source desktop video editor from CutWire Studios. You import clips, edit on a multi-track timeline, add effects, captions and stickers, then export. It runs on Linux, Windows, macOS and Android. There is no account and no watermark.
   - q: Is Drift really free?
     a: Yes. Drift is licensed under GPLv3. There is no subscription, no trial, no Pro tier and no login wall. If you can run it, you have all of the editor. Optional AI models (speech-to-text, cutout, denoise) download on demand so the base install stays small — they are still free.
   - q: Is Drift a CapCut alternative?
@@ -34,7 +34,7 @@ faqs:
   - q: How does Drift compare to Clipchamp, Canva, Filmora, iMovie or VN?
     a: Those tools are fast but often tied to an account, a watermark, a store, or a single platform (Windows 11, Mac, or phones). Drift is GPLv3 desktop software with no watermark. See the alternatives hub for an honest table per app.
   - q: Does Drift have a mobile app?
-    a: An Android app is under development at github.com/CutWire-Studios/Drift-Android — not a store release yet. There is no iOS app. The desktop editor (Linux, Windows, macOS) is what you can download today. Phone clips still import and keep portrait orientation.
+    a: Yes on Android — sideload the latest APK from the Drift download section. It is not on the Play Store yet. There is no iOS app. Desktop builds cover Linux, Windows and macOS. Phone clips still import and keep portrait orientation.
   - q: Can an AI assistant edit my timeline?
     a: Yes, optionally. Drift has a built-in localhost MCP server. Turn on Settings → Agent access (off at every launch) and Cursor, Claude Code or another MCP client can import media, place and trim clips, add captions and effects, capture a still, and export. Edits are undoable. This is not a cloud chatbot. Details at cutwire.org/drift/mcp.
   - q: What can a Drift MCP agent actually do?
@@ -42,7 +42,7 @@ faqs:
   - q: Is Drift MCP safe? Does my video leave the machine?
     a: Agent access binds to 127.0.0.1 only. CutWire does not receive your footage. Any local process with the session token can drive the editor, so treat the token like a password. Drift itself is not a sandbox. Your agent may still send prompts to its own model — that is the agent’s cloud, not Drift’s.
   - q: Where do I download Drift?
-    a: From cutwire.org/drift, GitHub Releases, or Flathub on Linux. Current version is listed on the product page.
+    a: From cutwire.org/drift or GitHub Releases — Linux, Windows, macOS and Android APKs. Linux is also on Flathub. Current version is listed on the product page.
   - q: Is CutWire Prism the same thing?
     a: No. Prism is a live video mixer for shows, streams and events. Drift is the timeline editor. They are sister apps from CutWire Studios.
 ---

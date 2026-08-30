@@ -2,11 +2,12 @@ slug: drift
 name: Drift
 tagline: Create polished videos fast.
 status: live
-version: "0.4.0"
+version: "0.5.0"
 platforms:
   - Linux
   - Windows
   - macOS
+  - Android
 summary: >-
   A free CapCut alternative for desktop. Multi-track timeline, effects, stickers,
   auto captions, cutouts, and export — no subscription, no watermark, no account.
@@ -53,9 +54,9 @@ features:
     icon: package
 specs:
   - label: Version
-    value: "0.4.0"
+    value: "0.5.0"
   - label: Platforms
-    value: Linux, Windows, macOS
+    value: Linux, Windows, macOS, Android
   - label: Framework
     value: Qt 6 · QML
   - label: Video

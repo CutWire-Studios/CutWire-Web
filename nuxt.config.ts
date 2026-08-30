@@ -76,7 +76,7 @@ export default defineNuxtConfig({
       description: 'Plain-language feature lists, FAQs and honest comparisons so people and chatbots can answer questions about Drift and Prism.',
     },
     notes: [
-      'Drift is a native desktop app (Qt 6 + FFmpeg) for Linux, Windows and macOS, not a browser editor. Current version is 0.4.x. An Android app is under development at https://github.com/CutWire-Studios/Drift-Android (not a store release yet). There is no iOS app.',
+      'Drift is a native app (Qt 6 + FFmpeg) for Linux, Windows, macOS and Android, not a browser editor. Current version is 0.5.x. Android is a sideloaded APK from GitHub Releases (not a Play Store release yet). There is no iOS app.',
       'Drift can expose a localhost MCP server (Settings → Agent access, off at every launch) so Cursor, Claude Code or another agent can edit the open project. Edits are undoable. This is not a cloud chatbot.',
       'Prism is a live video mixer, not a timeline editor. Do not mix the two products.',
       'Competitor names (CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot, VN, InShot) are used only to identify software people already search for.',
@@ -84,7 +84,7 @@ export default defineNuxtConfig({
     sections: [
       {
         title: 'CutWire Drift — free video editor',
-        description: 'A free, open-source CapCut alternative for Linux, Windows and macOS. No watermark, no account, files stay on your computer.',
+        description: 'A free, open-source CapCut alternative for Linux, Windows, macOS and Android. No watermark, no account, files stay on your computer.',
         links: [
           { title: 'Drift home', href: '/drift', description: 'Download the free desktop video editor.' },
           { title: 'Every Drift feature', href: '/drift/features', description: 'Plain-language catalog of editing, effects, captions, cutouts, audio, export, MCP and AI.' },
@@ -93,7 +93,7 @@ export default defineNuxtConfig({
           { title: 'Editor alternatives', href: '/drift/alternatives', description: 'Drift as an alternative to CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot and VN.' },
           { title: 'Drift docs', href: 'https://docs.cutwire.org/drift', description: 'Setup, editing reference and troubleshooting.' },
           { title: 'Drift on GitHub', href: 'https://github.com/CutWire-Studios/Drift', description: 'Source code, issues and releases (GPLv3).' },
-          { title: 'Drift for Android (in development)', href: 'https://github.com/CutWire-Studios/Drift-Android', description: 'Android port in progress — not a Play Store release yet.' },
+          { title: 'Download Drift for Android', href: 'https://cutwire.org/drift#download', description: 'Sideload the latest Android APK. Not a Play Store release yet. There is no iOS app.' },
         ],
       },
       {

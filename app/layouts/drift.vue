@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
 const { version } = useDriftProduct()
-const { gh, releases, flathub, issues, docs, android } = useDriftLinks()
+const { gh, releases, flathub, issues, docs, downloadAndroid } = useDriftLinks()
 const year = new Date().getFullYear()
 
 const links = [
@@ -153,11 +153,9 @@ function isActive(to: string) {
             class="hover:text-foreground"
           >Releases</a>
           <a
-            :href="android"
-            target="_blank"
-            rel="noreferrer"
+            :href="downloadAndroid"
             class="hover:text-foreground"
-          >Android (dev)</a>
+          >Android</a>
           <a
             :href="flathub"
             target="_blank"
