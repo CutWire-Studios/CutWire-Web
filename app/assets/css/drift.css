@@ -80,6 +80,20 @@
     );
 }
 
+.theme-drift .drift-shot-strip {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, #fcad01 50%, transparent) transparent;
+}
+
+.theme-drift .drift-shot-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.theme-drift .drift-shot-strip::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, #fcad01 50%, transparent);
+  border-radius: 99px;
+}
+
 @utility drift-prose {
   color: var(--muted-foreground);
   font-size: 1.05rem;
