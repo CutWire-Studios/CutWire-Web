@@ -158,6 +158,7 @@ export default defineNuxtConfig({
         '/drift/features',
         '/drift/mcp',
         '/drift/faq',
+        '/drift/privacy',
         '/drift/alternatives',
         ...driftAltRoutes,
         '/llms.txt',

@@ -139,6 +139,10 @@ function isActive(to: string) {
             to="/drift#creators"
             class="hover:text-foreground"
           >Creators</NuxtLink>
+          <NuxtLink
+            to="/drift/privacy"
+            class="hover:text-foreground"
+          >Privacy</NuxtLink>
           <a
             :href="docs"
             target="_blank"
