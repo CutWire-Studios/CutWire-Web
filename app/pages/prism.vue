@@ -283,14 +283,7 @@ const stack: [string, string][] = [
             >
               Download Prism
             </a>
-            <a
-              :href="gh"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-md border border-border bg-surface/60 px-5 py-3 text-sm font-semibold text-foreground/90 backdrop-blur transition-colors hover:bg-surface-2"
-            >
-              Star on GitHub →
-            </a>
+            <CommonGithubStarButton :href="gh" />
           </div>
           <p class="mt-4 font-mono text-xs text-muted-foreground">
             Linux · Windows · macOS (source build)

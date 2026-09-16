@@ -276,6 +276,7 @@ const stack: [string, string][] = [
             >
               Download Drift
             </a>
+            <CommonGithubStarButton :href="gh" />
             <a
               :href="docs"
               target="_blank"
