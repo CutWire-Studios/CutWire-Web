@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { toast } from 'vue-sonner'
-
 definePageMeta({ layout: 'default' })
 
 const faqs = [
@@ -18,7 +16,7 @@ const faqs = [
   },
   {
     q: 'How do I report a bug?',
-    a: 'Open an issue on the relevant GitHub repo (Prism or Drift) with your OS, app version and what you were doing. If it involves a crash, the log helps. You can also email support@cutwire.org.',
+    a: 'Open an issue on the relevant GitHub repo (Prism or Drift) with your OS, app version and what you were doing. If it involves a crash, the log helps. You can also email contact@cutwire.org.',
   },
   {
     q: 'Is there a community?',
@@ -46,28 +44,10 @@ const channels = [
   {
     title: 'Email',
     body: 'For anything that doesn\'t belong in public — licensing questions, security reports, press.',
-    action: 'support@cutwire.org',
-    href: 'mailto:support@cutwire.org',
+    action: 'contact@cutwire.org',
+    href: 'mailto:contact@cutwire.org',
   },
 ]
-
-const form = reactive({ name: '', email: '', message: '' })
-const loading = ref(false)
-
-async function submit() {
-  loading.value = true
-  try {
-    await $fetch('/api/support', { method: 'POST', body: form })
-    toast.success('Message sent. We\'ll get back to you.')
-    Object.assign(form, { name: '', email: '', message: '' })
-  }
-  catch {
-    toast.error('Failed to send. Try again or email us directly.')
-  }
-  finally {
-    loading.value = false
-  }
-}
 
 const site = useSiteConfig()
 const pageTitle = 'Support — CutWire Studios'
@@ -214,56 +194,24 @@ defineOgImageComponent('Default', {
 
     <!-- Contact -->
     <section class="relative py-24 md:py-32">
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-          <div v-reveal>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              Contact
-            </p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-              Still stuck? Tell us what's happening.
-            </h2>
-            <p class="mt-5 text-on-surface-variant">
-              The more detail the better — which product (Prism or Drift), your OS, app version, and
-              what you were doing when it went wrong. We read everything.
-            </p>
-          </div>
-
-          <form
-            v-reveal="1"
-            class="space-y-4 rounded-xl border border-border bg-surface/70 p-6 backdrop-blur md:p-8"
-            @submit.prevent="submit"
+      <div class="mx-auto max-w-6xl px-4 text-center md:px-6">
+        <div v-reveal>
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Contact
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+            Still stuck? Write to us.
+          </h2>
+          <a
+            href="mailto:contact@cutwire.org"
+            class="mt-8 inline-block break-all font-mono text-2xl font-semibold tracking-tight text-primary transition-colors hover:text-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:text-4xl"
           >
-            <div class="grid gap-4 sm:grid-cols-2">
-              <input
-                v-model="form.name"
-                placeholder="Name"
-                required
-                class="rounded-md border border-border bg-card px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-primary/50 focus:outline-none"
-              >
-              <input
-                v-model="form.email"
-                type="email"
-                placeholder="Email"
-                required
-                class="rounded-md border border-border bg-card px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-primary/50 focus:outline-none"
-              >
-            </div>
-            <textarea
-              v-model="form.message"
-              placeholder="How can we help?"
-              required
-              rows="6"
-              class="w-full rounded-md border border-border bg-card px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 transition-colors focus:border-primary/50 focus:outline-none"
-            />
-            <button
-              type="submit"
-              :disabled="loading"
-              class="glow-button-primary px-6 py-3 text-sm disabled:opacity-50"
-            >
-              Send message
-            </button>
-          </form>
+            contact@cutwire.org
+          </a>
+          <p class="mx-auto mt-5 max-w-xl text-on-surface-variant">
+            Include which product (Prism or Drift), your OS, app version, and what you were doing
+            when it went wrong.
+          </p>
         </div>
       </div>
     </section>

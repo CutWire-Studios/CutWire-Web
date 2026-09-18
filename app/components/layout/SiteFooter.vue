@@ -35,6 +35,12 @@ const footerLinks = {
         <p class="mt-4 max-w-xs text-sm text-on-surface-variant">
           Live mixers and a free desktop video editor for people who create and go live.
         </p>
+        <a
+          href="mailto:contact@cutwire.org"
+          class="mt-4 inline-block font-mono text-sm text-primary transition-colors hover:text-primary-container"
+        >
+          contact@cutwire.org
+        </a>
       </div>
 
       <div

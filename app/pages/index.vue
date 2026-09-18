@@ -26,6 +26,7 @@ useSchemaOrg([
     description: pageDescription,
     url: site.url,
     logo: `${site.url}/logo-with-name.svg`,
+    email: 'contact@cutwire.org',
     sameAs: ['https://github.com/CutWire-Studios'],
   }),
 ])
@@ -106,7 +107,13 @@ const principles = [
               About the studio
             </NuxtLink>
           </div>
-          <p class="mt-4 font-mono text-xs text-on-surface-variant">
+          <a
+            href="mailto:contact@cutwire.org"
+            class="mt-6 inline-block font-mono text-sm text-primary transition-colors hover:text-primary-container sm:text-base"
+          >
+            contact@cutwire.org
+          </a>
+          <p class="mt-3 font-mono text-xs text-on-surface-variant">
             Linux · Windows · macOS · GPLv3
           </p>
         </div>
@@ -279,6 +286,29 @@ const principles = [
               About the studio
             </NuxtLink>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="relative border-t border-border/60 bg-surface/40 py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-4 text-center md:px-6">
+        <div v-reveal>
+          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+            Contact
+          </p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-5xl">
+            Write to the studio.
+          </h2>
+          <a
+            href="mailto:contact@cutwire.org"
+            class="mt-8 inline-block break-all font-mono text-2xl font-semibold tracking-tight text-primary transition-colors hover:text-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:text-4xl md:text-5xl"
+          >
+            contact@cutwire.org
+          </a>
+          <p class="mx-auto mt-5 max-w-md text-on-surface-variant">
+            Support, press, licensing and everything else — one inbox.
+          </p>
         </div>
       </div>
     </section>

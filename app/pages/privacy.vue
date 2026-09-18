@@ -2,7 +2,7 @@
 definePageMeta({ layout: 'legal' })
 useSeoMeta({
   title: 'Privacy Policy — CutWire Studios',
-  description: 'How CutWire Studios handles website support messages and anonymized page views. Prism and Drift themselves collect no telemetry.',
+  description: 'How CutWire Studios handles anonymized page views and email you send to contact@cutwire.org. Prism and Drift themselves collect no telemetry.',
 })
 </script>
 
@@ -22,13 +22,13 @@ useSeoMeta({
         What we collect
       </h2>
       <p>
-        Support form submissions store your name, email, and message. Analytics may collect anonymized page views.
+        Analytics may collect anonymized page views. Emails you send to contact@cutwire.org are stored in that inbox.
       </p>
       <h2 class="text-lg font-semibold text-on-surface">
         Contact
       </h2>
       <p>
-        Questions? Email privacy@cutwire.org.
+        Questions? Email <a href="mailto:contact@cutwire.org" class="text-primary underline underline-offset-4 hover:text-primary/80">contact@cutwire.org</a>.
       </p>
     </div>
   </div>

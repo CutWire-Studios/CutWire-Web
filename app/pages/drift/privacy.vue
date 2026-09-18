@@ -94,7 +94,7 @@ useSchemaOrg([
           <NuxtLink to="/privacy">
             site-wide privacy policy
           </NuxtLink>
-          covers the cutwire.org website itself, including the support form.
+          covers the cutwire.org website itself.
         </p>
 
         <h2>What Drift never sends</h2>
@@ -317,7 +317,7 @@ useSchemaOrg([
 
         <h2>Contact</h2>
         <p>
-          Questions, corrections or requests: <a href="mailto:privacy@cutwire.org">privacy@cutwire.org</a>.
+          Questions, corrections or requests: <a href="mailto:contact@cutwire.org">contact@cutwire.org</a>.
           Bugs and privacy concerns can also be raised publicly on the
           <a
             href="https://github.com/CutWire-Studios/Drift/issues"
