@@ -1,7 +1,7 @@
 {
   "name": "CutWire Studios",
   "short_name": "CutWire",
-  "description": "Professional software, intuitive for everyone",
+  "description": "CutWire Studios is a non-profit. We build creative software in the open, and whatever you make with it stays yours.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

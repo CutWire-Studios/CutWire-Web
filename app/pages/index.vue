@@ -2,13 +2,13 @@
 definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
-const pageDescription = 'CutWire Studios builds free, open-source creative tools. Prism is a live video mixer for schools, churches and venues. Drift is a free CapCut alternative for desktop video editing — no watermark, no account.'
+const pageDescription = 'CutWire Studios is a non-profit. We build creative software in the open — free, no account, no subscription — and whatever you make with it stays yours.'
 
 useSeoMeta({
-  title: 'CutWire Studios — Professional software, intuitive for everyone',
+  title: 'CutWire Studios — Free software down to the wire',
   description: pageDescription,
-  ogTitle: 'Professional software. Intuitive for everyone.',
-  ogDescription: 'Free open-source tools: Prism for live mixing, Drift as a CapCut-style desktop video editor with no watermark.',
+  ogTitle: 'Free software down to the wire, where your cut fuels the fire.',
+  ogDescription: 'A non-profit studio. Free, open-source creative software — no account, no subscription, and the work you make stays yours.',
   ogType: 'website',
   ogUrl: site.url,
   ogSiteName: site.name,
@@ -35,8 +35,8 @@ useSchemaOrg([
 ])
 
 defineOgImageComponent('Default', {
-  title: 'Professional software. Intuitive for everyone.',
-  description: 'Prism for live mixing. Drift for desktop video editing. Both free and open source.',
+  title: 'Free software down to the wire, where your cut fuels the fire.',
+  description: 'A non-profit studio. Free, open-source creative software — no account, no subscription.',
   eyebrow: 'CutWire Studios',
 })
 </script>
@@ -59,17 +59,17 @@ defineOgImageComponent('Default', {
       <div class="hero-copy relative flex h-full items-center justify-center px-4 pt-24 pb-10 md:px-6">
         <div class="relative mx-auto w-full max-w-5xl text-center">
           <h1 class="text-balance font-bold leading-[1.02] tracking-tight">
-            <span class="hero-heading block text-[clamp(2.25rem,6.8vw,4.75rem)]">
-              Professional software.
+            <span class="hero-heading block text-[clamp(2.05rem,5.8vw,4.25rem)]">
+              Free software down to the wire,
             </span>
-            <span class="hero-heading hero-heading-soft mt-1 block text-[clamp(2.25rem,6.8vw,4.75rem)] font-medium italic tracking-tight">
-              Intuitive for everyone.
+            <span class="hero-heading hero-heading-soft mt-1 block text-[clamp(2.05rem,5.8vw,4.25rem)] font-medium italic tracking-tight">
+              where your cut fuels the fire.
             </span>
           </h1>
-          <p class="hero-lede mx-auto mt-6 max-w-xl text-pretty text-lg leading-relaxed md:text-xl">
-            Free, open-source tools for live shows and desktop edits — no account, no watermark, no feature tier.
+          <p class="hero-lede mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed md:text-xl">
+            CutWire Studios is a non-profit. We build creative software in the open — free to use, free to study, with no account and no subscription — and whatever you make with it stays yours.
           </p>
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <!-- <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
             <a
               href="#prism"
               class="btn-glass-prism min-h-11 px-5 py-2.5 text-sm"
@@ -82,7 +82,7 @@ defineOgImageComponent('Default', {
             >
               Drift
             </a>
-          </div>
+          </div> -->
           <p class="hero-lede mt-6 text-sm opacity-80">
             Linux · Windows · macOS · GPLv3
           </p>
