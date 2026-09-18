@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'drift' })
+definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const path = '/drift/features'
@@ -49,22 +49,13 @@ useSchemaOrg([
 </script>
 
 <template>
-  <div v-if="page">
-    <DriftSeoHero
-      eyebrow="Features"
-      :title="headline"
-      :description="description"
-      :crumbs="[
-        { name: 'Home', to: '/' },
-        { name: 'Drift', to: '/drift' },
-        { name: 'Features' },
-      ]"
-    />
-    <div class="mx-auto max-w-3xl px-4 pb-8 md:px-6">
-      <div class="drift-prose">
-        <ContentRenderer :value="page" />
-      </div>
+  <MarketingProductInner
+    v-if="page"
+    :title="headline"
+    :description="description"
+  >
+    <div class="drift-prose">
+      <ContentRenderer :value="page" />
     </div>
-    <DriftDownloadBand />
-  </div>
+  </MarketingProductInner>
 </template>

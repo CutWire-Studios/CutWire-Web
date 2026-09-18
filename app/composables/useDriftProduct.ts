@@ -1,4 +1,6 @@
-export const DRIFT_VERSION = '0.5.0'
+import { DRIFT_VERSION } from './useDriftLinks'
+
+export { DRIFT_VERSION }
 
 export const DRIFT_FEATURE_LIST = [
   'Multi-track timeline',

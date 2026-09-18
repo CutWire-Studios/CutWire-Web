@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'drift' })
+definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const path = '/drift/alternatives'
@@ -56,44 +56,35 @@ useSchemaOrg([
 </script>
 
 <template>
-  <div v-if="page">
-    <DriftSeoHero
-      eyebrow="Alternatives"
-      :title="headline"
-      :description="description"
-      wide
-      :crumbs="[
-        { name: 'Home', to: '/' },
-        { name: 'Drift', to: '/drift' },
-        { name: 'Alternatives' },
-      ]"
-    />
-    <div class="mx-auto max-w-6xl px-4 pb-8 md:px-6">
-      <div class="drift-prose max-w-3xl">
-        <ContentRenderer :value="page" />
-      </div>
-      <div class="mt-12 grid gap-4 sm:grid-cols-2">
-        <NuxtLink
-          v-for="rival in rivals"
-          :key="rival.path"
-          :to="rival.path"
-          class="group rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
-        >
-          <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
-            {{ rival.competitor }} alternative
-          </p>
-          <h2 class="mt-2 text-xl font-semibold tracking-tight">
-            {{ rival.competitor }}
-          </h2>
-          <p class="mt-2 text-sm text-muted-foreground">
-            {{ rival.hubBlurb || rival.who }}
-          </p>
-          <span class="mt-4 inline-block text-sm text-primary transition-all group-hover:translate-x-0.5">
-            Compare with Drift →
-          </span>
-        </NuxtLink>
-      </div>
+  <MarketingProductInner
+    v-if="page"
+    :title="headline"
+    :description="description"
+    wide
+  >
+    <div class="drift-prose max-w-3xl">
+      <ContentRenderer :value="page" />
     </div>
-    <DriftDownloadBand />
-  </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2">
+      <NuxtLink
+        v-for="rival in rivals"
+        :key="rival.path"
+        :to="rival.path"
+        class="frost-card group rounded-xl p-6"
+      >
+        <p class="text-xs text-white/70">
+          {{ rival.competitor }} alternative
+        </p>
+        <h2 class="mt-2 text-xl font-semibold tracking-tight text-white">
+          {{ rival.competitor }}
+        </h2>
+        <p class="mt-2 text-sm text-white/70">
+          {{ rival.hubBlurb || rival.who }}
+        </p>
+        <span class="mt-4 inline-block text-sm text-white">
+          Compare with Drift
+        </span>
+      </NuxtLink>
+    </div>
+  </MarketingProductInner>
 </template>

@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import type { DriftIconName } from '~/components/drift/Icon.vue'
 
-definePageMeta({ layout: 'drift' })
+definePageMeta({ layout: 'default' })
 
-const { gh, flathub, issues, docs, downloadWindows, downloadWindowsPortable, downloadLinux, downloadMacos, downloadAndroid, downloadAndroid32 } = useDriftLinks()
+const { gh, issues, docs } = useDriftLinks()
 const { version, featureList } = useDriftProduct()
 
 const site = useSiteConfig()
 
-// Search titles truncate near 60 chars once the site name is appended, so the
-// CapCut-alternative keyword is kept front-loaded for the SERP snippet.
 const pageTitle = 'CutWire Drift — Free CapCut Alternative'
 const socialTitle = 'CutWire Drift — Free CapCut alternative for desktop'
 const pageDescription = 'Free CapCut alternative for desktop. Open-source video editor with a multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
@@ -48,7 +46,7 @@ useSchemaOrg([
     operatingSystem: 'Linux, Windows, macOS, Android',
     softwareVersion: version,
     screenshot: `${site.url}/images/drift-main-window.avif`,
-    downloadUrl: `${site.url}/drift#download`,
+    downloadUrl: `${site.url}/drift`,
     featureList: [...featureList],
     isAccessibleForFree: true,
     license: 'https://www.gnu.org/licenses/gpl-3.0.html',
@@ -68,14 +66,6 @@ useSchemaOrg([
     ],
   }),
 ])
-
-const audiences = [
-  'For creators',
-  'For educators',
-  'For social video',
-  'For AI agents',
-  'For open-source fans',
-]
 
 const features: { icon: DriftIconName, title: string, body: string }[] = [
   {
@@ -177,130 +167,31 @@ const shots: {
     title: 'Start light, grow as you go',
   },
 ]
-
-const downloads = [
-  {
-    os: 'Linux',
-    tag: 'Recommended',
-    body: 'Install from Flathub, or download the latest AppImage.',
-    code: 'flatpak install flathub org.cutwire.Drift\nflatpak run org.cutwire.Drift',
-    primary: { label: 'Open on Flathub', href: flathub },
-    secondary: { label: 'Download AppImage', href: downloadLinux },
-  },
-  {
-    os: 'Windows',
-    tag: 'Installer + portable',
-    body: 'Download the latest Windows installer, or the portable zip if you prefer not to install.',
-    code: '# Latest Drift-Setup-*-x64.exe or Drift-Portable-*-x64.zip',
-    primary: { label: 'Download for Windows', href: downloadWindows },
-    secondary: { label: 'Download portable zip', href: downloadWindowsPortable },
-  },
-  {
-    os: 'macOS',
-    tag: 'Apple Silicon',
-    body: 'Download the latest disk image and drag Drift to Applications. Intel Macs can build from source.',
-    code: '# Latest Drift-*-arm64.dmg\n# First launch: right-click the app → Open',
-    primary: { label: 'Download disk image', href: downloadMacos },
-    secondary: { label: 'Build from source', href: gh },
-  },
-  {
-    os: 'Android',
-    tag: 'Sideload APK',
-    body: 'Install the latest APK on a 64-bit phone. Not on the Play Store yet. There is no iOS app.',
-    code: '# Phones: Drift-*-arm64-v8a.apk\n# Older 32-bit: Drift-*-armeabi-v7a.apk',
-    primary: { label: 'Download APK', href: downloadAndroid },
-    secondary: { label: 'Download 32-bit APK', href: downloadAndroid32 },
-  },
-]
-
-const stack: [string, string][] = [
-  ['Qt 6 · QML', 'UI'],
-  ['C++20 · CMake', 'Core'],
-  ['FFmpeg', 'Decode & encode'],
-  ['FrameCompositor', 'Preview = export'],
-  ['OpenGL / GPU effects', 'Looks'],
-  ['ONNX Runtime', 'Captions & ML'],
-  ['Addon packages', 'Fonts & stickers'],
-  ['GPLv3', 'License'],
-]
 </script>
 
 <template>
-  <div>
-    <!-- Hero -->
-    <section
-      id="top"
-      class="relative overflow-hidden"
-    >
-      <div
-        aria-hidden="true"
-        class="drift-grid-bg absolute inset-0 opacity-60"
-      />
-      <div
-        aria-hidden="true"
-        class="pointer-events-none absolute inset-0"
-        style="background: var(--grad-hero)"
-      />
-      <div class="relative mx-auto max-w-6xl px-4 pt-16 pb-12 md:px-6 md:pt-24 md:pb-16">
-        <div class="animate-rise-in mx-auto max-w-3xl text-center">
-          <NuxtImg
-            src="/images/drift-icon.png"
-            alt="CutWire Drift app icon"
-            class="mx-auto mb-7 h-20 w-20 drop-shadow-[0_12px_40px_-12px_color-mix(in_srgb,#fcad01_55%,transparent)]"
-            width="160"
-            height="160"
-            format="avif"
-            loading="eager"
-          />
-          <a
-            :href="gh"
-            target="_blank"
-            rel="noreferrer"
-            class="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-muted-foreground backdrop-blur transition-colors hover:text-foreground"
-          >
-            <span class="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px] shadow-primary" />
-            Free &amp; open source · GPLv3 · v{{ version }}
-          </a>
-          <h1 class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-            Create polished videos <span class="drift-grad-text">fast</span> — free, open, and yours.
-          </h1>
-          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground md:text-xl">
-            Drift is a free desktop video editor that feels simple from the first cut. Drop in
-            video, photos and music, add effects and stickers, generate captions, and export —
-            no subscription, no watermark, no account.
-          </p>
-          <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#download"
-              class="rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_color-mix(in_srgb,#fcad01_80%,transparent)] transition-transform hover:scale-[1.02]"
-            >
-              Download Drift
-            </a>
-            <CommonGithubStarButton :href="gh" />
-            <a
-              :href="docs"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-md border border-border bg-surface/60 px-5 py-3 text-sm font-semibold text-foreground/90 backdrop-blur transition-colors hover:bg-surface-2"
-            >
-              Read the docs →
-            </a>
-          </div>
-          <p class="mt-4 font-mono text-xs text-muted-foreground">
-            Linux · Windows · macOS · Android
-          </p>
-        </div>
+  <MarketingProductHero
+    product="drift"
+    line1="Let AI take the Drift,"
+    line2="you still own every shift."
+    lede="Drift is a free desktop video editor that feels simple from the first cut. Drop in video, photos and music, add effects and stickers, generate captions, and export — no subscription, no watermark, no account. Your videos are not used to train AI."
+    platforms="Linux · Windows · macOS · Android · GPLv3"
+    photo-alt="Motion-blurred view from a car driving through a yellow-lit tunnel"
+  >
+    <!-- Photo: Alimuart / Pexels License — 18304959 -->
+    <div class="px-4 pt-8 md:px-6 md:pt-10">
+      <div class="mx-auto max-w-6xl">
+        <MarketingProductChrome
+          product="drift"
+          :show-download="false"
+        />
+      </div>
+    </div>
 
-        <div
-          v-reveal
-          class="relative mx-auto mt-14 max-w-6xl"
-        >
-          <div
-            aria-hidden="true"
-            class="absolute -inset-x-8 -inset-y-6 rounded-3xl opacity-70 blur-2xl"
-            style="background: linear-gradient(120deg, color-mix(in srgb, #fcad01 28%, transparent), color-mix(in srgb, #fcad01 12%, transparent))"
-          />
-          <div class="drift-glow-ring relative overflow-hidden rounded-xl border border-border bg-surface">
+    <section class="px-4 py-10 md:px-6 md:py-14">
+      <div class="mx-auto max-w-6xl">
+        <figure class="frost-card rounded-xl">
+          <div class="overflow-hidden rounded-xl">
             <NuxtImg
               src="/images/drift-main-window.avif"
               alt="CutWire Drift main window: effects library, video preview and multi-track timeline"
@@ -312,86 +203,58 @@ const stack: [string, string][] = [
               preload
             />
           </div>
-        </div>
+        </figure>
       </div>
     </section>
 
-    <!-- Audience bar -->
-    <div class="border-y border-border/60 bg-surface/40">
-      <div class="mx-auto flex max-w-6xl flex-nowrap items-center justify-center gap-x-8 overflow-x-auto px-4 py-4 text-xs uppercase tracking-[0.18em] text-muted-foreground md:px-6">
-        <span
-          v-for="item in audiences"
-          :key="item"
-        >{{ item }}</span>
-      </div>
-    </div>
-
-    <!-- Features -->
     <section
       id="features"
-      class="relative py-16 md:py-20"
+      class="scroll-mt-28 px-4 py-16 md:px-6 md:py-24"
     >
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div
-          v-reveal
-          class="max-w-2xl"
-        >
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Features
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+      <div class="mx-auto max-w-6xl">
+        <div class="max-w-2xl">
+          <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Creator-speed editing. Desktop freedom.
           </h2>
-          <p class="mt-4 text-muted-foreground md:text-lg">
+          <p class="mt-4 text-white/70 md:text-lg">
             CapCut is fast — until the watermark, the account wall, or the cloud lock-in.
             Drift keeps the approachable workflow and leaves the strings off.
           </p>
         </div>
         <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <div
-            v-for="(card, i) in features"
+            v-for="card in features"
             :key="card.title"
-            v-reveal="i % 3"
-            class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 p-5 backdrop-blur transition-colors hover:border-primary/50"
+            class="frost-card rounded-xl p-5"
           >
-            <div
-              aria-hidden="true"
-              class="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
-              style="background: color-mix(in srgb, #fcad01 35%, transparent)"
-            />
-            <div class="relative">
-              <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-surface-2 text-primary">
-                <DriftIcon
-                  :name="card.icon"
-                  class="h-4 w-4"
-                />
-              </div>
-              <h3 class="mt-3 font-semibold">
-                {{ card.title }}
-              </h3>
-              <p class="mt-1.5 text-sm text-muted-foreground">
-                {{ card.body }}
-              </p>
+            <div class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/20 bg-white/10 text-white">
+              <DriftIcon
+                :name="card.icon"
+                class="h-4 w-4"
+              />
             </div>
+            <h3 class="mt-3 font-semibold text-white">
+              {{ card.title }}
+            </h3>
+            <p class="mt-1.5 text-sm text-white/70">
+              {{ card.body }}
+            </p>
           </div>
         </div>
-        <p
-          v-reveal
-          class="mt-6 text-sm text-muted-foreground"
-        >
+        <p class="mt-6 text-sm text-white/70">
           <NuxtLink
             to="/drift/features"
-            class="font-medium text-primary hover:underline"
+            class="font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >Every feature</NuxtLink>
           ·
           <NuxtLink
             to="/drift/alternatives"
-            class="font-medium text-primary hover:underline"
+            class="font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >vs CapCut and others</NuxtLink>
           ·
           <NuxtLink
             to="/drift/faq"
-            class="font-medium text-primary hover:underline"
+            class="font-medium text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >FAQ</NuxtLink>
         </p>
       </div>
@@ -399,169 +262,97 @@ const stack: [string, string][] = [
 
     <DriftTestimonials />
 
-    <DriftScreenshotStrip :shots="shots" />
-
-    <!-- MCP / agent access -->
     <section
-      id="mcp"
-      class="relative border-y border-border/60 bg-surface/40 py-16 md:py-20"
+      id="screens"
+      class="scroll-mt-28 px-4 py-16 md:px-6 md:py-24"
     >
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div
-          v-reveal
-          class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
-        >
-          <div class="max-w-2xl">
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              Agent access
-            </p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-              Let Cursor or Claude edit the <span class="drift-grad-text">real timeline</span>.
-            </h2>
-            <p class="mt-4 text-muted-foreground">
-              Localhost MCP — import, trim, caption, effects, export. Off until you enable it.
-              Undo anything. Not a chatbot bolted onto a webpage.
-            </p>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <NuxtLink
-              to="/drift/mcp"
-              class="rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_color-mix(in_srgb,#fcad01_80%,transparent)] transition-transform hover:scale-[1.02]"
-            >
-              How MCP works
-            </NuxtLink>
-            <a
-              href="https://github.com/CutWire-Studios/Drift/blob/main/docs/MCP.md"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-md border border-border bg-surface/60 px-5 py-3 text-sm font-semibold backdrop-blur transition-colors hover:bg-surface-2"
-            >
-              Protocol guide →
-            </a>
-          </div>
+      <div class="mx-auto max-w-6xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
+          Real UI. Not concept art.
+        </h2>
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <figure
+            v-for="shot in shots"
+            :key="shot.title"
+            class="frost-card rounded-xl"
+          >
+            <div class="overflow-hidden rounded-t-xl">
+              <NuxtImg
+                :src="shot.src"
+                :alt="shot.title"
+                :width="shot.w"
+                :height="shot.h"
+                class="block w-full"
+                loading="lazy"
+              />
+            </div>
+            <figcaption class="p-4">
+              <h3 class="font-semibold text-white">
+                {{ shot.title }}
+              </h3>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Download -->
     <section
-      id="download"
-      class="relative py-16 md:py-20"
+      id="mcp"
+      class="scroll-mt-28 px-4 py-16 md:px-6 md:py-24"
     >
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div
-          v-reveal
-          class="max-w-2xl"
-        >
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Download
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Free. Open source. Actually free.
-          </h2>
-          <p class="mt-4 text-muted-foreground">
-            GPLv3, no account, no telemetry, no upsell. Version {{ version }} is early —
-            please file the bugs you hit.
-          </p>
-        </div>
-        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div
-            v-for="(card, i) in downloads"
-            :key="card.os"
-            v-reveal="i"
-            class="flex flex-col rounded-xl border border-border bg-surface/70 p-5 backdrop-blur"
-          >
-            <div class="flex items-center justify-between">
-              <h3 class="text-lg font-semibold">
-                {{ card.os }}
-              </h3>
-              <span class="rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-primary">
-                {{ card.tag }}
-              </span>
+      <div class="mx-auto max-w-6xl">
+        <div class="frost-card rounded-xl p-6 md:p-8">
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-2xl">
+              <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                Let Cursor or Claude edit the real timeline.
+              </h2>
+              <p class="mt-4 text-white/70">
+                Localhost MCP — import, trim, caption, effects, export. Off until you enable it.
+                Undo anything. Not a chatbot bolted onto a webpage.
+              </p>
             </div>
-            <p class="mt-3 text-sm text-muted-foreground">
-              {{ card.body }}
-            </p>
-            <pre class="mt-4 overflow-x-auto rounded-lg border border-border bg-background/80 p-3 font-mono text-[12px] leading-relaxed text-foreground/90">{{ card.code }}</pre>
-            <div class="mt-auto flex flex-col gap-2 pt-4">
-              <a
-                :href="card.primary.href"
-                :target="card.primary.href.startsWith('http') ? '_blank' : undefined"
-                :rel="card.primary.href.startsWith('http') ? 'noreferrer' : undefined"
-                class="rounded-md bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]"
+            <div class="flex flex-wrap gap-3">
+              <NuxtLink
+                to="/drift/mcp"
+                class="btn-drift min-h-11 px-5 text-sm"
               >
-                {{ card.primary.label }}
-              </a>
+                How MCP works
+              </NuxtLink>
               <a
-                :href="card.secondary.href"
-                :target="card.secondary.href.startsWith('http') ? '_blank' : undefined"
-                :rel="card.secondary.href.startsWith('http') ? 'noreferrer' : undefined"
-                class="rounded-md border border-border bg-surface-2 px-4 py-2 text-center text-sm text-foreground/90 transition-colors hover:bg-surface"
+                href="https://github.com/CutWire-Studios/Drift/blob/main/docs/MCP.md"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex min-h-11 items-center rounded-full border border-white/25 bg-white/10 px-5 text-sm font-semibold text-white"
               >
-                {{ card.secondary.label }}
+                Protocol guide
               </a>
             </div>
           </div>
         </div>
-        <p
-          v-reveal
-          class="mt-6 text-sm text-muted-foreground"
-        >
-          Android is a sideloaded APK from GitHub — not on the Play Store yet. There is no iOS app.
+        <p class="mt-8 text-sm text-white/70">
+          Version {{ version }} is early —
+          <a
+            :href="issues"
+            target="_blank"
+            rel="noreferrer"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+          >file the bugs you hit</a>,
+          <a
+            :href="gh"
+            target="_blank"
+            rel="noreferrer"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+          >read the source</a>,
+          or
+          <a
+            :href="docs"
+            target="_blank"
+            rel="noreferrer"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+          >open the docs</a>.
         </p>
       </div>
     </section>
-
-    <!-- Built with -->
-    <section
-      id="tech"
-      class="relative border-t border-border/60 py-16 md:py-20"
-    >
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div class="grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-          <div v-reveal>
-            <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-              Under the hood
-            </p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-              Native desktop. One compositor.
-            </h2>
-            <p class="mt-4 text-muted-foreground">
-              Drift is a Qt 6 + FFmpeg app — not a browser tab. Preview and export share
-              FrameCompositor so what you see is what you ship.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-3">
-              <a
-                :href="gh"
-                target="_blank"
-                rel="noreferrer"
-                class="rounded-md border border-border bg-surface-2 px-4 py-2 text-sm transition-colors hover:bg-surface"
-              >
-                Read the source →
-              </a>
-              <a
-                :href="issues"
-                target="_blank"
-                rel="noreferrer"
-                class="rounded-md border border-border bg-surface-2 px-4 py-2 text-sm transition-colors hover:bg-surface"
-              >
-                Open an issue
-              </a>
-            </div>
-          </div>
-          <ul class="grid gap-2 sm:grid-cols-2">
-            <li
-              v-for="([name, role], i) in stack"
-              :key="name"
-              v-reveal="i % 4"
-              class="flex items-center justify-between rounded-lg border border-border bg-surface/60 px-4 py-3 backdrop-blur"
-            >
-              <span class="font-mono text-sm">{{ name }}</span>
-              <span class="text-xs text-muted-foreground">{{ role }}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
+  </MarketingProductHero>
 </template>

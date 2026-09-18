@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'drift' })
+definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const path = '/drift/faq'
@@ -58,56 +58,47 @@ useSchemaOrg([
 </script>
 
 <template>
-  <div v-if="page">
-    <DriftSeoHero
-      eyebrow="FAQ"
-      :title="headline"
-      :description="description"
-      :crumbs="[
-        { name: 'Home', to: '/' },
-        { name: 'Drift', to: '/drift' },
-        { name: 'FAQ' },
-      ]"
-    />
-    <div class="mx-auto max-w-3xl px-4 pb-8 md:px-6">
-      <div
-        v-if="page.body"
-        class="drift-prose mb-10"
-      >
-        <ContentRenderer :value="page" />
-      </div>
-      <UiAccordion
-        type="single"
-        collapsible
-        class="max-w-3xl"
-      >
-        <UiAccordionItem
-          v-for="(faq, i) in faqs"
-          :key="i"
-          :value="`faq-${i}`"
-          class="border-border"
-        >
-          <UiAccordionTrigger class="text-left font-semibold">
-            {{ faq.q }}
-          </UiAccordionTrigger>
-          <UiAccordionContent class="text-muted-foreground">
-            {{ faq.a }}
-          </UiAccordionContent>
-        </UiAccordionItem>
-      </UiAccordion>
-      <p class="mt-10 text-sm text-muted-foreground">
-        Still stuck?
-        <NuxtLink
-          to="/support"
-          class="text-primary hover:underline"
-        >Contact support</NuxtLink>
-        or read the
-        <NuxtLink
-          to="/drift/features"
-          class="text-primary hover:underline"
-        >full feature list</NuxtLink>.
-      </p>
+  <MarketingProductInner
+    v-if="page"
+    :title="headline"
+    :description="description"
+  >
+    <div
+      v-if="page.body"
+      class="drift-prose mb-10"
+    >
+      <ContentRenderer :value="page" />
     </div>
-    <DriftDownloadBand />
-  </div>
+    <UiAccordion
+      type="single"
+      collapsible
+      class="max-w-3xl"
+    >
+      <UiAccordionItem
+        v-for="(faq, i) in faqs"
+        :key="i"
+        :value="`faq-${i}`"
+        class="border-white/20"
+      >
+        <UiAccordionTrigger class="text-left font-semibold text-white">
+          {{ faq.q }}
+        </UiAccordionTrigger>
+        <UiAccordionContent class="text-white/70">
+          {{ faq.a }}
+        </UiAccordionContent>
+      </UiAccordionItem>
+    </UiAccordion>
+    <p class="mt-10 text-sm text-white/70">
+      Still stuck?
+      <NuxtLink
+        to="/support"
+        class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+      >Contact support</NuxtLink>
+      or read the
+      <NuxtLink
+        to="/drift/features"
+        class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+      >full feature list</NuxtLink>.
+    </p>
+  </MarketingProductInner>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-definePageMeta({ layout: 'drift' })
+definePageMeta({ layout: 'default' })
 
 const site = useSiteConfig()
 const path = '/drift/privacy'
@@ -40,46 +40,37 @@ useSchemaOrg([
 </script>
 
 <template>
-  <div>
-    <DriftSeoHero
-      eyebrow="Privacy"
-      title="Drift Privacy Policy"
-      description="Drift is a video editor that runs entirely on your device. It has no account system, no telemetry and no analytics. This page explains the two things it does send over the network, and what we can see when it does."
-      :crumbs="[
-        { name: 'Home', to: '/' },
-        { name: 'Drift', to: '/drift' },
-        { name: 'Privacy' },
-      ]"
-    />
+  <MarketingProductInner
+    title="Drift Privacy Policy"
+    description="Drift is a video editor that runs entirely on your device. It has no account system, no telemetry and no analytics. This page explains the two things it does send over the network, and what we can see when it does."
+  >
+    <p class="text-sm text-white/70">
+      Last updated: 4 September 2026
+    </p>
 
-    <div class="mx-auto max-w-3xl px-4 pb-16 md:px-6">
-      <p class="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-        Last updated: 4 September 2026
-      </p>
-
-      <div class="mt-6 rounded-xl border border-border bg-surface-2 p-5 md:p-6">
-        <h2 class="text-lg font-semibold text-foreground">
-          The short version
-        </h2>
-        <ul class="mt-3 space-y-2 text-muted-foreground">
-          <li>
-            <strong class="font-semibold text-foreground">Your media never leaves your device.</strong>
-            No video, audio, image, project file, transcript or export is ever uploaded to us or to
-            anyone else.
-          </li>
-          <li>
-            <strong class="font-semibold text-foreground">There is no account and no telemetry.</strong>
-            Drift does not ask who you are, does not have a login, and contains no analytics,
-            crash-reporting or advertising code of any kind.
-          </li>
-          <li>
-            <strong class="font-semibold text-foreground">Two features touch the network:</strong>
-            the update check and the addon downloader. Like any HTTPS request, those reveal your IP
-            address to the server that answers them. That is the whole of the personal data
-            involved.
-          </li>
-        </ul>
-      </div>
+    <div class="frost-card mt-6 rounded-xl p-5 md:p-6">
+      <h2 class="text-lg font-semibold text-white">
+        The short version
+      </h2>
+      <ul class="mt-3 space-y-2 text-white/70">
+        <li>
+          <strong class="font-semibold text-white">Your media never leaves your device.</strong>
+          No video, audio, image, project file, transcript or export is ever uploaded to us or to
+          anyone else.
+        </li>
+        <li>
+          <strong class="font-semibold text-white">There is no account and no telemetry.</strong>
+          Drift does not ask who you are, does not have a login, and contains no analytics,
+          crash-reporting or advertising code of any kind.
+        </li>
+        <li>
+          <strong class="font-semibold text-white">Two features touch the network:</strong>
+          the update check and the addon downloader. Like any HTTPS request, those reveal your IP
+          address to the server that answers them. That is the whole of the personal data
+          involved.
+        </li>
+      </ul>
+    </div>
 
       <div class="drift-prose mt-10">
         <h2>Who we are, and what this covers</h2>
@@ -329,8 +320,5 @@ useSchemaOrg([
           CutWire Studios · Colombo, Sri Lanka
         </p>
       </div>
-    </div>
-
-    <DriftDownloadBand />
-  </div>
+  </MarketingProductInner>
 </template>

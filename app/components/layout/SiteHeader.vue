@@ -3,7 +3,6 @@ const route = useRoute()
 const isActive = (href: string) => route.path === href || route.path.startsWith(`${href}/`)
 
 const navLinks = [
-  { label: 'Products', href: '/products' },
   { label: 'About', href: '/about' },
   { label: 'Docs', href: 'https://docs.cutwire.org' },
 ]
@@ -33,10 +32,16 @@ const navLinks = [
         </nav>
         <LayoutThemeToggle />
         <NuxtLink
-          to="/products"
-          class="btn-primary ml-1 min-h-11 px-4 text-sm"
+          to="/prism"
+          class="btn-prism ml-1 min-h-11 px-4 text-sm"
         >
-          Get the apps
+          Prism
+        </NuxtLink>
+        <NuxtLink
+          to="/drift"
+          class="btn-drift min-h-11 px-4 text-sm"
+        >
+          Drift
         </NuxtLink>
       </div>
 

@@ -24,18 +24,12 @@ const stories = [
 <template>
   <section
     id="creators"
-    class="relative scroll-mt-28 border-y border-border/60 bg-surface/40 py-16 md:py-20"
+    class="scroll-mt-28 px-4 py-16 md:px-6 md:py-24"
   >
-    <div class="mx-auto max-w-6xl px-4 md:px-6">
-      <div
-        v-reveal
-        class="flex flex-wrap items-end justify-between gap-4"
-      >
+    <div class="mx-auto max-w-6xl">
+      <div class="flex flex-wrap items-end justify-between gap-4">
         <div class="max-w-xl">
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            In the wild
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Creators are already cutting with Drift.
           </h2>
         </div>
@@ -43,11 +37,11 @@ const stories = [
           :href="creator.url"
           target="_blank"
           rel="noreferrer"
-          class="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white"
         >
           <svg
             viewBox="0 0 24 24"
-            class="h-4 w-4 text-primary"
+            class="h-4 w-4 text-white"
             fill="currentColor"
             aria-hidden="true"
           >
@@ -59,37 +53,34 @@ const stories = [
 
       <div class="mt-10 grid gap-5 lg:grid-cols-2">
         <article
-          v-for="(story, i) in stories"
+          v-for="story in stories"
           :key="story.id"
-          v-reveal="i"
-          class="flex flex-col overflow-hidden rounded-xl border border-border bg-background/60"
+          class="frost-card flex flex-col rounded-xl"
         >
-          <DriftYoutubeEmbed
-            :video-id="story.id"
-            :title="story.title"
-          />
+          <div class="overflow-hidden">
+            <DriftYoutubeEmbed
+              :video-id="story.id"
+              :title="story.title"
+            />
+          </div>
           <blockquote class="flex flex-1 flex-col p-5">
             <p
-              class="text-base font-medium leading-snug tracking-tight text-foreground md:text-lg"
+              class="text-base font-medium leading-snug tracking-tight text-white md:text-lg"
               lang="pt"
-              style="font-family: var(--font-display)"
             >
-              <span
-                aria-hidden="true"
-                class="mr-1 text-primary"
-              >“</span>{{ story.quote }}”
+              “{{ story.quote }}”
             </p>
-            <p class="mt-2 text-sm text-muted-foreground">
+            <p class="mt-2 text-sm text-white/70">
               {{ story.translation }}
             </p>
             <footer class="mt-4 flex flex-wrap items-center justify-between gap-2 text-sm">
-              <cite class="not-italic text-muted-foreground">{{ creator.name }} · YouTube · PT</cite>
+              <cite class="not-italic text-white/70">{{ creator.name }} · YouTube · PT</cite>
               <a
                 :href="`https://www.youtube.com/watch?v=${story.id}`"
                 target="_blank"
                 rel="noreferrer"
-                class="text-primary hover:underline"
-              >Watch →</a>
+                class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
+              >Watch</a>
             </footer>
           </blockquote>
         </article>

@@ -314,8 +314,34 @@ a.frost-card:hover::before {
   text-shadow: 0 1px 1px rgb(0 0 0 / 0.5);
 }
 
+.product-frost .drift-prose {
+  color: rgb(255 255 255 / 0.72);
+}
+
+.product-frost .drift-prose :where(h2, h3, strong) {
+  color: #ffffff;
+}
+
+.product-frost .drift-prose :where(a) {
+  color: #ffffff;
+  text-decoration-color: rgb(255 255 255 / 0.35);
+}
+
+.product-frost .drift-prose :where(code) {
+  background: rgb(255 255 255 / 0.12);
+  color: #ffffff;
+}
+
 .hero-continue-photo {
   background-image: url('/images/hero-layers.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.product-continue-photo {
+  background-image: var(--product-hero);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -358,7 +384,8 @@ a.frost-card:hover::before {
     filter: drop-shadow(0 1px 10px rgb(0 0 0 / 0.55));
   }
 
-  .hero-continue-photo {
+  .hero-continue-photo,
+  .product-continue-photo {
     display: none;
   }
 
@@ -378,13 +405,24 @@ a.frost-card:hover::before {
   }
 
   .studio-frost .text-white,
+  .product-frost .text-white,
   .frost-card .text-white {
     color: var(--on-surface);
   }
 
   .studio-frost .text-white\/70,
+  .product-frost .text-white\/70,
   .frost-card .text-white\/70 {
     color: var(--on-surface-variant);
+  }
+
+  .product-frost .drift-prose,
+  .product-frost .drift-prose :where(p, li) {
+    color: var(--on-surface-variant);
+  }
+
+  .product-frost .drift-prose :where(h2, h3, strong, a) {
+    color: var(--on-surface);
   }
 
   .btn-glass-prism {

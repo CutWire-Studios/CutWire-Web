@@ -143,7 +143,6 @@ export default defineNuxtConfig({
     '/download/drift': { redirect: { to: '/drift#download', statusCode: 301 } },
     '/download/**': { redirect: { to: '/products', statusCode: 301 } },
     '/api/**': { cors: false, prerender: false },
-    '/api/drift/download/**': { prerender: false },
     '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
     '/products/drift': { redirect: { to: '/drift', statusCode: 301 } },
     '/switchx': { redirect: { to: '/prism', statusCode: 301 } },

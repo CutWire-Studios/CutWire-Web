@@ -1,6 +1,10 @@
+export const DRIFT_VERSION = '0.6.0'
+
+const latestAsset = (file: string) =>
+  `https://github.com/CutWire-Studios/Drift/releases/latest/download/${file}`
+
 // Outbound links shared by the Drift landing page and its layout chrome.
-// Platform download paths resolve the current GitHub release asset server-side
-// so a click starts the file instead of opening the releases page.
+// Asset filenames include the version; bump DRIFT_VERSION when a new release ships.
 export function useDriftLinks() {
   return {
     gh: 'https://github.com/CutWire-Studios/Drift',
@@ -9,11 +13,11 @@ export function useDriftLinks() {
     issues: 'https://github.com/CutWire-Studios/Drift/issues',
     docs: 'https://docs.cutwire.org/drift',
     android: 'https://github.com/CutWire-Studios/Drift-Android',
-    downloadWindows: '/api/drift/download/windows',
-    downloadWindowsPortable: '/api/drift/download/windows-portable',
-    downloadLinux: '/api/drift/download/linux',
-    downloadMacos: '/api/drift/download/macos',
-    downloadAndroid: '/api/drift/download/android',
-    downloadAndroid32: '/api/drift/download/android-32',
+    downloadWindows: latestAsset(`Drift-Setup-${DRIFT_VERSION}-x64.exe`),
+    downloadWindowsPortable: latestAsset(`Drift-Portable-${DRIFT_VERSION}-x64.zip`),
+    downloadLinux: latestAsset(`Drift-${DRIFT_VERSION}-x86_64.AppImage`),
+    downloadMacos: latestAsset(`Drift-${DRIFT_VERSION}-arm64.dmg`),
+    downloadAndroid: latestAsset(`Drift-${DRIFT_VERSION}-arm64-v8a.apk`),
+    downloadAndroid32: latestAsset(`Drift-${DRIFT_VERSION}-armeabi-v7a.apk`),
   }
 }

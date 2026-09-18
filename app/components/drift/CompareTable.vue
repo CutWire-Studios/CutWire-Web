@@ -6,9 +6,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="overflow-x-auto rounded-xl border border-border">
+  <div class="overflow-x-auto">
+    <div class="frost-card rounded-xl">
     <table class="w-full min-w-[36rem] text-left text-sm">
-      <thead class="bg-surface-2 text-foreground">
+      <thead class="text-white">
         <tr>
           <th class="px-4 py-3 font-medium">
             Compared
@@ -25,19 +26,20 @@ defineProps<{
         <tr
           v-for="row in rows"
           :key="row.label"
-          class="border-t border-border"
+          class="border-t border-white/15"
         >
-          <th class="px-4 py-3 font-medium text-foreground">
+          <th class="px-4 py-3 font-medium text-white">
             {{ row.label }}
           </th>
-          <td class="px-4 py-3 text-muted-foreground">
+          <td class="px-4 py-3 text-white/70">
             {{ row.them }}
           </td>
-          <td class="px-4 py-3 text-foreground">
+          <td class="px-4 py-3 text-white">
             {{ row.us }}
           </td>
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>

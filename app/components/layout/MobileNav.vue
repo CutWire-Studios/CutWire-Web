@@ -4,7 +4,6 @@ import { Menu } from 'lucide-vue-next'
 const open = ref(false)
 
 const links = [
-  { label: 'Products', href: '/products' },
   { label: 'Docs', href: 'https://docs.cutwire.org' },
   { label: 'About', href: '/about' },
   { label: 'Support', href: '/support' },
@@ -43,13 +42,20 @@ const links = [
         </NuxtLink>
       </nav>
 
-      <div class="mt-8">
+      <div class="mt-8 grid gap-2">
         <NuxtLink
-          to="/products"
-          class="btn-primary flex w-full min-h-11 px-6 py-3 text-sm"
+          to="/prism"
+          class="btn-prism flex w-full min-h-11 px-6 py-3 text-sm"
           @click="open = false"
         >
-          Get the apps
+          Prism
+        </NuxtLink>
+        <NuxtLink
+          to="/drift"
+          class="btn-drift flex w-full min-h-11 px-6 py-3 text-sm"
+          @click="open = false"
+        >
+          Drift
         </NuxtLink>
       </div>
     </UiSheetContent>

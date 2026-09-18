@@ -43,10 +43,16 @@ useSeoMeta({
             Docs
           </NuxtLink>
           <NuxtLink
-            to="/products"
-            class="btn-secondary min-h-11 px-6 py-2.5 text-sm"
+            to="/prism"
+            class="btn-prism min-h-11 px-6 py-2.5 text-sm"
           >
-            Products
+            Prism
+          </NuxtLink>
+          <NuxtLink
+            to="/drift"
+            class="btn-drift min-h-11 px-6 py-2.5 text-sm"
+          >
+            Drift
           </NuxtLink>
         </div>
       </div>
