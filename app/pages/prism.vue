@@ -187,8 +187,8 @@ const audienceRows = [
 <template>
   <MarketingProductHero
     product="prism"
-    line1="Throw the hall through a Prism,"
-    line2="the mix still keeps its rhythm."
+    line1="Boring live, one beam,"
+    line2="a Prism splits the scene."
     lede="CutWire Prism is a node-based live video mixer for volunteers, streamers and small venues. Wire your sources, mix two decks, and push to a projector, NDI or a virtual camera — free, forever."
     platforms="Linux · Windows · macOS (source build) · GPLv3"
     photo-alt="Macro photograph of a crystal prism catching purple and cyan light"

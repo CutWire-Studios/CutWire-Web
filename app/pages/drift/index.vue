@@ -172,9 +172,9 @@ const shots: {
 <template>
   <MarketingProductHero
     product="drift"
-    line1="Let AI take the Drift,"
-    line2="you still own every shift."
-    lede="Drift is a free desktop video editor that feels simple from the first cut. Drop in video, photos and music, add effects and stickers, generate captions, and export — no subscription, no watermark, no account. Your videos are not used to train AI."
+    line1="Throw the edit into Drift,"
+    line2="it comes back swift."
+    lede="CutWire Drift is a free desktop video editor an agent can control, or you can cut by hand. Captions and cutouts run locally. We don't sell your data. No account, no watermark — free forever."
     platforms="Linux · Windows · macOS · Android · GPLv3"
     photo-alt="Motion-blurred view from a car driving through a yellow-lit tunnel"
   >
