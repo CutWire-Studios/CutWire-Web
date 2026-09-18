@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import UiSonner from '~/components/ui/sonner/Sonner.vue'
+
 useHead({
-  noscript: [{ innerHTML: '<style>.reveal{opacity:1!important;transform:none!important}</style>' }],
+  htmlAttrs: { lang: 'en' },
 })
 </script>
 
 <template>
-  <div class="dark min-h-screen overflow-x-hidden bg-background text-on-surface">
+  <div class="min-h-screen overflow-x-clip bg-background text-on-surface">
     <NuxtRouteAnnouncer />
     <NuxtLayout>
       <NuxtPage />

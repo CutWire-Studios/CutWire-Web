@@ -12,8 +12,7 @@ const videoOpen = ref(false)
   <div>
     <!-- Hero -->
     <section class="relative section-y">
-      <div class="ambient-glow opacity-50" />
-      <div class="container-cutwire relative animate-rise-in">
+      <div class="container-cutwire relative">
         <div class="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">

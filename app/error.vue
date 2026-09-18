@@ -15,9 +15,9 @@ useSeoMeta({
 <template>
   <div class="flex min-h-screen flex-col bg-background text-on-surface">
     <LayoutSiteHeader />
-    <main class="flex flex-1 flex-col items-center justify-center pt-[72px] section-y">
+    <main class="flex flex-1 flex-col items-center justify-center pt-24 section-y">
       <div class="container-cutwire text-center">
-        <p class="text-label-sm uppercase tracking-widest text-on-surface-variant">
+        <p class="text-sm text-on-surface-variant">
           {{ error.statusCode }}
         </p>
         <h1 class="mt-4 text-display-xl text-on-surface">
@@ -28,24 +28,25 @@ useSeoMeta({
             ? 'An empty screen is an invitation to act — pick a direction.'
             : error.statusMessage || 'Try again or head back home.' }}
         </p>
-        <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
           <button
-            class="glow-button-primary px-8 py-3 text-label-md"
+            type="button"
+            class="btn-primary min-h-11 px-6 py-2.5 text-sm"
             @click="clearError({ redirect: '/' })"
           >
             Home
           </button>
           <NuxtLink
             to="https://docs.cutwire.org"
-            class="glow-button-secondary px-8 py-3 text-label-md"
+            class="btn-secondary min-h-11 px-6 py-2.5 text-sm"
           >
             Docs
           </NuxtLink>
           <NuxtLink
-            to="/prism#download"
-            class="glow-button-secondary px-8 py-3 text-label-md"
+            to="/products"
+            class="btn-secondary min-h-11 px-6 py-2.5 text-sm"
           >
-            Download
+            Products
           </NuxtLink>
         </div>
       </div>

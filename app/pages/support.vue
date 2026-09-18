@@ -11,10 +11,6 @@ const faqs = [
     a: 'Yes. Drift is a free, open-source desktop video editor with no watermark and no account. The Drift FAQ and feature list cover captions, cutouts, Linux support and how it compares to other editors.',
   },
   {
-    q: 'Is Drift a free CapCut alternative?',
-    a: 'Yes. Drift is a free, open-source desktop video editor with no watermark and no account. See the Drift FAQ and the full feature list for captions, cutouts, Linux support and how it compares to other editors.',
-  },
-  {
     q: 'How do I report a bug?',
     a: 'Open an issue on the relevant GitHub repo (Prism or Drift) with your OS, app version and what you were doing. If it involves a crash, the log helps. You can also email contact@cutwire.org.',
   },
@@ -75,85 +71,49 @@ defineOgImageComponent('Default', {
 </script>
 
 <template>
-  <div>
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        class="grid-bg absolute inset-0 opacity-60"
-      />
-      <div
-        aria-hidden="true"
-        class="pointer-events-none absolute inset-0"
-        style="background: var(--grad-hero)"
-      />
-      <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28">
-        <div class="animate-rise-in mx-auto max-w-3xl text-center">
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Support
-          </p>
-          <h1 class="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-            How can we <span class="grad-text">help</span>?
-          </h1>
-          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant">
-            Check the docs first — then pick whichever channel fits. If it's the middle of a show,
-            Discord is the fastest.
-          </p>
-        </div>
+  <LayoutStudioFrost>
+    <section class="px-4 pt-16 pb-12 md:px-6 md:pt-24 md:pb-16">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-6xl">
+          How can we help?
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-white/70">
+          Check the docs first — then pick whichever channel fits. If it's the middle of a show,
+          Discord is the fastest.
+        </p>
       </div>
     </section>
 
-    <!-- Channels -->
-    <section class="relative py-16 md:py-24">
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div class="grid gap-4 md:grid-cols-3">
-          <a
-            v-for="(channel, i) in channels"
-            :key="channel.title"
-            v-reveal="i"
-            :href="channel.href"
-            target="_blank"
-            rel="noopener"
-            class="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-surface/70 p-6 backdrop-blur transition-colors hover:border-primary/50"
-          >
-            <div
-              aria-hidden="true"
-              class="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity group-hover:opacity-100"
-              style="background: rgba(255, 77, 0, 0.35)"
-            />
-            <div class="relative flex flex-1 flex-col">
-              <h2 class="font-semibold text-on-surface">
-                {{ channel.title }}
-              </h2>
-              <p class="mt-2 flex-1 text-sm text-on-surface-variant">
-                {{ channel.body }}
-              </p>
-              <span class="mt-5 inline-flex items-center gap-1.5 text-sm text-primary transition-all group-hover:gap-2.5">
-                {{ channel.action }} →
-              </span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="relative border-y border-border/60 bg-surface/40 py-24">
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div
-          v-reveal
-          class="max-w-2xl"
+    <section class="px-4 pb-16 md:px-6 md:pb-24">
+      <div class="mx-auto grid max-w-6xl gap-4 md:grid-cols-3">
+        <a
+          v-for="channel in channels"
+          :key="channel.title"
+          :href="channel.href"
+          target="_blank"
+          rel="noopener"
+          class="frost-card flex flex-col rounded-2xl p-6 transition-colors duration-150 hover:border-white/35"
         >
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            FAQ
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Common questions.
+          <h2 class="font-semibold text-white">
+            {{ channel.title }}
           </h2>
-        </div>
+          <p class="mt-2 flex-1 text-sm text-white/70">
+            {{ channel.body }}
+          </p>
+          <span class="mt-5 text-sm font-medium text-white">
+            {{ channel.action }}
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 px-4 py-20 md:px-6 md:py-28">
+      <div class="mx-auto max-w-6xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
+          Common questions.
+        </h2>
 
         <UiAccordion
-          v-reveal
           type="single"
           collapsible
           class="mt-10 max-w-3xl"
@@ -162,58 +122,52 @@ defineOgImageComponent('Default', {
             v-for="(faq, i) in faqs"
             :key="i"
             :value="`faq-${i}`"
-            class="border-border"
+            class="border-white/15"
           >
-            <UiAccordionTrigger class="text-left font-semibold text-on-surface">
+            <UiAccordionTrigger class="text-left font-semibold text-white">
               {{ faq.q }}
             </UiAccordionTrigger>
-            <UiAccordionContent class="text-on-surface-variant">
+            <UiAccordionContent class="text-white/70">
               {{ faq.a }}
             </UiAccordionContent>
           </UiAccordionItem>
         </UiAccordion>
-        <p class="mt-8 text-sm text-on-surface-variant">
+        <p class="mt-8 text-sm text-white/70">
           Editing questions live on the
           <NuxtLink
             to="/drift/faq"
-            class="text-primary hover:underline"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >Drift FAQ</NuxtLink>
           and the
           <NuxtLink
             to="/drift/features"
-            class="text-primary hover:underline"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >full feature list</NuxtLink>.
           Comparing CapCut or another editor?
           <NuxtLink
             to="/drift/alternatives"
-            class="text-primary hover:underline"
+            class="text-white underline decoration-white/30 underline-offset-4 hover:decoration-white"
           >See alternatives</NuxtLink>.
         </p>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="relative py-24 md:py-32">
-      <div class="mx-auto max-w-6xl px-4 text-center md:px-6">
-        <div v-reveal>
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Contact
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Still stuck? Write to us.
-          </h2>
-          <a
-            href="mailto:contact@cutwire.org"
-            class="mt-8 inline-block break-all font-mono text-2xl font-semibold tracking-tight text-primary transition-colors hover:text-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:text-4xl"
-          >
-            contact@cutwire.org
-          </a>
-          <p class="mx-auto mt-5 max-w-xl text-on-surface-variant">
-            Include which product (Prism or Drift), your OS, app version, and what you were doing
-            when it went wrong.
-          </p>
-        </div>
+    <section class="px-4 py-20 md:px-6 md:py-28">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
+          Still stuck? Write to us.
+        </h2>
+        <a
+          href="mailto:contact@cutwire.org"
+          class="mt-6 inline-block text-lg font-medium text-white hover:underline"
+        >
+          contact@cutwire.org
+        </a>
+        <p class="mx-auto mt-4 max-w-xl text-white/70">
+          Include which product (Prism or Drift), your OS, app version, and what you were doing
+          when it went wrong.
+        </p>
       </div>
     </section>
-  </div>
+  </LayoutStudioFrost>
 </template>

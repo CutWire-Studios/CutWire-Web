@@ -4,54 +4,44 @@ const isActive = (href: string) => route.path === href || route.path.startsWith(
 
 const navLinks = [
   { label: 'Products', href: '/products' },
-  { label: 'Docs', href: 'https://docs.cutwire.org' },
   { label: 'About', href: '/about' },
+  { label: 'Docs', href: 'https://docs.cutwire.org' },
 ]
 </script>
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/70 backdrop-blur-xl">
-    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
+  <header class="fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pt-4 md:px-6">
       <NuxtLink
         to="/"
-        class="flex items-center transition-opacity hover:opacity-80"
+        class="glass flex min-h-11 items-center rounded-full px-3 py-1 transition-opacity duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] hover:opacity-80"
       >
-        <NuxtImg
-          src="/logo-with-name.svg"
-          alt="CutWire Studios"
-          class="h-8 w-auto"
-          width="180"
-          height="48"
-        />
+        <LayoutSiteLogo />
       </NuxtLink>
 
-      <nav class="hidden items-center gap-7 text-sm md:flex">
-        <NuxtLink
-          v-for="link in navLinks"
-          :key="link.href"
-          :to="link.href"
-          class="transition-colors"
-          :class="isActive(link.href) ? 'text-on-surface' : 'text-on-surface-variant hover:text-on-surface'"
-        >
-          {{ link.label }}
-        </NuxtLink>
-      </nav>
-
-      <div class="flex items-center gap-2">
-        <a
-          href="https://github.com/CutWire-Studios"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hidden rounded-md border border-border px-3 py-1.5 text-sm text-on-surface/90 transition-colors hover:bg-card sm:inline-block"
-        >
-          GitHub
-        </a>
+      <div class="glass hidden items-center rounded-full px-1.5 py-1 md:flex">
+        <nav class="flex items-center gap-0.5 text-sm">
+          <NuxtLink
+            v-for="link in navLinks"
+            :key="link.href"
+            :to="link.href"
+            class="inline-flex min-h-11 items-center rounded-full px-3.5 font-medium text-on-surface transition-opacity duration-150 ease-[cubic-bezier(0.23,1,0.32,1)]"
+            :class="isActive(link.href) ? '' : 'opacity-70 hover:opacity-100'"
+          >
+            {{ link.label }}
+          </NuxtLink>
+        </nav>
+        <LayoutThemeToggle />
         <NuxtLink
           to="/products"
-          class="rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-white shadow-[0_0_30px_-8px_rgba(255,77,0,0.7)] transition-transform hover:scale-[1.02]"
+          class="btn-primary ml-1 min-h-11 px-4 text-sm"
         >
-          Products
+          Get the apps
         </NuxtLink>
+      </div>
+
+      <div class="glass flex items-center rounded-full px-1 py-0.5 md:hidden">
+        <LayoutThemeToggle />
         <LayoutMobileNav />
       </div>
     </div>

@@ -16,18 +16,20 @@ const assets = {
     icon: '/images/prism-icon.png',
     iconAlt: 'Prism icon',
     preview: '/images/prism-ss.avif',
-    previewAlt: 'CutWire Prism interface preview — live video mixing with dark UI and orange accents',
+    previewAlt: 'CutWire Prism interface — live video mixing',
     href: '/prism',
-    exploreLabel: 'Explore CutWire Prism',
+    exploreLabel: 'Explore Prism',
+    kind: 'Live video mixer',
     icons: [GitBranch, Layers, Network, Palette, ShieldAlert],
   },
   drift: {
     icon: '/images/drift-icon.png',
     iconAlt: 'Drift icon',
     preview: '/images/drift-main-window.avif',
-    previewAlt: 'CutWire Drift interface preview — timeline, effects and video preview',
+    previewAlt: 'CutWire Drift interface — timeline, effects and video preview',
     href: '/drift',
-    exploreLabel: 'Explore CutWire Drift',
+    exploreLabel: 'Explore Drift',
+    kind: 'Desktop video editor',
     icons: [Scissors, Bot, ShieldAlert],
   },
 } as const
@@ -35,6 +37,7 @@ const assets = {
 const meta = computed(() => assets[props.slug])
 const isLive = computed(() => product.value?.status === 'live')
 const highlightIcons = computed(() => meta.value.icons)
+const isPrism = computed(() => props.slug === 'prism')
 
 const lightboxOpen = ref(false)
 
@@ -44,79 +47,82 @@ const showcaseHighlights = computed(() =>
 </script>
 
 <template>
-  <div
+  <article
     v-if="product"
-    class="group relative overflow-hidden rounded-xl border border-border bg-surface/70 backdrop-blur"
+    :id="props.slug"
+    class="frost-card overflow-hidden rounded-2xl scroll-mt-28"
   >
-    <div class="ambient-glow absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 opacity-50" />
-
-    <div class="relative z-10 grid lg:grid-cols-2 lg:items-stretch">
+    <div class="grid lg:grid-cols-2 lg:items-stretch">
       <div class="order-2 flex flex-col justify-center p-8 md:p-10 lg:order-1 lg:p-12">
-        <div class="mb-8 border-b border-outline-variant pb-6">
-          <div class="flex items-center gap-3">
-            <NuxtImg
-              :src="meta.icon"
-              :alt="meta.iconAlt"
-              class="size-14 rounded-lg"
-              width="56"
-              height="56"
-            />
-            <div>
-              <h2 class="text-3xl font-bold tracking-tight text-on-surface">
-                {{ product.name }}
-              </h2>
-              <p
-                v-if="!isLive"
-                class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant"
-              >
-                Coming soon
-              </p>
-            </div>
+        <div class="flex items-center gap-3">
+          <NuxtImg
+            :src="meta.icon"
+            :alt="meta.iconAlt"
+            class="size-12 rounded-lg"
+            width="48"
+            height="48"
+          />
+          <div>
+            <p
+              class="inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium"
+              :class="isPrism ? 'bg-prism text-prism-foreground' : 'bg-drift text-drift-foreground'"
+            >
+              {{ meta.kind }}
+            </p>
+            <h2 class="mt-2 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              {{ product.name }}
+            </h2>
+            <p
+              v-if="!isLive"
+              class="mt-1 text-sm text-white/70"
+            >
+              Coming soon
+            </p>
           </div>
         </div>
 
-        <p class="mb-10 text-lg leading-relaxed text-on-surface-variant">
+        <p class="mt-6 text-lg leading-relaxed text-white/70">
           {{ product.summary }}
         </p>
 
-        <div
+        <ul
           v-if="showcaseHighlights.length"
-          class="mb-12"
+          class="mt-8 space-y-4"
         >
-          <h4 class="mb-6 font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Core capabilities
-          </h4>
-          <ul class="space-y-4">
-            <li
-              v-for="(cap, i) in showcaseHighlights"
-              :key="cap.title"
-              class="flex items-start gap-4 text-body-md text-on-surface"
+          <li
+            v-for="(cap, i) in showcaseHighlights"
+            :key="cap.title"
+            class="flex items-start gap-3 text-white"
+          >
+            <span
+              class="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg"
+              :class="isPrism ? 'bg-prism/25 text-white' : 'bg-drift/25 text-white'"
             >
-              <span class="shrink-0 rounded-lg bg-primary/10 p-2 text-primary">
-                <component
-                  :is="highlightIcons[i] ?? GitBranch"
-                  class="size-5"
-                />
-              </span>
-              <span>
-                <span class="font-medium">{{ cap.title }}</span>
-                <span class="mt-0.5 block text-sm text-on-surface-variant">{{ cap.description }}</span>
-              </span>
-            </li>
-          </ul>
-        </div>
+              <component
+                :is="highlightIcons[i] ?? GitBranch"
+                class="size-4"
+                aria-hidden="true"
+              />
+            </span>
+            <span>
+              <span class="font-medium">{{ cap.title }}</span>
+              <span class="mt-0.5 block text-sm text-white/70">{{ cap.description }}</span>
+            </span>
+          </li>
+        </ul>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="mt-10 flex flex-wrap gap-3">
           <NuxtLink
             v-if="isLive"
             :to="meta.href"
-            class="glow-button-primary px-5 py-3 text-sm"
+            class="min-h-11 px-5 py-2.5 text-sm"
+            :class="isPrism ? 'btn-prism' : 'btn-drift'"
           >
             {{ meta.exploreLabel }}
           </NuxtLink>
           <span
             v-else
-            class="inline-flex cursor-not-allowed items-center rounded-md border border-border bg-surface/60 px-5 py-3 text-sm text-on-surface-variant opacity-70"
+            class="inline-flex cursor-not-allowed items-center rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm text-white/70 opacity-70"
             :aria-disabled="true"
           >
             {{ meta.exploreLabel }} (coming soon)
@@ -124,9 +130,9 @@ const showcaseHighlights = computed(() =>
           <a
             v-if="isLive && product.docsUrl"
             :href="product.docsUrl"
-            class="glow-button-secondary px-5 py-3 text-sm"
+            class="min-h-11 rounded-full border border-white/25 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white"
           >
-            View documentation
+            Documentation
           </a>
         </div>
       </div>
@@ -140,7 +146,7 @@ const showcaseHighlights = computed(() =>
         <NuxtImg
           :src="meta.preview"
           :alt="meta.previewAlt"
-          class="absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-200 hover:opacity-90"
+          class="absolute inset-0 h-full w-full object-cover object-right"
           width="1866"
           height="1136"
         />
@@ -163,5 +169,5 @@ const showcaseHighlights = computed(() =>
         />
       </UiDialogContent>
     </UiDialog>
-  </div>
+  </article>
 </template>

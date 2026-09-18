@@ -27,90 +27,26 @@ defineOgImageComponent('Default', {
 </script>
 
 <template>
-  <div>
-    <!-- Hero -->
-    <section class="relative overflow-hidden">
-      <div
-        aria-hidden="true"
-        class="grid-bg absolute inset-0 opacity-60"
-      />
-      <div
-        aria-hidden="true"
-        class="pointer-events-none absolute inset-0"
-        style="background: var(--grad-hero)"
-      />
-      <div class="relative mx-auto max-w-6xl px-4 pt-20 pb-16 md:px-6 md:pt-28 md:pb-24">
-        <div class="animate-rise-in mx-auto max-w-3xl text-center">
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Product suite
-          </p>
-          <h1 class="mt-4 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
-            Software for people who <span class="grad-text">create and go live</span>.
-          </h1>
-          <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-on-surface-variant md:text-xl">
-            Every CutWire tool speaks the same language — calm under pressure, precise when it
-            counts. Prism for live shows; Drift for desktop edits.
-          </p>
-          <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#lineup"
-              class="glow-button-primary px-5 py-3 text-sm"
-            >
-              See the lineup
-            </a>
-            <a
-              href="https://docs.cutwire.org"
-              class="glow-button-secondary px-5 py-3 text-sm"
-            >
-              Read the docs
-            </a>
-          </div>
-        </div>
-
-        <div
-          v-reveal
-          class="relative mx-auto mt-14 max-w-4xl"
-        >
-          <div class="glow-ring relative aspect-video overflow-hidden rounded-xl border border-border bg-surface">
-            <MarketingConsoleScene
-              signal="b"
-              scene="STAGE"
-              class="h-full w-full"
-            />
-          </div>
-        </div>
+  <LayoutStudioFrost>
+    <section class="px-4 pt-16 pb-8 md:px-6 md:pt-24 md:pb-12">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-balance text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-6xl">
+          Prism and Drift.
+        </h1>
+        <p class="mx-auto mt-5 max-w-xl text-pretty text-lg text-white/70 md:text-xl">
+          A live mixer for the room, and a desktop editor for the cut. Both free and open source.
+        </p>
       </div>
     </section>
 
-    <!-- Product showcase -->
     <section
       id="lineup"
-      class="relative py-24 md:py-32"
+      class="px-4 pb-20 md:px-6 md:pb-28"
     >
-      <div class="mx-auto max-w-6xl px-4 md:px-6">
-        <div
-          v-reveal
-          class="max-w-2xl"
-        >
-          <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-            Lineup
-          </p>
-          <h2 class="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-            Tools built properly.
-          </h2>
-        </div>
-
-        <div class="mt-12 space-y-8">
-          <MarketingProductShowcaseCard
-            v-reveal
-            slug="prism"
-          />
-          <MarketingProductShowcaseCard
-            v-reveal="1"
-            slug="drift"
-          />
-        </div>
+      <div class="mx-auto max-w-6xl space-y-8">
+        <MarketingProductShowcaseCard slug="prism" />
+        <MarketingProductShowcaseCard slug="drift" />
       </div>
     </section>
-  </div>
+  </LayoutStudioFrost>
 </template>

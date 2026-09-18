@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@vueuse/nuxt',
     'nuxt-llms',
+    '@nuxtjs/color-mode',
   ],
 
   css: ['~/assets/css/tailwind.css'],
@@ -45,8 +46,8 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    preference: 'dark',
-    fallback: 'dark',
+    preference: 'system',
+    fallback: 'light',
     classSuffix: '',
   },
 
@@ -120,7 +121,7 @@ export default defineNuxtConfig({
       { name: 'Inter', provider: 'google', weights: [400, 500, 600, 700, 800] },
       { name: 'JetBrains Mono', provider: 'google', weights: [500] },
       { name: 'Syne', provider: 'google', weights: [600, 700, 800] },
-      { name: 'Outfit', provider: 'google', weights: [400, 500, 600, 700] },
+      { name: 'Outfit', provider: 'google', weights: [400, 500, 600, 700, 800] },
     ],
   },
 

@@ -14,18 +14,17 @@ const links = [
 <template>
   <UiSheet v-model:open="open">
     <UiSheetTrigger as-child>
-      <UiButton
-        variant="ghost"
-        size="icon"
-        class="text-on-surface md:hidden"
+      <button
+        type="button"
+        class="inline-flex size-11 cursor-pointer items-center justify-center rounded-full text-on-surface transition-transform duration-150 ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97] md:hidden"
         aria-label="Open menu"
       >
         <Menu class="size-5" />
-      </UiButton>
+      </button>
     </UiSheetTrigger>
     <UiSheetContent
       side="right"
-      class="w-full border-outline-variant bg-background sm:max-w-sm"
+      class="w-full border-border bg-background sm:max-w-sm"
     >
       <UiSheetHeader>
         <UiSheetTitle class="text-on-surface">
@@ -37,7 +36,7 @@ const links = [
           v-for="link in links"
           :key="link.href"
           :to="link.href"
-          class="rounded-lg px-3 py-3 text-lg text-on-surface-variant transition-colors hover:bg-surface hover:text-on-surface"
+          class="rounded-lg px-3 py-3 text-lg text-on-surface-variant hover:bg-muted hover:text-on-surface"
           @click="open = false"
         >
           {{ link.label }}
@@ -47,10 +46,10 @@ const links = [
       <div class="mt-8">
         <NuxtLink
           to="/products"
-          class="glow-button-primary flex w-full items-center justify-center px-6 py-3 text-label-md"
+          class="btn-primary flex w-full min-h-11 px-6 py-3 text-sm"
           @click="open = false"
         >
-          Explore products
+          Get the apps
         </NuxtLink>
       </div>
     </UiSheetContent>

@@ -22,22 +22,16 @@ const footerLinks = {
 </script>
 
 <template>
-  <footer class="mt-20 w-full border-t border-border/60 bg-surface/40">
+  <footer class="w-full border-t border-border">
     <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-16 md:grid-cols-4 md:px-6 lg:grid-cols-6">
       <div class="col-span-2 lg:col-span-2">
-        <NuxtImg
-          src="/logo-with-name.svg"
-          alt="CutWire Studios"
-          class="h-8 w-auto"
-          width="180"
-          height="48"
-        />
+        <LayoutSiteLogo />
         <p class="mt-4 max-w-xs text-sm text-on-surface-variant">
           Live mixers and a free desktop video editor for people who create and go live.
         </p>
         <a
           href="mailto:contact@cutwire.org"
-          class="mt-4 inline-block font-mono text-sm text-primary transition-colors hover:text-primary-container"
+          class="mt-4 inline-block text-sm text-on-surface hover:underline"
         >
           contact@cutwire.org
         </a>
@@ -47,7 +41,7 @@ const footerLinks = {
         v-for="(links, group) in footerLinks"
         :key="group"
       >
-        <p class="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+        <p class="text-sm font-semibold text-on-surface">
           {{ group }}
         </p>
         <ul class="mt-4 space-y-3">
@@ -58,7 +52,7 @@ const footerLinks = {
             <NuxtLink
               v-if="link.href"
               :to="link.href"
-              class="text-sm text-on-surface-variant transition-colors hover:text-on-surface"
+              class="text-sm text-on-surface-variant transition-colors duration-150 hover:text-on-surface"
             >
               {{ link.label }}
             </NuxtLink>
@@ -73,7 +67,7 @@ const footerLinks = {
       </div>
     </div>
 
-    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-border/60 px-4 py-6 text-sm text-on-surface-variant md:px-6 sm:flex-row">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 border-t border-border px-4 py-6 text-sm text-on-surface-variant md:px-6 sm:flex-row">
       <p>CutWire Studios · Prism &amp; Drift · Linux · Windows · macOS · GPLv3</p>
       <p>© {{ new Date().getFullYear() }} CutWire Studios. All rights reserved.</p>
     </div>
