@@ -145,6 +145,7 @@ export default defineNuxtConfig({
     '/api/**': { cors: false, prerender: false },
     '/products/prism': { redirect: { to: '/prism', statusCode: 301 } },
     '/products/drift': { redirect: { to: '/drift', statusCode: 301 } },
+    '/discord': { redirect: { to: 'https://discord.gg/J5ANFz6Z3y', statusCode: 301 } },
     '/switchx': { redirect: { to: '/prism', statusCode: 301 } },
     '/capcut-alternative': { redirect: { to: '/drift/alternatives/capcut', statusCode: 301 } },
     '/free-video-editor': { redirect: { to: '/drift', statusCode: 301 } },

@@ -18,6 +18,10 @@ const downloadOpen = ref(false)
 const downloadClass = computed(() =>
   props.product === 'prism' ? 'btn-prism' : 'btn-drift',
 )
+const prism = usePrismLinks()
+const drift = useDriftLinks()
+const github = computed(() => (props.product === 'prism' ? prism.gh : drift.gh))
+const flathub = computed(() => (props.product === 'prism' ? prism.flathub : drift.flathub))
 
 useHead({
   link: [{ rel: 'preload', as: 'image', href: photo.value }],
@@ -55,7 +59,7 @@ useHead({
           <p class="hero-lede mt-6 text-sm opacity-80">
             {{ platforms }}
           </p>
-          <div class="mt-8 flex justify-center">
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
             <button
               type="button"
               :class="downloadClass"
@@ -64,6 +68,8 @@ useHead({
             >
               Download
             </button>
+            <CommonGithubStarButton :href="github" />
+            <CommonFlathubButton :href="flathub" />
           </div>
         </div>
       </div>

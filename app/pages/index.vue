@@ -30,7 +30,11 @@ useSchemaOrg([
     url: site.url,
     logo: `${site.url}/logo-with-name.svg`,
     email: 'contact@cutwire.org',
-    sameAs: ['https://github.com/CutWire-Studios'],
+    sameAs: [
+      'https://github.com/CutWire-Studios',
+      'https://cutwire.org/discord',
+      'https://www.youtube.com/@CutWire-Studios',
+    ],
   }),
 ])
 
@@ -115,12 +119,30 @@ defineOgImageComponent('Default', {
             Depth is there when you want it — node graphs, shaders, a real timeline —
             behind the simple path, not in front of it.
           </p>
-          <a
-            href="mailto:contact@cutwire.org"
-            class="mt-8 inline-block text-lg font-medium text-white hover:underline"
-          >
-            contact@cutwire.org
-          </a>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-lg font-medium">
+            <a
+              href="mailto:contact@cutwire.org"
+              class="text-white hover:underline"
+            >
+              contact@cutwire.org
+            </a>
+            <a
+              href="/discord"
+              target="_blank"
+              rel="noreferrer"
+              class="text-white hover:underline"
+            >
+              Discord
+            </a>
+            <a
+              href="https://www.youtube.com/@CutWire-Studios"
+              target="_blank"
+              rel="noreferrer"
+              class="text-white hover:underline"
+            >
+              YouTube
+            </a>
+          </div>
         </div>
       </section>
       </div>

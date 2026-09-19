@@ -31,18 +31,20 @@ const navLinks = [
           </NuxtLink>
         </nav>
         <LayoutThemeToggle />
-        <NuxtLink
-          to="/prism"
-          class="btn-prism ml-1 min-h-11 px-4 text-sm"
-        >
-          Prism
-        </NuxtLink>
-        <NuxtLink
-          to="/drift"
-          class="btn-drift min-h-11 px-4 text-sm"
-        >
-          Drift
-        </NuxtLink>
+        <div class="ml-1 flex items-center gap-1.5">
+          <NuxtLink
+            to="/prism"
+            class="btn-prism min-h-11 px-4 text-sm"
+          >
+            Prism
+          </NuxtLink>
+          <NuxtLink
+            to="/drift"
+            class="btn-drift min-h-11 px-4 text-sm"
+          >
+            Drift
+          </NuxtLink>
+        </div>
       </div>
 
       <div class="glass flex items-center rounded-full px-1 py-0.5 md:hidden">
