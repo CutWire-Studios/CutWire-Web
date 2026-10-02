@@ -10,6 +10,7 @@ export function useDriftLinks() {
     gh: 'https://github.com/CutWire-Studios/Drift',
     releases: 'https://github.com/CutWire-Studios/Drift/releases/latest',
     flathub: 'https://flathub.org/apps/org.cutwire.Drift',
+    msStore: 'https://apps.microsoft.com/detail/9PHHBZ07FRSZ',
     issues: 'https://github.com/CutWire-Studios/Drift/issues',
     docs: 'https://docs.cutwire.org/drift',
     android: 'https://github.com/CutWire-Studios/Drift-Android',

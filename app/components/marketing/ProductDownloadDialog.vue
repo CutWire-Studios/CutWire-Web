@@ -122,11 +122,21 @@ watch(
             v-else
             class="text-sm text-on-surface-variant"
           >
-            Use the installer, or the portable zip if you prefer not to install.
+            Install from the Microsoft Store, or use the installer or portable zip from GitHub releases.
           </p>
           <a
-            :href="isPrism ? prism.downloadWindows : drift.downloadWindows"
+            v-if="!isPrism"
+            :href="drift.msStore"
+            target="_blank"
+            rel="noreferrer"
             :class="downloadClass"
+            class="min-h-11 px-4 text-sm"
+          >
+            Open in Microsoft Store
+          </a>
+          <a
+            :href="isPrism ? prism.downloadWindows : drift.downloadWindows"
+            :class="isPrism ? downloadClass : 'btn-secondary'"
             class="min-h-11 px-4 text-sm"
           >
             Windows installer
