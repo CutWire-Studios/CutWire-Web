@@ -4,6 +4,9 @@ import type { ProductOs } from '~/composables/useProductOs'
 const props = defineProps<{
   product: 'prism' | 'drift'
   open: boolean
+  // Returning from checkout: skip the price step, and thank the buyer if paid.
+  skipPay?: boolean
+  paid?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -12,9 +15,12 @@ const emit = defineEmits<{
 
 const prism = usePrismLinks()
 const drift = useDriftLinks()
+const { paymentsEnabled } = useRuntimeConfig().public
 
 const os = ref<ProductOs>('linux')
 const otherAndroid = ref(false)
+const step = ref<'pay' | 'download'>('pay')
+const paid = ref(false)
 
 const isPrism = computed(() => props.product === 'prism')
 const name = computed(() => (isPrism.value ? 'Prism' : 'Drift'))
@@ -39,8 +45,15 @@ watch(
     const detected = detectProductOs()
     os.value = isPrism.value && detected === 'android' ? 'linux' : detected
     otherAndroid.value = false
+    step.value = !isPrism.value && paymentsEnabled && !props.skipPay ? 'pay' : 'download'
+    paid.value = !!props.paid
   },
 )
+
+function onPayDone(didPay: boolean) {
+  paid.value = didPay
+  step.value = 'download'
+}
 </script>
 
 <template>
@@ -48,15 +61,37 @@ watch(
     :open="open"
     @update:open="emit('update:open', $event)"
   >
-    <UiDialogContent class="border-border bg-popover sm:max-w-md">
+    <UiDialogContent class="max-h-[calc(100dvh-2rem)] overflow-y-auto border-border bg-popover sm:max-w-md">
       <UiDialogHeader>
-        <UiDialogTitle>Download {{ name }}</UiDialogTitle>
-        <UiDialogDescription>
+        <UiDialogTitle
+          v-if="step === 'pay'"
+          class="text-3xl font-bold leading-tight tracking-tight"
+        >
+          Help keep {{ name }} going
+        </UiDialogTitle>
+        <UiDialogTitle v-else>
+          Download {{ name }}
+        </UiDialogTitle>
+        <UiDialogDescription v-if="step === 'pay'">
+          Hosting add-ons and assets costs us about $10 a month. A small donation covers it and keeps us motivated to make {{ name }} better.
+        </UiDialogDescription>
+        <UiDialogDescription v-else>
+          <template v-if="paid">
+            Thank you for supporting {{ name }}.
+          </template>
           Pick your system. {{ name }} is free, GPLv3, and does not need an account.
         </UiDialogDescription>
       </UiDialogHeader>
 
-      <div class="grid gap-4">
+      <DriftPayWhatYouWant
+        v-if="step === 'pay'"
+        @done="onPayDone"
+      />
+
+      <div
+        v-else
+        class="grid gap-4"
+      >
         <div class="grid gap-2">
           <label
             class="text-sm font-medium text-on-surface"

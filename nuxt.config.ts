@@ -30,6 +30,17 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/tailwind.css'],
 
+  // Server values are read per request, so set them on the Worker
+  // (NUXT_DODO_API_KEY as a secret). paymentsEnabled is baked in at build time.
+  runtimeConfig: {
+    dodoApiKey: '',
+    dodoProductId: '',
+    dodoEnv: 'live_mode',
+    public: {
+      paymentsEnabled: false,
+    },
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },
@@ -109,7 +120,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/api/**', '/products/prism', '/products/drift'],
+    exclude: ['/api/**', '/products/prism', '/products/drift', '/drift/thanks'],
   },
 
   robots: {
