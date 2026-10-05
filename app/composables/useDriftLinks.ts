@@ -1,4 +1,4 @@
-export const DRIFT_VERSION = '0.7.0'
+export const DRIFT_VERSION = '0.7.5'
 
 const releaseAsset = (file: string) =>
   `https://github.com/CutWire-Studios/Drift/releases/download/v${DRIFT_VERSION}/${file}`
@@ -20,5 +20,6 @@ export function useDriftLinks() {
     downloadMacos: releaseAsset(`Drift-${DRIFT_VERSION}-arm64.dmg`),
     downloadAndroid: releaseAsset(`Drift-${DRIFT_VERSION}-arm64-v8a.apk`),
     downloadAndroid32: releaseAsset(`Drift-${DRIFT_VERSION}-armeabi-v7a.apk`),
+    downloadAndroidX86: releaseAsset(`Drift-${DRIFT_VERSION}-x86_64.apk`),
   }
 }

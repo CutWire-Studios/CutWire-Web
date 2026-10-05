@@ -257,13 +257,19 @@ function onPayDone(didPay: boolean) {
             </UiCollapsibleTrigger>
             <UiCollapsibleContent class="mt-3 grid gap-3">
               <p class="text-sm text-on-surface-variant">
-                Older 32-bit phones use armeabi-v7a. If you are unsure, the 64-bit APK above is the right one.
+                Older 32-bit phones use armeabi-v7a. Emulators and x86 devices use x86_64. If you are unsure, the 64-bit APK above is the right one.
               </p>
               <a
                 :href="drift.downloadAndroid32"
                 class="btn-secondary min-h-11 px-4 text-sm"
               >
                 Download 32-bit APK
+              </a>
+              <a
+                :href="drift.downloadAndroidX86"
+                class="btn-secondary min-h-11 px-4 text-sm"
+              >
+                Download x86_64 APK
               </a>
             </UiCollapsibleContent>
           </UiCollapsible>
