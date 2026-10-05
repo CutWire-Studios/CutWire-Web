@@ -16,11 +16,11 @@ export const DRIFT_FEATURE_LIST = [
 ] as const
 
 export async function useDriftProduct() {
+  const { gh, releases, flathub, issues, docs } = useDriftLinks()
   const { data } = await useFetch('/api/drift/version', {
     key: 'drift-version-page',
     default: () => ({ version: DRIFT_VERSION }),
   })
-  const { gh, releases, flathub, issues, docs } = useDriftLinks()
 
   return {
     name: 'CutWire Drift',
