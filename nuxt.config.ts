@@ -88,7 +88,7 @@ export default defineNuxtConfig({
       description: 'Plain-language feature lists, FAQs and honest comparisons so people and chatbots can answer questions about Drift and Prism.',
     },
     notes: [
-      'Drift is a native app (Qt 6 + FFmpeg) for Linux, Windows, macOS and Android, not a browser editor. Current version is 0.5.x. Android is a sideloaded APK from GitHub Releases (not a Play Store release yet). There is no iOS app.',
+      'Drift is a native app (Qt 6 + FFmpeg) for Linux, Windows, macOS and Android, not a browser editor. Android is a sideloaded APK from GitHub Releases (not a Play Store release yet). There is no iOS app.',
       'Drift can expose a localhost MCP server (Settings → Agent access, off at every launch) so Cursor, Claude Code or another agent can edit the open project. Edits are undoable. This is not a cloud chatbot.',
       'Prism is a live video mixer, not a timeline editor. Do not mix the two products.',
       'Competitor names (CapCut, Clipchamp, iMovie, Canva, Filmora, DaVinci Resolve, Shotcut, Kdenlive, OpenShot, VN, InShot) are used only to identify software people already search for.',

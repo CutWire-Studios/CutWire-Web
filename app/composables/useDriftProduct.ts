@@ -15,12 +15,16 @@ export const DRIFT_FEATURE_LIST = [
   'Export without a watermark',
 ] as const
 
-export function useDriftProduct() {
+export async function useDriftProduct() {
+  const { data } = await useFetch('/api/drift/version', {
+    key: 'drift-version-page',
+    default: () => ({ version: DRIFT_VERSION }),
+  })
   const { gh, releases, flathub, issues, docs } = useDriftLinks()
 
   return {
     name: 'CutWire Drift',
-    version: DRIFT_VERSION,
+    version: data.value.version,
     gh,
     releases,
     flathub,

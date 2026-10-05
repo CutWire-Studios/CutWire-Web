@@ -4,7 +4,7 @@ import type { DriftIconName } from '~/components/drift/Icon.vue'
 definePageMeta({ layout: 'default' })
 
 const { gh, issues, docs } = useDriftLinks()
-const { version, featureList } = useDriftProduct()
+const { version, featureList } = await useDriftProduct()
 
 const site = useSiteConfig()
 

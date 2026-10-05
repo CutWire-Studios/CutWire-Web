@@ -1,11 +1,16 @@
 export const DRIFT_VERSION = '0.7.5'
 
-const releaseAsset = (file: string) =>
-  `https://github.com/CutWire-Studios/Drift/releases/download/v${DRIFT_VERSION}/${file}`
-
-// Outbound links shared by the Drift landing page and its layout chrome.
-// Asset filenames include the version; bump DRIFT_VERSION when a new release ships.
+// Fallback used until /api/drift/version (the drift-version.cutwire.org TXT record) responds.
+// Pages are prerendered, so the live version is fetched client-side only.
 export function useDriftLinks() {
+  const { data } = useFetch('/api/drift/version', {
+    key: 'drift-version',
+    server: false,
+    default: () => ({ version: DRIFT_VERSION }),
+  })
+  const releaseAsset = (file: (version: string) => string) =>
+    `https://github.com/CutWire-Studios/Drift/releases/download/v${data.value.version}/${file(data.value.version)}`
+
   return {
     gh: 'https://github.com/CutWire-Studios/Drift',
     releases: 'https://github.com/CutWire-Studios/Drift/releases/latest',
@@ -14,12 +19,12 @@ export function useDriftLinks() {
     issues: 'https://github.com/CutWire-Studios/Drift/issues',
     docs: 'https://docs.cutwire.org/drift',
     android: 'https://github.com/CutWire-Studios/Drift-Android',
-    downloadWindows: releaseAsset(`Drift-Setup-${DRIFT_VERSION}-x64.exe`),
-    downloadWindowsPortable: releaseAsset(`Drift-Portable-${DRIFT_VERSION}-x64.zip`),
-    downloadLinux: releaseAsset(`Drift-${DRIFT_VERSION}-x86_64.AppImage`),
-    downloadMacos: releaseAsset(`Drift-${DRIFT_VERSION}-arm64.dmg`),
-    downloadAndroid: releaseAsset(`Drift-${DRIFT_VERSION}-arm64-v8a.apk`),
-    downloadAndroid32: releaseAsset(`Drift-${DRIFT_VERSION}-armeabi-v7a.apk`),
-    downloadAndroidX86: releaseAsset(`Drift-${DRIFT_VERSION}-x86_64.apk`),
+    get downloadWindows() { return releaseAsset(version => `Drift-Setup-${version}-x64.exe`) },
+    get downloadWindowsPortable() { return releaseAsset(version => `Drift-Portable-${version}-x64.zip`) },
+    get downloadLinux() { return releaseAsset(version => `Drift-${version}-x86_64.AppImage`) },
+    get downloadMacos() { return releaseAsset(version => `Drift-${version}-arm64.dmg`) },
+    get downloadAndroid() { return releaseAsset(version => `Drift-${version}-arm64-v8a.apk`) },
+    get downloadAndroid32() { return releaseAsset(version => `Drift-${version}-armeabi-v7a.apk`) },
+    get downloadAndroidX86() { return releaseAsset(version => `Drift-${version}-x86_64.apk`) },
   }
 }

@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import type { PrismIconName } from '~/components/prism/Icon.vue'
-import { PRISM_VERSION } from '~/composables/usePrismLinks'
 
 definePageMeta({ layout: 'default' })
 
 const { gh, issues } = usePrismLinks()
 
 const site = useSiteConfig()
+const { data: versionData } = await useFetch('/api/prism/version', {
+  key: 'prism-version-page',
+  default: () => ({ version: PRISM_VERSION }),
+})
 
 // Search titles truncate near 60 chars once the site name is appended, so the
 // keyword-led title is kept short and the marketing line is used for social.
@@ -49,7 +52,7 @@ useSchemaOrg([
     description: pageDescription,
     applicationCategory: 'MultimediaApplication',
     operatingSystem: 'Linux, Windows, macOS',
-    softwareVersion: PRISM_VERSION,
+    softwareVersion: versionData.value.version,
     screenshot: `${site.url}/images/main-window.png`,
     offers: { price: '0.00', priceCurrency: 'USD' },
   }),
