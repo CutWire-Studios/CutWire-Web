@@ -4,6 +4,7 @@ export async function resolveVersion(record: string) {
   const res = await $fetch<{ Answer?: { data: string }[] }>('https://cloudflare-dns.com/dns-query', {
     query: { name: record, type: 'TXT' },
     headers: { accept: 'application/dns-json' },
+    responseType: 'json',
   })
   const version = res.Answer?.[0]?.data.replaceAll('"', '').trim()
   if (!version || !VERSION_RE.test(version))
