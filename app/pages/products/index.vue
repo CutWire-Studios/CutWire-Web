@@ -34,7 +34,7 @@ defineOgImageComponent('Default', {
           Prism and Drift.
         </h1>
         <p class="mx-auto mt-5 max-w-xl text-pretty text-lg text-white/70 md:text-xl">
-          A live mixer for the room, and a desktop editor for the cut. Both free and open source.
+          A live mixer for the room, and a video editor for the cut. Both free and open source.
         </p>
       </div>
     </section>

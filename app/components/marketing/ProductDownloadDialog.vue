@@ -239,15 +239,23 @@ function onPayDone(didPay: boolean) {
           class="grid gap-3"
         >
           <p class="text-sm text-on-surface-variant">
-            Sideload the APK. Not on the Play Store yet. There is no iOS app.
+            Install from Google Play, or sideload the APK from GitHub releases. There is no iOS app.
           </p>
+          <a
+            :href="drift.play"
+            target="_blank"
+            rel="noreferrer"
+            :class="downloadClass"
+            class="min-h-11 px-4 text-sm"
+          >
+            Get it on Google Play
+          </a>
           <p class="text-sm text-on-surface">
-            Most phones use the 64-bit build (arm64-v8a).
+            Most phones use the 64-bit APK (arm64-v8a).
           </p>
           <a
             :href="drift.downloadAndroid"
-            :class="downloadClass"
-            class="min-h-11 px-4 text-sm"
+            class="btn-secondary min-h-11 px-4 text-sm"
           >
             Download APK
           </a>

@@ -27,7 +27,7 @@ const footerLinks = {
       <div class="col-span-2 lg:col-span-2">
         <LayoutSiteLogo />
         <p class="mt-4 max-w-xs text-sm text-on-surface-variant">
-          Live mixers and a free desktop video editor for people who create and go live.
+          Live mixers and a free video editor for people who create and go live.
         </p>
         <a
           href="mailto:contact@cutwire.org"

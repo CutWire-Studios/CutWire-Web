@@ -80,7 +80,7 @@ useSchemaOrg([
           controller of it.
         </p>
         <p>
-          It covers <strong>Drift</strong>, our desktop and Android video editor, on every platform
+          It covers <strong>Drift</strong>, our video editor, on every platform
           we ship it for — Linux, Windows, macOS and Android. The
           <NuxtLink to="/privacy">
             site-wide privacy policy

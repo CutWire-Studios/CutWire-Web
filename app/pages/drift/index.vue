@@ -9,9 +9,9 @@ const { version, featureList } = await useDriftProduct()
 const site = useSiteConfig()
 
 const pageTitle = 'CutWire Drift — Free CapCut Alternative'
-const socialTitle = 'CutWire Drift — Free CapCut alternative for desktop'
-const pageDescription = 'Free CapCut alternative for desktop. Open-source video editor with a multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
-const socialDescription = 'A free CapCut alternative that runs on your desktop. Drop in clips, add effects and stickers, generate captions, and export polished videos. Open source under GPLv3.'
+const socialTitle = 'CutWire Drift — Free CapCut alternative'
+const pageDescription = 'Free CapCut alternative for Linux, Windows, macOS and Android. Open-source video editor with a multi-track timeline, effects, stickers, auto captions, cutouts, and export — no subscription, no watermark, no account.'
+const socialDescription = 'A free CapCut alternative that runs on your computer or Android phone. Drop in clips, add effects and stickers, generate captions, and export polished videos. Open source under GPLv3.'
 const pageUrl = `${site.url}/drift`
 
 useSeoMeta({
@@ -33,7 +33,7 @@ useHead({
 })
 
 defineOgImageComponent('Default', {
-  title: 'Free CapCut alternative for desktop',
+  title: 'Free CapCut alternative',
   description: 'Open-source video editor. No subscription, no watermark, no account.',
   eyebrow: 'CutWire Drift',
 })
@@ -47,6 +47,7 @@ useSchemaOrg([
     softwareVersion: version,
     screenshot: `${site.url}/images/drift-main-window.avif`,
     downloadUrl: `${site.url}/drift`,
+    installUrl: 'https://play.google.com/store/apps/details?id=org.cutwire.drift',
     featureList: [...featureList],
     isAccessibleForFree: true,
     license: 'https://www.gnu.org/licenses/gpl-3.0.html',
@@ -110,64 +111,112 @@ const shots: {
   h: number
 }[] = [
   {
-    src: '/images/drift-text-styles.avif',
-    w: 456,
-    h: 534,
-    title: 'Titles with real style control',
+    src: '/images/drift-3d.avif',
+    w: 1600,
+    h: 800,
+    title: '3D models, splats and a scene camera',
   },
   {
-    src: '/images/drift-stickers.avif',
-    w: 454,
-    h: 535,
-    title: 'Stickers & emoji on demand',
+    src: '/images/drift-color.avif',
+    w: 1500,
+    h: 760,
+    title: 'Color wheels, curves and LUTs',
   },
   {
-    src: '/images/drift-effects.avif',
-    w: 454,
-    h: 535,
-    title: 'Looks you can reuse',
+    src: '/images/drift-scopes.avif',
+    w: 1280,
+    h: 720,
+    title: 'Scopes to grade by',
   },
   {
-    src: '/images/drift-transitions.avif',
-    w: 462,
-    h: 537,
-    title: 'Transitions between clips',
+    src: '/images/drift-keyframes.avif',
+    w: 1600,
+    h: 900,
+    title: 'Keyframes with a curve editor',
+  },
+  {
+    src: '/images/drift-masking.avif',
+    w: 1600,
+    h: 900,
+    title: 'Masks that track the shot',
   },
   {
     src: '/images/drift-captions.avif',
-    w: 459,
-    h: 703,
+    w: 1600,
+    h: 900,
     title: 'Captions without the busywork',
   },
   {
+    src: '/images/drift-voiceover.avif',
+    w: 420,
+    h: 300,
+    title: 'Voiceover from text, on your device',
+  },
+  {
+    src: '/images/drift-text-styles.avif',
+    w: 1500,
+    h: 760,
+    title: 'Titles with real style control',
+  },
+  {
+    src: '/images/drift-effects.avif',
+    w: 1100,
+    h: 720,
+    title: 'Effects for every look',
+  },
+  {
+    src: '/images/drift-transitions.avif',
+    w: 960,
+    h: 640,
+    title: 'Transitions between clips',
+  },
+  {
+    src: '/images/drift-stickers.avif',
+    w: 960,
+    h: 640,
+    title: 'Stickers & emoji on demand',
+  },
+  {
     src: '/images/drift-cutout.avif',
-    w: 777,
-    h: 715,
+    w: 1100,
+    h: 720,
     title: 'Cut subjects out of the frame',
   },
   {
     src: '/images/drift-speed.avif',
-    w: 455,
-    h: 535,
-    title: 'Speed that feels intentional',
+    w: 900,
+    h: 720,
+    title: 'Speed ramps that feel intentional',
+  },
+  {
+    src: '/images/drift-audio-mixer.avif',
+    w: 1600,
+    h: 900,
+    title: 'Mix and clean up audio',
   },
   {
     src: '/images/drift-audio.avif',
-    w: 455,
-    h: 532,
+    w: 1400,
+    h: 620,
     title: 'Audio effects that fit the track',
   },
   {
-    src: '/images/drift-export.avif',
-    w: 656,
-    h: 515,
-    title: 'Export formats that match preview',
+    src: '/images/drift-looks.avif',
+    w: 1280,
+    h: 720,
+    title: 'Looks you can reuse',
   },
   {
-    src: '/images/drift-addons.avif',
-    w: 657,
-    h: 585,
-    title: 'Start light, grow as you go',
+    src: '/images/drift-workspace-color.avif',
+    w: 1600,
+    h: 900,
+    title: 'Workspaces for every job',
+  },
+  {
+    src: '/images/drift-export.avif',
+    w: 660,
+    h: 396,
+    title: 'Export formats that match preview',
   },
 ]
 </script>
@@ -177,7 +226,7 @@ const shots: {
     product="drift"
     line1="Throw the edit into Drift,"
     line2="it comes back swift."
-    lede="CutWire Drift is a free desktop video editor an agent can control, or you can cut by hand. Captions and cutouts run locally. We don't sell your data. No account, no watermark — free forever."
+    lede="CutWire Drift is a free video editor an agent can control, or you can cut by hand. Captions and cutouts run locally. We don't sell your data. No account, no watermark — free forever."
     platforms="Linux · Windows · macOS · Android · GPLv3"
     photo-alt="Motion-blurred view from a car driving through a yellow-lit tunnel"
   >
@@ -197,10 +246,10 @@ const shots: {
           <div class="overflow-hidden rounded-xl">
             <NuxtImg
               src="/images/drift-main-window.avif"
-              alt="CutWire Drift main window: effects library, video preview and multi-track timeline"
+              alt="CutWire Drift main window: media bin, video preview, clip inspector and multi-track timeline"
               class="block w-full"
-              width="1866"
-              height="1134"
+              width="1600"
+              height="900"
               sizes="xs:100vw sm:100vw md:100vw lg:1152px"
               loading="eager"
               preload
@@ -217,7 +266,7 @@ const shots: {
       <div class="mx-auto max-w-6xl">
         <div class="max-w-2xl">
           <h2 class="text-3xl font-bold tracking-tight text-white md:text-4xl">
-            Creator-speed editing. Desktop freedom.
+            Creator-speed editing. No strings attached.
           </h2>
           <p class="mt-4 text-white/70 md:text-lg">
             CapCut is fast — until the watermark, the account wall, or the cloud lock-in.

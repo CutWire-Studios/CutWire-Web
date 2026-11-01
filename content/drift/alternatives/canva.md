@@ -33,20 +33,31 @@ rows:
   - label: Open source
     them: No
     us: Yes (GPLv3)
+  - label: Text-to-speech
+    them: Available, varies by plan
+    us: Local, 21 languages, voice cloning; optional cloud voices with your key
+  - label: Keyframes and tracking
+    them: Preset animations, limited keyframing
+    us: Keyframe graph editor, masks, point and planar tracking (desktop)
+  - label: Captions
+    them: Auto captions available, varies by plan
+    us: Local Whisper, 99 languages, edit by transcript
 ---
-
 Canva Video is a **graphic design tool that also exports MP4**. That is perfect for a talking-head over a branded slide. It is a poor substitute for trimming B-roll, mixing audio, or keying a green screen.
 
-**Drift** is the other way around: a video editor first. You still get titles, shapes and stickers, but they live on a timeline next to waveforms — not in a marketing template.
+**Drift** is the other way around: a video editor first. You still get titles, shapes and stickers, but they live on a timeline next to waveforms — not in a marketing template. Text has 33 style packs and 47 animations, and you can add voiceover with local text-to-speech.
+
+![Drift voiceover dialog with text-to-speech](/images/drift-voiceover.avif)
 
 ## Who should switch
 
 - You searched for a **Canva video editor alternative** after a Pro upsell
-- You need ripple edits, beat snap, or captions from speech
+- You need ripple edits, beat snap, or captions from speech that you can edit as text
+- You want voiceover that runs locally, in 21 languages, with voice cloning
 - You want the project to live in a folder, not only in a cloud account
 
 ## Who should stay on Canva
 
-Stay if the “video” is mostly a animated presentation and the rest of your team already works in Canva.
+Stay if the “video” is mostly an animated presentation and the rest of your team already works in Canva.
 
 [Download Drift](/drift#download) · [Feature list](/drift/features)

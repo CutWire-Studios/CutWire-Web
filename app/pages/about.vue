@@ -74,7 +74,7 @@ const principles = [
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-pretty text-lg text-white/70 md:text-xl">
           CutWire Studios builds free, open-source creative tools — live media mixing with Prism,
-          and desktop video editing with Drift — for people who need to create under real pressure.
+          and video editing with Drift — for people who need to create under real pressure.
         </p>
       </div>
     </section>
@@ -101,7 +101,7 @@ const principles = [
               hall alike.
             </p>
             <p>
-              Drift extends that same philosophy to desktop editing —
+              Drift extends that same philosophy to video editing —
               a
               <NuxtLink
                 to="/drift"

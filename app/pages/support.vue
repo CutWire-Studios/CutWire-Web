@@ -4,11 +4,11 @@ definePageMeta({ layout: 'default' })
 const faqs = [
   {
     q: 'Where do I download CutWire software?',
-    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer or portable zip on Windows, a disk image on macOS (Apple Silicon), and an Android APK for Drift. Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
+    a: 'Prism and Drift are both available from their product pages — Flathub or an AppImage on Linux, an installer or portable zip on Windows, a disk image on macOS (Apple Silicon), and Google Play or an APK on Android for Drift. Start at cutwire.org/prism or cutwire.org/drift, or grab builds from GitHub releases.',
   },
   {
     q: 'Is Drift a free CapCut alternative?',
-    a: 'Yes. Drift is a free, open-source desktop video editor with no watermark and no account. The Drift FAQ and feature list cover captions, cutouts, Linux support and how it compares to other editors.',
+    a: 'Yes. Drift is a free, open-source video editor with no watermark and no account. The Drift FAQ and feature list cover captions, cutouts, Linux support and how it compares to other editors.',
   },
   {
     q: 'How do I report a bug?',

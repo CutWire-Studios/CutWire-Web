@@ -29,7 +29,7 @@ const assets = {
     previewAlt: 'CutWire Drift interface — timeline, effects and video preview',
     href: '/drift',
     exploreLabel: 'Explore Drift',
-    kind: 'Desktop video editor',
+    kind: 'Video editor',
     icons: [Scissors, Bot, ShieldAlert],
   },
 } as const
