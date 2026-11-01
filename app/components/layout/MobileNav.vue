@@ -57,6 +57,13 @@ const links = [
         >
           Drift
         </NuxtLink>
+        <a
+          href="https://cutwire.studio"
+          class="btn-studio flex w-full min-h-11 px-6 py-3 text-sm"
+          @click="open = false"
+        >
+          Studio
+        </a>
       </div>
     </UiSheetContent>
   </UiSheet>

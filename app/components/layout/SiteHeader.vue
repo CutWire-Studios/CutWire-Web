@@ -44,6 +44,12 @@ const navLinks = [
           >
             Drift
           </NuxtLink>
+          <a
+            href="https://cutwire.studio"
+            class="btn-studio min-h-11 px-4 text-sm"
+          >
+            Studio
+          </a>
         </div>
       </div>
 
